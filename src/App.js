@@ -6,6 +6,7 @@ import Dashboard from './pages/notAuthenticated/Dashboard';
 import { Route, Router, Switch } from 'react-router';
 import SignUp from './pages/notAuthenticated/SignUp';
 import Login from './pages/notAuthenticated/Login';
+import Models from './pages/Authenticated/Models';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Dashboard></Dashboard>
+          <Models></Models>
         </Route>
         <Route path="/sign-up" exact>
           <SignUp></SignUp>
