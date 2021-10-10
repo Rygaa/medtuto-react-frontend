@@ -21,3 +21,24 @@ export const signUp = ({ username, password, email, history }) => {
         history.push('/')
     }
 }
+
+export const login = ({ username, password, email, history }) => {
+    return async (dispatch) => {
+        const response = await axios.post('http://38.133.52.102:3005/login', {
+            username,
+            password,
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        console.log(data);
+        dispatch(userActions.setUsername(data.username));
+        dispatch(userActions.setIsConnected(true));
+        dispatch(userActions.setIdToken(data.idToken));
+        history.push('/')
+    }
+}
+

@@ -5,6 +5,7 @@ import Layout from './layout/Layout';
 import Dashboard from './pages/notAuthenticated/Dashboard';
 import { Route, Router, Switch } from 'react-router';
 import SignUp from './pages/notAuthenticated/SignUp';
+import Login from './pages/notAuthenticated/Login';
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         </Route>
         <Route path="/sign-up" exact>
           <SignUp></SignUp>
+        </Route>
+        <Route path="/login" exact>
+          <Login></Login>
         </Route>
       </Switch>
     </Layout>
