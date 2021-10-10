@@ -13,6 +13,9 @@ function App() {
         <Route path="/" exact>
           <Dashboard></Dashboard>
         </Route>
+        <Route path="/sign-up" exact>
+          <SignUp></SignUp>
+        </Route>
       </Switch>
     </Layout>
   );
