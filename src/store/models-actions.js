@@ -6,6 +6,21 @@ import { useHistory } from "react-router"
 import { modelsActions } from "./models-slice"
 
 
+export const removeFaculty = ({ idToken, facultyPubId }) => {
+    return async (dispatch) => {
+        const response = await axios.post('http://38.133.52.102:3005/remove-faculty', {
+            facultyPubId
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        dispatch(requestFaculties({ idToken }));
+    }
+}
+
 export const createNewFaculty = ({ idToken, facultyName }) => {
     return async (dispatch) => {
         console.log('createNewFaculty:', facultyName);

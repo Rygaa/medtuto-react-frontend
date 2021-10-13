@@ -26,10 +26,6 @@ const AddFaculty = (props) => {
 
 
     const removeOnClick = (e) => {
-        // console.log(e.target.value);
-        // console.log(e.target['data-pubid']);
-        // console.log(e.target.attributes)
-        // console.log(e.target.attributes[0])
         console.log(e.target.attributes[0].nodeValue)
         const facultyPubId = e.target.attributes[0].nodeValue
         dispatch(removeFaculty({idToken, facultyPubId}))
