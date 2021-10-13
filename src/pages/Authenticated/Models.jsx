@@ -21,23 +21,23 @@ const Models = (props) => {
 
     const facultiesSelectOnChange = (e) => {
         setSelectedFaculty(e.value)
-        dispatch(requestYears({ idToken, faculty: e.value }))
+        dispatch(requestYears({ idToken, faculty: e.pubId }))
     }
     const yearsSelectOnChange = (e) => {
         console.log('request models');
         setSelectedYear(e.value)
-        dispatch(requestModels({ idToken, faculty: selectedFaculty, year: e.value }))
+        dispatch(requestModels({ idToken, faculty: selectedFaculty, year: e.pubId }))
     }
     
 
     const facultiesList = faculties.map((faculty) => (
-        { value: faculty, label: faculty }
+        { value: faculty.name, label: faculty.name, pubId: faculty.pubId }
     ));
     const yearsList = years.map((year) => (
-        { value: year, label: year }
+        { value: year.name, label: year.name, pubId: year.pubId }
     ));
     const modelsList = models.map((model) => {
-        return (<Model name={model}></Model>)
+        return (<Model key={Math.random()} name={model.name} pubId={model.pubId} facultyName={selectedFaculty} yearName={selectedYear}></Model>)
     })
     
     return (

@@ -2,13 +2,13 @@
 import { NavLink } from "react-router-dom"
 import NavLinkButton from './NavLinkButton'
 
-const Model = (props) => {
+const Course = (props) => {
     return (
-        <div style={{display:"flex", alignItems:"center"}}>
-            <NavLinkButton path={`/models/${props.pubId}`}>{'Go'}</NavLinkButton>
+        <div style={{ display: "flex", alignItems: "center" }}>
             <p>{props.name}</p>
+            <NavLinkButton path={`/courses/${props.pubId}/`}>ACCESS</NavLinkButton>
         </div>
     );
 }
 
-export default Model
+export default Course

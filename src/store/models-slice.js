@@ -4,6 +4,8 @@ const initialState = {
     faculties: [],
     years: [],
     models: [],
+    courses: [],
+
 
 }
 
@@ -19,6 +21,9 @@ const modelsSlice = createSlice({
         },
         setModels: (state, { payload: models }) => {
             state.models = models;
+        },
+        setCourses: (state, { payload: courses }) => {
+            state.courses = courses;
         },
     }
 })

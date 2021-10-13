@@ -5,6 +5,8 @@ import { socket } from '../App'
 import { useHistory } from "react-router"
 import { modelsActions } from "./models-slice"
 
+
+
 export const requestFaculties = ({ idToken }) => {
     return async (dispatch) => {
         const response = await axios.post('http://38.133.52.102:3005/faculties', {
@@ -16,17 +18,15 @@ export const requestFaculties = ({ idToken }) => {
             console.error(data.error)
             return;
         }
-        console.log(data);
         dispatch(modelsActions.setFaculties(data.faculties))
     }
 }
 
-export const requestYears = ({ idToken, faculty, year }) => {
+export const requestYears = ({ idToken, faculty }) => {
     return async (dispatch) => {
         const response = await axios.post('http://38.133.52.102:3005/years', {
             idToken,
             faculty,
-            year
         })
 
         const data = response.data
@@ -55,6 +55,29 @@ export const requestModels = ({ idToken, faculty, year }) => {
         dispatch(modelsActions.setModels(data.models))
     }
 }
+
+export const requestCourses = ({ idToken }) => {
+    return async (dispatch) => {
+        const link = decodeURI(window.location.pathname).split('/');
+        const model = link[2];
+
+        const response = await axios.post('http://38.133.52.102:3005/courses', {
+            idToken,
+            model,
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        dispatch(modelsActions.setCourses(data.courses))
+    }
+}
+
+
+
+
 
 
 
