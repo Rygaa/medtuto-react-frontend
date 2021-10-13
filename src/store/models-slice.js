@@ -5,6 +5,7 @@ const initialState = {
     years: [],
     models: [],
     courses: [],
+    teachers: [],
 
 
 }
@@ -25,6 +26,10 @@ const modelsSlice = createSlice({
         setCourses: (state, { payload: courses }) => {
             state.courses = courses;
         },
+        setTeachers: (state, { payload: teachers }) => {
+            state.teachers = teachers;
+        },
+  
     }
 })
 

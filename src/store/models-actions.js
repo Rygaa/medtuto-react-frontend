@@ -78,6 +78,26 @@ export const requestCourses = ({ idToken }) => {
 
 
 
+export const requestTeachers = ({ idToken }) => {
+    return async (dispatch) => {
+        const link = decodeURI(window.location.pathname).split('/');
+        const course = link[2];
+
+        const response = await axios.post('http://38.133.52.102:3005/teachers', {
+            idToken,
+            course,
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        dispatch(modelsActions.setTeachers(data.teachers))
+    }
+}
+
+
 
 
 
