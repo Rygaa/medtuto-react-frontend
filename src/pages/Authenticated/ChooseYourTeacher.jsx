@@ -7,7 +7,7 @@ import Model from "../../components/Model"
 import Course from "../../components/Course"
 import NavLinkButton from "../../components/NavLinkButton";
 
-import { requestCourses, requestModels, requestYears, requestTeachers } from '../../store/models-actions'
+import { requestTeachers } from '../../store/models-actions'
 
 const ChooseYourTeacher = (props) => {
     const dispatch = useDispatch();

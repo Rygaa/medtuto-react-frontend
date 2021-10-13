@@ -6,6 +6,76 @@ import { useHistory } from "react-router"
 import { modelsActions } from "./models-slice"
 
 
+export const createNewFaculty = ({ idToken, facultyName }) => {
+    return async (dispatch) => {
+        console.log('createNewFaculty:', facultyName);
+        const response = await axios.post('http://38.133.52.102:3005/add-faculty', {
+            facultyName
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        dispatch(requestFaculties({idToken}));
+    }
+}
+
+export const createNewYear = ({ idToken, facultyPubId, yearName }) => {
+    return async (dispatch) => {
+        const response = await axios.post('http://38.133.52.102:3005/add-year', {
+            yearName,
+            facultyPubId,
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        console.log('facultyPubId:', facultyPubId);
+        dispatch(requestYears({ idToken, facultyPubId }));
+    }
+}
+
+export const createNewModel = ({ idToken, yearPubId, modelName, description }) => {
+    return async (dispatch) => {
+        const response = await axios.post('http://38.133.52.102:3005/add-years-model', {
+            yearPubId,
+            modelName,
+            description,
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        console.log(data);
+        dispatch(requestModels({ idToken, yearPubId }));
+    }
+}
+
+export const createNewCourse = ({ idToken, model, course }) => {
+    return async (dispatch) => {
+        console.log(model);
+        console.log(course);
+        const response = await axios.post('http://38.133.52.102:3005/add-course', {
+            modelPubId: model,
+            courseName: course,
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        dispatch(requestCourses2({ idToken, modelPubId: model}));
+    }
+}
+
+
 export const requestFaculties = ({ idToken }) => {
     return async (dispatch) => {
         const response = await axios.post('http://38.133.52.102:3005/faculties', {
@@ -21,11 +91,11 @@ export const requestFaculties = ({ idToken }) => {
     }
 }
 
-export const requestYears = ({ idToken, faculty }) => {
+export const requestYears = ({ idToken, facultyPubId }) => {
     return async (dispatch) => {
         const response = await axios.post('http://38.133.52.102:3005/years', {
             idToken,
-            faculty,
+            facultyPubId,
         })
 
         const data = response.data
@@ -38,12 +108,11 @@ export const requestYears = ({ idToken, faculty }) => {
 }
 
 
-export const requestModels = ({ idToken, faculty, year }) => {
+export const requestModels = ({ idToken, yearPubId }) => {
     return async (dispatch) => {
         const response = await axios.post('http://38.133.52.102:3005/models', {
             idToken,
-            faculty,
-            year,
+            yearPubId
         })
 
         const data = response.data
@@ -58,11 +127,11 @@ export const requestModels = ({ idToken, faculty, year }) => {
 export const requestCourses = ({ idToken }) => {
     return async (dispatch) => {
         const link = decodeURI(window.location.pathname).split('/');
-        const model = link[2];
+        const modelPubId = link[2];
 
         const response = await axios.post('http://38.133.52.102:3005/courses', {
             idToken,
-            model,
+            modelPubId,
         })
 
         const data = response.data
@@ -70,6 +139,26 @@ export const requestCourses = ({ idToken }) => {
             console.error(data.error)
             return;
         }
+        console.log('1:', data);
+
+        dispatch(modelsActions.setCourses(data.courses))
+    }
+}
+
+export const requestCourses2 = ({ idToken, modelPubId }) => {
+    return async (dispatch) => {
+
+        const response = await axios.post('http://38.133.52.102:3005/courses', {
+            idToken,
+            modelPubId,
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        console.log('2:', data);
         dispatch(modelsActions.setCourses(data.courses))
     }
 }

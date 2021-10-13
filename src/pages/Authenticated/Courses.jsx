@@ -6,7 +6,7 @@ import Select from 'react-select'
 import Model from "../../components/Model"
 import Course from "../../components/Course"
 
-import { requestCourses, requestModels, requestYears } from '../../store/models-actions'
+import { requestCourses } from '../../store/models-actions'
 
 const Courses = (props) => {
     const dispatch = useDispatch();

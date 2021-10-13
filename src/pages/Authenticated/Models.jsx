@@ -21,12 +21,12 @@ const Models = (props) => {
 
     const facultiesSelectOnChange = (e) => {
         setSelectedFaculty(e.value)
-        dispatch(requestYears({ idToken, faculty: e.pubId }))
+        dispatch(requestYears({ idToken, facultyPubId: e.pubId }))
     }
     const yearsSelectOnChange = (e) => {
         console.log('request models');
         setSelectedYear(e.value)
-        dispatch(requestModels({ idToken, faculty: selectedFaculty, year: e.pubId }))
+        dispatch(requestModels({ idToken, yearPubId: e.pubId }))
     }
     
 

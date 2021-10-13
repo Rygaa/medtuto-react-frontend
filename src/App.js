@@ -10,6 +10,10 @@ import Models from './pages/Authenticated/Models';
 import Courses from './pages/Authenticated/Courses';
 import ChooseYourTeacher from './pages/Authenticated/ChooseYourTeacher';
 import Learning from './pages/Authenticated/Learning';
+import AddFaculty from './pages/root/AddFaculty';
+import AddYear from './pages/root/AddYear';
+import AddModel from './pages/root/AddModel';
+import AddCourse from './pages/root/AddCourse';
 
 function App() {
   return (
@@ -24,6 +28,16 @@ function App() {
         </Route>
         <Route path="/login" exact>
           <Login></Login>
+        </Route>
+        <Route path="/root" exact>
+          <div style={{display:"grid", gridTemplateColumns:"1fr 1fr 1fr"}}>
+            <AddFaculty></AddFaculty>
+            <AddYear></AddYear>
+            <AddModel></AddModel>
+            <AddCourse></AddCourse>
+          </div>
+
+       
         </Route>
         <Route path="/models/:modelName" exact>
           <Courses></Courses>
