@@ -6,7 +6,6 @@ import { useHistory } from "react-router"
 import { modelsActions } from "./models-slice"
 
 
-
 export const requestFaculties = ({ idToken }) => {
     return async (dispatch) => {
         const response = await axios.post('http://38.133.52.102:3005/faculties', {
@@ -76,8 +75,6 @@ export const requestCourses = ({ idToken }) => {
 }
 
 
-
-
 export const requestTeachers = ({ idToken }) => {
     return async (dispatch) => {
         const link = decodeURI(window.location.pathname).split('/');
@@ -98,6 +95,31 @@ export const requestTeachers = ({ idToken }) => {
 }
 
 
+export const requestLearning = ({ idToken }) => {
+    return async (dispatch) => {
+        console.log('requestLearning');
 
+        const link = decodeURI(window.location.pathname).split('/');
+        const course = link[2];
+        const teacher = link[3];
+        console.log(link);
+
+        const response = await axios.post('http://38.133.52.102:3005/learning', {
+            idToken,
+            course,
+            teacher
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        console.log(data);
+        dispatch(modelsActions.setVideos(data.videos))
+        dispatch(modelsActions.setLinks(data.links))
+        dispatch(modelsActions.setFiles(data.files))
+    }
+}
 
 

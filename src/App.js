@@ -9,6 +9,7 @@ import Login from './pages/notAuthenticated/Login';
 import Models from './pages/Authenticated/Models';
 import Courses from './pages/Authenticated/Courses';
 import ChooseYourTeacher from './pages/Authenticated/ChooseYourTeacher';
+import Learning from './pages/Authenticated/Learning';
 
 function App() {
   return (
@@ -24,11 +25,12 @@ function App() {
         <Route path="/login" exact>
           <Login></Login>
         </Route>
-
         <Route path="/models/:modelName" exact>
           <Courses></Courses>
         </Route>
-
+        <Route path="/courses/:courseName/:teacherName" exact>
+          <Learning></Learning>
+        </Route>
         <Route path="/courses/:courseName" exact>
           <ChooseYourTeacher></ChooseYourTeacher>
         </Route>

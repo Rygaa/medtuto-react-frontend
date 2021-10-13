@@ -6,7 +6,9 @@ const initialState = {
     models: [],
     courses: [],
     teachers: [],
-
+    links: [],
+    files: [],
+    videos: [],
 
 }
 
@@ -29,7 +31,15 @@ const modelsSlice = createSlice({
         setTeachers: (state, { payload: teachers }) => {
             state.teachers = teachers;
         },
-  
+        setLinks: (state, { payload: links }) => {
+            state.links = links;
+        },
+        setFiles: (state, { payload: files }) => {
+            state.files = files;
+        },
+        setVideos: (state, { payload: videos }) => {
+            state.videos = videos;
+        },
     }
 })
 
