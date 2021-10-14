@@ -6,7 +6,7 @@ import { useHistory } from "react-router";
 import { signUp } from '../../store/user-actions'
 import { userActions } from "../../store/user-slice";
 import Select from 'react-select'
-import { createNewYear, requestFaculties, requestYears } from '../../store/models-actions'
+import { createNewYear, removeYear, requestFaculties, requestYears } from '../../store/models-actions'
 
 const AddYear = (props) => {
     const idToken = useSelector((state) => state.user.idToken);
@@ -36,8 +36,17 @@ const AddYear = (props) => {
     const facultiesList = faculties.map((faculty) => (
         { key: Math.random(), value: faculty.name, label: faculty.name, pubId: faculty.pubId }
     ));
+
+    const removeOnClick = (e) => {
+        console.log(e.target.attributes[0].nodeValue)
+        const yearPubId = e.target.attributes[0].nodeValue
+        dispatch(removeYear({ idToken, facultyPubId: selectedFaculty, yearPubId }))
+    }
     const yearsList = years.map((year) => (
-        <p key={Math.random()}>{year.name} {year.pubId}</p>
+        <div style={{ display: "flex" }}>
+            <p key={Math.random()}>{year.name} {year.pubId}</p>
+            <button onClick={removeOnClick} data-pubid={year.pubId}>Remove</button>
+        </div>
     ));
 
     return (

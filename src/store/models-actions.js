@@ -5,9 +5,61 @@ import { socket } from '../App'
 import { useHistory } from "react-router"
 import { modelsActions } from "./models-slice"
 
+export const removeCourse = ({ idToken, modelPubId, coursePubId }) => {
+    return async (dispatch) => {
+        console.log('removeCourse');
+        const response = await axios.post('http://38.133.52.102:3005/remove-course', {
+            modelPubId,
+            coursePubId
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        dispatch(requestCourses2({idToken, modelPubId}))
+    }
+}
+
+export const removeModel = ({ idToken, yearPubId, modelPubId }) => {
+    return async (dispatch) => {
+        console.log('removeModel');
+        const response = await axios.post('http://38.133.52.102:3005/remove-model', {
+            modelPubId,
+            yearPubId
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        dispatch(requestModels({ idToken, yearPubId }))
+    }
+}
+
+export const removeYear = ({ idToken, yearPubId, facultyPubId }) => {
+    return async (dispatch) => {
+        console.log('removeYear');
+        const response = await axios.post('http://38.133.52.102:3005/remove-year', {
+            facultyPubId,
+            yearPubId
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        dispatch(requestYears({ idToken, facultyPubId}))
+    }
+}
 
 export const removeFaculty = ({ idToken, facultyPubId }) => {
     return async (dispatch) => {
+        console.log('removeFaculty');
+
         const response = await axios.post('http://38.133.52.102:3005/remove-faculty', {
             facultyPubId
         })

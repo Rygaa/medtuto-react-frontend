@@ -6,7 +6,7 @@ import { useHistory } from "react-router";
 import { signUp } from '../../store/user-actions'
 import { userActions } from "../../store/user-slice";
 import Select from 'react-select'
-import { createNewYear, requestFaculties, createNewModel, requestModels, requestYears, requestCourses, createNewCourse, requestCourses2 } from '../../store/models-actions'
+import { createNewYear, requestFaculties, createNewModel, removeCourse,requestModels, requestYears, requestCourses, createNewCourse, requestCourses2 } from '../../store/models-actions'
 
 const AddCourse = (props) => {
     const idToken = useSelector((state) => state.user.idToken);
@@ -56,8 +56,17 @@ const AddCourse = (props) => {
     const modelsList = models.map((model) => (
         { key: Math.random(), value: model.name, label: model.name, pubId: model.pubId }
     ));
+
+    const removeOnClick = (e) => {
+        console.log(e.target.attributes[0].nodeValue)
+        const coursePubId = e.target.attributes[0].nodeValue
+        dispatch(removeCourse({ idToken, modelPubId: selectedModel, coursePubId }))
+    }
     const coursesList = courses.map((course) => (
-        <p key={Math.random()}>{course.name} {course.pubId}</p>
+        <div style={{ display: "flex" }}>
+            <p key={Math.random()}>{course.name} {course.pubId}</p>
+            <button onClick={removeOnClick} data-pubid={course.pubId}>Remove</button>
+        </div>
     ));
 
     return (
