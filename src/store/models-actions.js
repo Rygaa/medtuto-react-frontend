@@ -8,7 +8,7 @@ import { modelsActions } from "./models-slice"
 
 export const removeFaculty = ({ idToken, facultyPubId }) => {
     return async (dispatch) => {
-        const response = await axios.post('http://38.133.52.102:3005/remove-faculty', {
+        const response = await axios.post('http://localhost:3005/remove-faculty', {
             facultyPubId
         })
 
@@ -24,7 +24,7 @@ export const removeFaculty = ({ idToken, facultyPubId }) => {
 export const createNewFaculty = ({ idToken, facultyName }) => {
     return async (dispatch) => {
         console.log('createNewFaculty:', facultyName);
-        const response = await axios.post('http://38.133.52.102:3005/add-faculty', {
+        const response = await axios.post('http://localhost:3005/add-faculty', {
             facultyName
         })
 
@@ -39,7 +39,7 @@ export const createNewFaculty = ({ idToken, facultyName }) => {
 
 export const createNewYear = ({ idToken, facultyPubId, yearName }) => {
     return async (dispatch) => {
-        const response = await axios.post('http://38.133.52.102:3005/add-year', {
+        const response = await axios.post('http://localhost:3005/add-year', {
             yearName,
             facultyPubId,
         })
@@ -56,7 +56,7 @@ export const createNewYear = ({ idToken, facultyPubId, yearName }) => {
 
 export const createNewModel = ({ idToken, yearPubId, modelName, description }) => {
     return async (dispatch) => {
-        const response = await axios.post('http://38.133.52.102:3005/add-years-model', {
+        const response = await axios.post('http://localhost:3005/add-years-model', {
             yearPubId,
             modelName,
             description,
@@ -76,7 +76,7 @@ export const createNewCourse = ({ idToken, model, course }) => {
     return async (dispatch) => {
         console.log(model);
         console.log(course);
-        const response = await axios.post('http://38.133.52.102:3005/add-course', {
+        const response = await axios.post('http://localhost:3005/add-course', {
             modelPubId: model,
             courseName: course,
         })
@@ -93,7 +93,7 @@ export const createNewCourse = ({ idToken, model, course }) => {
 
 export const requestFaculties = ({ idToken }) => {
     return async (dispatch) => {
-        const response = await axios.post('http://38.133.52.102:3005/faculties', {
+        const response = await axios.post('http://localhost:3005/faculties', {
             idToken,
         })
 
@@ -108,7 +108,7 @@ export const requestFaculties = ({ idToken }) => {
 
 export const requestYears = ({ idToken, facultyPubId }) => {
     return async (dispatch) => {
-        const response = await axios.post('http://38.133.52.102:3005/years', {
+        const response = await axios.post('http://localhost:3005/years', {
             idToken,
             facultyPubId,
         })
@@ -125,7 +125,7 @@ export const requestYears = ({ idToken, facultyPubId }) => {
 
 export const requestModels = ({ idToken, yearPubId }) => {
     return async (dispatch) => {
-        const response = await axios.post('http://38.133.52.102:3005/models', {
+        const response = await axios.post('http://localhost:3005/models', {
             idToken,
             yearPubId
         })
@@ -144,7 +144,7 @@ export const requestCourses = ({ idToken }) => {
         const link = decodeURI(window.location.pathname).split('/');
         const modelPubId = link[2];
 
-        const response = await axios.post('http://38.133.52.102:3005/courses', {
+        const response = await axios.post('http://localhost:3005/courses', {
             idToken,
             modelPubId,
         })
@@ -163,7 +163,7 @@ export const requestCourses = ({ idToken }) => {
 export const requestCourses2 = ({ idToken, modelPubId }) => {
     return async (dispatch) => {
 
-        const response = await axios.post('http://38.133.52.102:3005/courses', {
+        const response = await axios.post('http://localhost:3005/courses', {
             idToken,
             modelPubId,
         })
@@ -184,7 +184,7 @@ export const requestTeachers = ({ idToken }) => {
         const link = decodeURI(window.location.pathname).split('/');
         const course = link[2];
 
-        const response = await axios.post('http://38.133.52.102:3005/teachers', {
+        const response = await axios.post('http://localhost:3005/teachers', {
             idToken,
             course,
         })
@@ -208,7 +208,7 @@ export const requestLearning = ({ idToken }) => {
         const teacher = link[3];
         console.log(link);
 
-        const response = await axios.post('http://38.133.52.102:3005/learning', {
+        const response = await axios.post('http://localhost:3005/learning', {
             idToken,
             course,
             teacher

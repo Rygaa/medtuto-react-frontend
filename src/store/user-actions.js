@@ -6,7 +6,7 @@ import { useHistory } from "react-router"
 
 export const signUp = ({ username, password, email, history }) => {
     return async (dispatch) => {
-        const response = await axios.post('http://38.133.52.102:3005/signUp', {
+        const response = await axios.post('http://localhost:3005/signUp', {
             username,
             password,
             email
@@ -24,7 +24,7 @@ export const signUp = ({ username, password, email, history }) => {
 
 export const login = ({ username, password, email, history }) => {
     return async (dispatch) => {
-        const response = await axios.post('http://38.133.52.102:3005/login', {
+        const response = await axios.post('http://localhost:3005/login', {
             username,
             password,
         })

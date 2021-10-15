@@ -14,6 +14,7 @@ import AddFaculty from './pages/root/AddFaculty';
 import AddYear from './pages/root/AddYear';
 import AddModel from './pages/root/AddModel';
 import AddCourse from './pages/root/AddCourse';
+import Chat from './pages/Authenticated/Chat/Chat';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
         <Route path="/" exact>
           <Dashboard></Dashboard>
           <Models></Models>
+        </Route>
+        <Route path="/chat" exact>
+          <Chat></Chat>
         </Route>
         <Route path="/sign-up" exact>
           <SignUp></SignUp>
@@ -56,3 +60,4 @@ function App() {
 
 export default App;
 //pushing test
+//38.133.52.102
