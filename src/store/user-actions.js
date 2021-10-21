@@ -38,7 +38,8 @@ export const login = ({ username, password, email, history }) => {
         dispatch(userActions.setUsername(data.username));
         dispatch(userActions.setIsConnected(true));
         dispatch(userActions.setIdToken(data.idToken));
-        history.push('/')
+        dispatch(userActions.setPubId(data.pubId));//added by hadi
+        history.push('/chat')//added by hadi
     }
 }
 

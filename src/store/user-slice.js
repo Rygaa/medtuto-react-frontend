@@ -4,6 +4,7 @@ const initialState = {
     username: '',
     idToken: '',
     isConnected: null,
+    pubId:'' //added by hadi
 }
 
 const userSlice = createSlice({
@@ -20,6 +21,10 @@ const userSlice = createSlice({
             state.idToken = idToken;
             localStorage.setItem('idToken', idToken)
         },
+        setPubId: (state, { payload: pubId }) => {
+            state.pubId = pubId;
+            localStorage.setItem('pubId', pubId)
+        },//added by hadi
     }
 })
 

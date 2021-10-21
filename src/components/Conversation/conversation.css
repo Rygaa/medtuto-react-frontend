@@ -8,12 +8,25 @@
 .conversation:hover{
     background-color: rgb(233, 233, 233);
 }
+.imageContainer{
+    position: relative;
+    margin-right: 15px;
+}
 .conversationImage{
     height: 40px;
     width: 40px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 20px;
+}
+.chatOnlineBadge{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: limegreen;
 }
 .conversationName{
     font-weight: 500;
