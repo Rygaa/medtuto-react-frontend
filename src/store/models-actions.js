@@ -38,9 +38,10 @@ export const teachForCourse = ({ idToken, username, coursePubId }) => {
             console.error(data.error)
             return;
         }
-
+        
     }
 }
+
 export const removeCourse = ({ idToken, modelPubId, coursePubId }) => {
     return async (dispatch) => {
         console.log('removeCourse');

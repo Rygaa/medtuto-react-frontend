@@ -1,0 +1,220 @@
+html, body {
+  height: 100vh;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+#root {
+  height: 100%;
+}
+
+.dashboard {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 2fr;
+      grid-template-rows: 1fr 2fr;
+  margin-top: 5%;
+}
+
+.dashboard button {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / 3;
+  width: 330px;
+  height: 80px;
+  background: #00A99D;
+  -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  border: none;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.89);
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.dashboard img {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1 / 3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.dashboard div > p:nth-child(1) {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard div > p:nth-child(2) {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 50px;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard div > p:nth-child(3) {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.89);
+  margin: 0;
+  padding: 0;
+}
+
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10%;
+}
+
+.login form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: rgba(255, 255, 255, 0.39);
+  border-radius: 10px;
+  width: 25%;
+}
+
+.login form p {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+
+.div-input-container {
+  background: rgba(255, 255, 255, 0.58);
+  border-radius: 10px;
+  margin-top: 5%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 5fr;
+      grid-template-columns: 1fr 5fr;
+  -ms-grid-row-align: center;
+      align-self: center;
+  width: 80%;
+  height: 60px;
+}
+
+.div-input-container img {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.div-input-container input {
+  background-color: transparent;
+  border: none;
+}
+
+.login > form > button:nth-child(5) {
+  height: 60px;
+  width: 45%;
+  background: #00A99D;
+  -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  border: none;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.89);
+  margin: 0;
+  padding: 0;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-top: 5%;
+  margin-right: 10%;
+  margin-bottom: 15%;
+}
+
+.login > form > div:nth-child(4) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2%;
+  margin-left: 10%;
+}
+
+.login > form > div:nth-child(4) input {
+  width: 25px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.login > form > div:nth-child(4) input:hover {
+  background: rgba(255, 255, 255, 0.752);
+}
+
+.login > form > div:nth-child(4) label {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.89);
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.62);
+  font-weight: 900;
+  margin-left: 1%;
+}
+/*# sourceMappingURL=Login.module.css.map */

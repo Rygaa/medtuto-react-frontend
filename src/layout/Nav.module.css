@@ -1,0 +1,9 @@
+.nav {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[3];
+      grid-template-columns: repeat(3, auto);
+  grid-column-gap: 40px;
+  margin-right: 3%;
+}
+/*# sourceMappingURL=Nav.module.css.map */

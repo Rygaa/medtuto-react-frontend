@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import {signUp} from '../../store/user-actions'
 import { userActions } from "../../store/user-slice";
+import classes from "./SignUp.module.scss"
+import img from "../../img/email.png"
 
 const SignUp = (props) => {
     const dispatch = useDispatch();
@@ -31,11 +33,21 @@ const SignUp = (props) => {
     }
 
     return (
-        <section>
+        <section className={classes['sign-up']}>
             <form onSubmit={formOnSubmit}>
-                <input placeholder='username' value={username} onChange={usernameOnChange}/>
-                <input placeholder='email' value={email} onChange={emailOnChange}/>
-                <input placeholder='password' value={password} type="password" onChange={passwordOnChange}/>
+                <p>Sign up</p>
+                <div className={classes['div-input-container']}>
+                    <img src={img}/>
+                    <input placeholder='username' value={username} onChange={usernameOnChange}/>
+                </div>
+                <div className={classes['div-input-container']}>
+                    <img src={img} />
+                    <input placeholder='email' value={email} onChange={emailOnChange}/>
+                </div>
+                <div className={classes['div-input-container']}>
+                    <img src={img} />
+                    <input placeholder='password' value={password} type="password" onChange={passwordOnChange}/>
+                </div>
                 <button>Submit</button>
             </form>
         </section>

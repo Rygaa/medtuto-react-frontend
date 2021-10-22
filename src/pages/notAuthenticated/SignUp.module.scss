@@ -1,0 +1,62 @@
+@import './Dashboard.module.scss';
+
+.sign-up {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.sign-up form {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.39);
+    border-radius: 10px;
+    width: 25%;
+
+}
+
+.sign-up form p {
+    @include Raleway-normal-normal-40px-white;
+    align-self: center;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.div-input-container {
+    background: rgba(255, 255, 255, 0.58);
+    border-radius: 10px;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-self: center;
+    width: 80%;
+    height: 60px;
+
+}
+
+.div-input-container img {
+    align-self: center;
+    object-fit: contain;
+    justify-self: center;
+}
+
+.div-input-container input {
+    background-color: transparent;
+    border: none;
+}
+
+
+.sign-up button {
+    height: 60px;
+    width: 60%;
+    background: #00A99D;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border: none;
+    @include Raleway-normal-normal-30px-white-089;
+    align-self: flex-end;
+    margin-top: 5%;
+    margin-right: 10%;
+    margin-bottom: 15%;
+}

@@ -1,0 +1,6 @@
+.nav {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-column-gap: 40px;
+    margin-right: 3%;
+}

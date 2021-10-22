@@ -21,7 +21,9 @@ const Learning = (props) => {
     }, [])
 
     const videosList = videos.map((video) => (
-        <p>{video}</p>
+        <iframe width="420" height="315"
+            src={`https://www.youtube.com/embed/${video}`}>
+        </iframe>
     ));
     const linksList = links.map((link) => (
         <p>{link}</p>
