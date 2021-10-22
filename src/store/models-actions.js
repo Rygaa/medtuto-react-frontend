@@ -5,6 +5,42 @@ import { socket } from '../App'
 import { useHistory } from "react-router"
 import { modelsActions } from "./models-slice"
 
+export const addLink = ({ idToken, username, coursePubId, links, videos, files }) => {
+    return async (dispatch) => {
+        console.log('addLink');
+        const response = await axios.post('http://38.133.52.102:3005/add-link', {
+            username,
+            coursePubId,
+            links,
+            files,
+            videos
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+
+    }
+}
+
+export const teachForCourse = ({ idToken, username, coursePubId }) => {
+    return async (dispatch) => {
+        console.log('teachForCourse');
+        const response = await axios.post('http://38.133.52.102:3005/add-teacher-to-course', {
+            username,
+            coursePubId
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+
+    }
+}
 export const removeCourse = ({ idToken, modelPubId, coursePubId }) => {
     return async (dispatch) => {
         console.log('removeCourse');

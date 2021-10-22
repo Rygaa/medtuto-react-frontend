@@ -14,14 +14,36 @@ import AddFaculty from './pages/root/AddFaculty';
 import AddYear from './pages/root/AddYear';
 import AddModel from './pages/root/AddModel';
 import AddCourse from './pages/root/AddCourse';
+import TeacherDashboard from './pages/Authenticated/TeacherDashboard';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { userActions } from './store/user-slice';
+import { checkIdToken } from './store/user-actions';
 
 function App() {
+  const isConnected = useSelector((state) => state.user.isConnected)
+  const idToken = localStorage.getItem('idToken');
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (idToken && idToken != 'null') {
+      dispatch(userActions.setIdToken(idToken));
+      dispatch(checkIdToken({ idToken }))
+    } else {
+      dispatch(userActions.setIsConnected(false));
+    }
+  }, [])
+
+
   return (
     <Layout>
       <Switch>
         <Route path="/" exact>
           <Dashboard></Dashboard>
           <Models></Models>
+        </Route>
+        <Route path="/teacher" exact>
+          <Dashboard></Dashboard>
+          <TeacherDashboard></TeacherDashboard>
         </Route>
         <Route path="/sign-up" exact>
           <SignUp></SignUp>
