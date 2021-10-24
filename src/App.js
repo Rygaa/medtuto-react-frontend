@@ -37,7 +37,7 @@ function App() {
       <Switch>
         <Route path="/" exact>
           
-          {isConnected && <TeacherDashboard></TeacherDashboard>}
+          {isConnected}
           {!isConnected &&
             <Dashboard></Dashboard>
           }
@@ -60,6 +60,9 @@ function App() {
             <AddModel></AddModel>
             <AddCourse></AddCourse>
           </div>
+        </Route>
+        <Route path="/models" exact>
+          <Models></Models>
         </Route>
         <Route path="/models/:modelName" exact>
           <Courses></Courses>

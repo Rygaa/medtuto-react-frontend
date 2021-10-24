@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom"
 import Select from 'react-select'
 import Model from "../../components/Model"
 import { requestFaculties, requestModels, requestYears } from '../../store/models-actions'
+import classes from './Models.module.scss'
 
 const Models = (props) => {
     const dispatch = useDispatch();
@@ -21,34 +22,47 @@ const Models = (props) => {
 
     const facultiesSelectOnChange = (e) => {
         setSelectedFaculty(e.value)
-        dispatch(requestYears({ idToken, facultyPubId: e.pubId }))
+        console.log(e.target.value);
+        dispatch(requestYears({ idToken, facultyPubId: e.target.value }))
     }
     const yearsSelectOnChange = (e) => {
         console.log('request models');
-        setSelectedYear(e.value)
-        dispatch(requestModels({ idToken, yearPubId: e.pubId }))
+        setSelectedYear(e.target.value)
+        dispatch(requestModels({ idToken, yearPubId: e.target.value }))
     }
     
+    const facultiesList = []
+    facultiesList.push(<option value="" disabled selected> Select your option</option>)
+    facultiesList.push(faculties.map((faculty) => (
+        <option value={faculty.pubId} label={faculty.label}>{faculty.name}</option>
+    )));
 
-    const facultiesList = faculties.map((faculty) => (
-        { value: faculty.name, label: faculty.name, pubId: faculty.pubId }
-    ));
-    const yearsList = years.map((year) => (
-        { value: year.name, label: year.name, pubId: year.pubId }
-    ));
+    const yearsList = []
+    yearsList.push(<option value="" disabled selected> Select your option</option>)
+    yearsList.push(years.map((year) => (
+        <option value={year.pubId} label={year.label}>{year.name}</option>
+    )));
+
+
     const modelsList = models.map((model) => {
         return (<Model key={Math.random()} name={model.name} pubId={model.pubId} facultyName={selectedFaculty} yearName={selectedYear}></Model>)
     })
-    
+    const x = []
+    x.push(
+        <option value="" disabled selected> Select your option</option>
+    )
+
     return (
-        <section>
-            <form>  
-                <Select options={facultiesList} placeholder='Choose your faculty' onChange={facultiesSelectOnChange}></Select>
-                <Select options={yearsList} placeholder='Choose your year' onChange={yearsSelectOnChange}></Select>
-                <button>Start learning</button>
-            </form>
-            <div>{modelsList}</div>
-            
+        <section className={classes['models']}>
+            <p>Choose your learning</p>
+            <div>
+                <form>  
+                    <select className={classes.faculty} onChange={facultiesSelectOnChange}>{facultiesList}</select>
+                    <select className={classes.year} onChange={yearsSelectOnChange}>{yearsList}</select>
+                    <button>Start learning</button>
+                </form>
+                <div>{modelsList}</div>
+            </div>
         </section>
     );
 }
