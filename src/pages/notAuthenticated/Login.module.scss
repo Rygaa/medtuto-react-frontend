@@ -1,9 +1,5 @@
 @import '../../_scss/_font.module.scss';
 
-
-
-
-
 .login {
     display: flex;
     flex-direction: row;
@@ -17,14 +13,12 @@
     background: rgba(255, 255, 255, 0.39);
     border-radius: 10px;
     width: 25%;
-
-}
-
-.login form p {
-    @include Raleway-normal-normal-40px-white;
-    align-self: center;
-    margin-top: 10%;
-    margin-bottom: 5%;
+    p {
+        @include title1;
+        align-self: center;
+        margin-top: 10%;
+        margin-bottom: 5%;
+    }
 }
 
 .div-input-container {
@@ -36,18 +30,15 @@
     align-self: center;
     width: 80%;
     height: 60px;
-
-}
-
-.div-input-container img {
-    align-self: center;
-    object-fit: contain;
-    justify-self: center;
-}
-
-.div-input-container input {
-    background-color: transparent;
-    border: none;
+    img {
+        align-self: center;
+        object-fit: contain;
+        justify-self: center;
+    }
+    input {
+        background-color: transparent;
+        border: none;
+    }
 }
 
 
@@ -58,8 +49,9 @@
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     border: none;
-    @include Raleway-normal-normal-30px-white-089;
+    @include button-2;
     align-self: flex-end;
+    justify-content: center;
     margin-top: 5%;
     margin-right: 10%;
     margin-bottom: 15%;
@@ -82,12 +74,8 @@
     input:hover {
         background: rgba(255, 255, 255, 0.752);
     }
-
     label {
-        @include Raleway-normal-normal-30px-white-089;
-        font-size: 18px;
-        color: rgba(0, 0, 0, 0.62);
-        font-weight: 900;
+        @include text-1;
         margin-left: 1%;
     }
 }

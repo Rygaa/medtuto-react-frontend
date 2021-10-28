@@ -37,7 +37,9 @@ function App() {
       <Switch>
         <Route path="/" exact>
           
-          {isConnected}
+          {isConnected && 
+            <Dashboard></Dashboard>
+          }
           {!isConnected &&
             <Dashboard></Dashboard>
           }
@@ -74,10 +76,8 @@ function App() {
           <ChooseYourTeacher></ChooseYourTeacher>
         </Route>
         <Route path="/teacher" exact>
+          <TeacherDashboard></TeacherDashboard>
         </Route>
-       
-
-
       </Switch>
     </Layout>
   );

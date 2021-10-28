@@ -1,12 +1,3 @@
-@mixin Raleway-normal-500-30-white {
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 30px;
-    color: #FFFFFF;
-    padding: 0;
-    margin: 0;
-}
 
 .navLink {
     display: flex;
@@ -16,5 +7,5 @@
 }
 
 .navLink p {
-    @include Raleway-normal-500-30-white();
+    // @include Raleway-normal-500-30-white();
 }

@@ -36,21 +36,23 @@ const Model = (props) => {
         if (isFlipped && !isMouseIn) {
             clearTimeout(timer)
             setTimer(setTimeout(() => {
-                setIsFlipped(false)
+                // setIsFlipped(false)
             }, 1000))
         }
-  
+        console.log(props.pubId);
+
     }, [isMouseIn])
 
+    const image = `http://localhost:3005/models/small/${props.pubId}`;
 
     return (
         <ReactCardFlip containerClassName={classes["model"]} isFlipped={isFlipped} flipDirection="horizontal">
             <div ref={myRef} onMouseEnter={handleClick} className={isFlipped ? classes['back'] : classes['front']}>
-                <img src={carta} />
+                <img src={image} />
             </div>
 
             <div onMouseLeave={handleClick} className={isFlipped ? classes['back'] : classes['front']}>
-                <img src={carta}/>
+                <img src={image}/>
                 <NavLink className={classes['navLink']} to={`/models/${props.pubId}`}>
                     {props.name}
                 </NavLink>

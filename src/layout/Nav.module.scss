@@ -1,6 +1,13 @@
+@import '../_scss/_font.module.scss';
+
 .nav {
     display: grid;
     grid-template-columns: repeat(3, auto);
     grid-column-gap: 40px;
+    @include nav-link;
     margin-right: 3%;
+
+    p { 
+        color: white;
+    }
 }

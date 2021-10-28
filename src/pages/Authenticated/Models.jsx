@@ -32,13 +32,13 @@ const Models = (props) => {
     }
     
     const facultiesList = []
-    facultiesList.push(<option value="" disabled selected> Select your option</option>)
+    facultiesList.push(<option value="" disabled selected>Choose your faculty</option>)
     facultiesList.push(faculties.map((faculty) => (
         <option value={faculty.pubId} label={faculty.label}>{faculty.name}</option>
     )));
 
     const yearsList = []
-    yearsList.push(<option value="" disabled selected> Select your option</option>)
+    yearsList.push(<option value="" disabled selected>Choose your year</option>)
     yearsList.push(years.map((year) => (
         <option value={year.pubId} label={year.label}>{year.name}</option>
     )));
@@ -59,7 +59,6 @@ const Models = (props) => {
                 <form>  
                     <select className={classes.faculty} onChange={facultiesSelectOnChange}>{facultiesList}</select>
                     <select className={classes.year} onChange={yearsSelectOnChange}>{yearsList}</select>
-                    <button>Start learning</button>
                 </form>
                 <div>{modelsList}</div>
             </div>

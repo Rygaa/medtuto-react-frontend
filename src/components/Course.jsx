@@ -1,12 +1,14 @@
 // import classes from './NavLinkButton.module.scss'
 import { NavLink } from "react-router-dom"
 import NavLinkButton from './NavLinkButton'
+import classes from './Course.module.scss'
 
 const Course = (props) => {
     return (
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div className={classes['course']}>
             <p>{props.name}</p>
-            <NavLinkButton path={`/courses/${props.pubId}/`}>ACCESS</NavLinkButton>
+            <div></div>
+            <NavLink to={`/courses/${props.pubId}/`} className={classes['navLink']}>Access</NavLink>
         </div>
     );
 }

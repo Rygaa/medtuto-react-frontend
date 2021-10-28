@@ -1,6 +1,6 @@
 // import classes from './Header.module.scss'
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { signUp } from '../../store/user-actions'
@@ -19,6 +19,10 @@ const AddModel = (props) => {
     const [selectedFaculty, setSelectedFaculty] = useState('')
     const [selectedYear, setSelectedYear] = useState('')
 
+    const imgInputRef = useRef();
+    const img2InputRef = useRef();
+
+
 
     const facultiesSelectOnChange = (e) => {
         setSelectedFaculty(e.pubId)
@@ -35,7 +39,14 @@ const AddModel = (props) => {
         setNewModel(e.target.value);
     }
     const newModelOnClick = (e) => {
-        dispatch(createNewModel({ idToken, yearPubId: selectedYear, description: "x", modelName: newModel }));
+        dispatch(createNewModel({ 
+            idToken, 
+            yearPubId: selectedYear, 
+            description: "x", 
+            modelName: newModel,
+            picture1: imgInputRef.current.files[0],
+            picture2: img2InputRef.current.files[0]
+        }));
     }
 
     useEffect(() => {
@@ -71,6 +82,9 @@ const AddModel = (props) => {
             <div style={{ height: "200px", overflowY: "scroll" }}>
             {modelsList}
             </div>
+            <input type="file" type="file" ref={imgInputRef}></input>
+            <input type="file" type="file" ref={img2InputRef}></input>
+
             <input value={newModel} onChange={newModelOnChange} />
             <button onClick={newModelOnClick}>ADD</button>
         </div>

@@ -5,32 +5,12 @@
     flex-direction: column;
     // justify-content: center;
     // align-items: center;
-}
-
-.models > p:nth-child(1) {
-    @include Raleway-normal-normal-40px-white;
-    align-self: center;
-    margin-top: 3%;
-    margin-bottom: 3%;
-}
-
-.faculty {
-    width: 334px;
-    height: 62px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-    border: none;
-    margin-left: 5%;
-    margin-right: 2.5%;
-}
-.year {
-    width: 334px;
-    height: 62px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-    border: none;
-    margin-right: 2.5%;
-
+    > p:nth-child(1) {
+        @include title1;
+        align-self: center;
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
 }
 
 .models > div:nth-child(2) {
@@ -46,19 +26,18 @@
 .models > div:nth-child(2) > form {
     width: 80%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-column-gap: 25px;
-    margin-top: 5%;
-    select{
+    margin-top: 2.5%;
+    select {
+        width: 334px;
+        height: 62px;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+        border: none;
+        margin-right: 2.5%;
         width: 100%;
         margin: 0;
-    }
-    button {
-        background: #00A99D;
-        // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
-        border-radius: 5px;
-        border: none;
-        @include Raleway-normal-normal-30px-white-089;
     }
 }
 
@@ -69,7 +48,7 @@
     width: 80%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 25px;
+    grid-column-gap: 10px;
     margin-bottom: 3%;
 }
 

@@ -1,0 +1,23 @@
+@import '../_scss/font.module';
+
+.teacher-profile-container {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+
+    img {
+        object-fit: contain;
+        width: 60px;
+    }
+    p {
+        color: white;
+        align-self: center;
+        @include text-1;
+        // margin-top: 10px;
+
+    }
+}

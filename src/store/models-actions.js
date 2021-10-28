@@ -143,13 +143,15 @@ export const createNewYear = ({ idToken, facultyPubId, yearName }) => {
     }
 }
 
-export const createNewModel = ({ idToken, yearPubId, modelName, description }) => {
+export const createNewModel = ({ idToken, yearPubId, modelName, description, picture1, picture2 }) => {
     return async (dispatch) => {
-        const response = await axios.post('http://38.133.52.102:3005/add-years-model', {
-            yearPubId,
-            modelName,
-            description,
-        })
+        const formData = new FormData();
+        formData.append("yearPubId", yearPubId);
+        formData.append("modelName", modelName);
+        formData.append("description", description);
+        formData.append("files", picture1);
+        formData.append("files", picture2);
+        const response = await axios.post('http://38.133.52.102:3005/add-years-model', formData)
 
         const data = response.data
         if (data.error) {
@@ -224,6 +226,7 @@ export const requestModels = ({ idToken, yearPubId }) => {
             console.error(data.error)
             return;
         }
+        console.log('models:', data);
         dispatch(modelsActions.setModels(data.models))
     }
 }

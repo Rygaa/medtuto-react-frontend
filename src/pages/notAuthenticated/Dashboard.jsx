@@ -13,7 +13,7 @@ const Dashboard = (props) => {
                 journey
                 </p>
             </div>
-            <button>Start Learning</button>
+            <NavLink className={classes.navLink} to={'/models'}>Start Learning</NavLink>
             <img src={image01}/>
      
        </section>

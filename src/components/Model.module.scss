@@ -4,12 +4,13 @@
     flex-direction: column;
     .navLink {
         position: absolute;
-        width: 25%;
-        height: 25%;
+        width: 70%;
+        height: 15%;
         transform-origin: (50%, 50%);
         text-decoration: none;
         color: black;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.814);
+        border-radius: 5px;
         padding: 0;
         margin: 0;
         display: flex;
@@ -21,23 +22,23 @@
         flex-direction: column;
     }
 }
-
+    
 .back {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     img {
-
+        opacity: .3;
     }
     .navLink {
         position: absolute;
-        width: 25%;
-        height: 25%;
+        width: 70%;
+        height: 15%;
         transform-origin: (50%, 50%);
         text-decoration: none;
         color: black;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.814);
+        border-radius: 5px;
         padding: 0;
         margin: 0;
         display: flex;
@@ -51,17 +52,15 @@
 }
 
 .front {
-        display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     img {
-
+        opacity: 1;
+        transition: .5s ease;
     }
     .navLink {
         position: absolute;
-        button {
-            position: absolute;
-        }
+  
     }
 }

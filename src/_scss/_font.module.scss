@@ -1,27 +1,122 @@
-@mixin Raleway-normal-normal-40px-white {
+@mixin title1 {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 47px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin nav-link {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin dashboard-1 {
     font-family: Raleway;
     font-style: normal;
     font-weight: normal;
     font-size: 40px;
+    line-height: 47px;
+    display: flex;
+    align-items: center;
+    text-align: center;
     color: #FFFFFF;
     margin: 0;
     padding: 0;
 }
-@mixin Raleway-normal-500-50px-white {
+
+@mixin dashboard-2 {
     font-family: Raleway;
     font-style: normal;
     font-weight: 500;
     font-size: 50px;
+    line-height: 59px;
+    display: flex;
+    align-items: center;
+    text-align: center;
     color: #FFFFFF;
     margin: 0;
     padding: 0;
 }
-@mixin Raleway-normal-normal-30px-white-089 {
+
+@mixin dashboard-3 {
     font-family: Raleway;
     font-style: normal;
     font-weight: normal;
     font-size: 30px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
     color: rgba(255, 255, 255, 0.89);
     margin: 0;
     padding: 0;
+}
+
+@mixin button-2 {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin button-1 {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin course-name {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin text-1 {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+
 }
