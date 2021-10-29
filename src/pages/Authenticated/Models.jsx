@@ -32,13 +32,13 @@ const Models = (props) => {
     }
     
     const facultiesList = []
-    facultiesList.push(<option value="" disabled selected>Choose your faculty</option>)
+    facultiesList.push(<option value="" disabled selected>{`\xa0`}{`\xa0`}Choose your faculty</option>)
     facultiesList.push(faculties.map((faculty) => (
         <option value={faculty.pubId} label={faculty.label}>{faculty.name}</option>
     )));
 
     const yearsList = []
-    yearsList.push(<option value="" disabled selected>Choose your year</option>)
+    yearsList.push(<option value="" disabled selected>{`\xa0`}{`\xa0`}Choose your year</option>)
     yearsList.push(years.map((year) => (
         <option value={year.pubId} label={year.label}>{year.name}</option>
     )));

@@ -67,6 +67,15 @@
     padding: 0;
 }
 
+@mixin button-3 {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #FFFFFF;
+}
+
 @mixin button-2 {
     font-family: Raleway;
     font-style: normal;
@@ -118,5 +127,13 @@
     color: #FFFFFF;
     margin: 0;
     padding: 0;
+}
 
+@mixin select-1 {
+font-family: Raleway;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 23px;
+color: rgba(0, 0, 0, 0.58);
 }
