@@ -74,7 +74,6 @@ const Learning = (props) => {
                 </TabPanel>
                 <TabPanel className={classes['tabPanel']}>
                     <div>{filesList}</div>
-
                 </TabPanel>
             </Tabs>
     

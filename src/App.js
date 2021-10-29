@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { checkIdToken } from './store/user-actions'
 import { userActions } from './store/user-slice'
+import MyAccount from './pages/Authenticated/MyAccount';
 function App() {
   const isConnected = useSelector((state) => state.user.isConnected)
   const idToken = localStorage.getItem('idToken');
@@ -77,6 +78,9 @@ function App() {
         </Route>
         <Route path="/teacher" exact>
           <TeacherDashboard></TeacherDashboard>
+        </Route>
+        <Route path="/myaccount" exact>
+          <MyAccount></MyAccount>
         </Route>
       </Switch>
     </Layout>
