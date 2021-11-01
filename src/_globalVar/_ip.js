@@ -1,5 +1,6 @@
-const port = 3007;
-const url = `api.medTuto.com:${port}`
+const port = 3005;
+const ip = `http://localhost`
+const url = `${ip}:${port}`
 
 
 module.exports.port = port

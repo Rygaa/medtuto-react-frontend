@@ -39,11 +39,11 @@ const Login = (props) => {
                     <img src={img}/>
                     <input placeholder='password' value={password} type="password" onChange={passwordOnChange} />
                 </div>
-                <div>
+                <div className={classes['div-checkbok-container']}>
                     <input type="checkbox" name="remeber_me" value="remember_me" />
                     <label for="remeber_me">Remember me</label>
                 </div>
-                <button>Connect</button>
+                <button className={classes['connect-button']}>Connect</button>
             </form>
         </section>
     );
