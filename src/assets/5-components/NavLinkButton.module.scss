@@ -1,0 +1,25 @@
+@import '../main.scss' ;
+
+.navLink {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    
+}
+
+.navLink > p:nth-child(2) {
+    // @include Raleway-normal-500-30-white();
+    margin: 0;
+    padding: 0;
+    @include nav-link;
+}
+
+
+.img-logo {
+    width: 8rem;
+    height: 5rem;
+    margin-top: 1rem;
+}
+
+.img- {
+}

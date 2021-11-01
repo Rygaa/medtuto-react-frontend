@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,oBAAoB,CAAC;EACjB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;EACnB,UAAU,EAAE,EAAE;EACd,UAAU,EAAE,GAAG;CAClB;;AAED,AAAA,mBAAmB,CAAC;EAChB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,SAAS,EAAE,KAAK;EAChB,UAAU,EAAE,yBAAyB;EACrC,aAAa,EAAE,IAAI;CACtB;;AAED,AAAA,uBAAuB,CAAC;EACpB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,SAAS,EAAE,KAAK;EAChB,UAAU,EAAE,yBAAyB;EACrC,aAAa,EAAE,IAAI;EACnB,UAAU,EAAE,EAAE;EACd,IAAI,EAAE,CAAC;CACV",
+    "sources": [
+        "ChooseYourTeacher.module.scss",
+        "../main.scss",
+        "../1-helpers/_font.module.scss"
+    ],
+    "names": [],
+    "file": "ChooseYourTeacher.module.css"
+}

@@ -1,7 +1,8 @@
 // import classes from './Header.module.scss'
 import { NavLink } from "react-router-dom"
 import NavLinkButton from '../components/NavLinkButton';
-import classes from './Nav.module.scss'
+import classes from '../assets/4-layout/Nav.module.scss'
+
 import signupIMG from '../img/sign up.png'
 import aboutusIMG from '../img/about us.png'
 import loginIMG from '../img/login.png'
@@ -13,7 +14,7 @@ const Nav = (props) => {
     return (!isConnected ? 
         <nav className={classes.nav}>
             <NavLinkButton
-                path={'/'}
+                path={'/aboutus'}
                 img={aboutusIMG}
                 text={'About us'}
             >About us</NavLinkButton>
@@ -32,7 +33,7 @@ const Nav = (props) => {
         </nav> :
         <nav className={classes.nav}>
             <NavLinkButton
-                path={'/'}
+                path={'/aboutus'}
                 img={aboutusIMG}
                 text={'About us'}
             >About us</NavLinkButton>

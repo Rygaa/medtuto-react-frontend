@@ -2,7 +2,7 @@
     font-family: Raleway;
     font-style: normal;
     font-weight: 600;
-    font-size: 40px;
+    font-size: 2.5rem;
     line-height: 47px;
     display: flex;
     align-items: center;
@@ -16,7 +16,7 @@
     font-family: Raleway;
     font-style: normal;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 1.875rem;
     line-height: 35px;
     display: flex;
     align-items: center;
@@ -30,7 +30,7 @@
     font-family: Raleway;
     font-style: normal;
     font-weight: normal;
-    font-size: 40px;
+    font-size: 2.5rem;
     line-height: 47px;
     display: flex;
     align-items: center;
@@ -44,7 +44,7 @@
     font-family: Raleway;
     font-style: normal;
     font-weight: 500;
-    font-size: 50px;
+    font-size: 3.125rem;
     line-height: 59px;
     display: flex;
     align-items: center;
@@ -58,7 +58,7 @@
     font-family: Raleway;
     font-style: normal;
     font-weight: normal;
-    font-size: 30px;
+    font-size: 1.875rem;
     line-height: 35px;
     display: flex;
     align-items: center;
@@ -71,7 +71,7 @@
     font-family: Raleway;
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 23px;
     color: #FFFFFF;
 }
@@ -80,7 +80,7 @@
     font-family: Raleway;
     font-style: normal;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 1.875rem;
     line-height: 35px;
     display: flex;
     align-items: center;
@@ -94,7 +94,7 @@
     font-family: Raleway;
     font-style: normal;
     font-weight: 500;
-    font-size: 25px;
+    font-size: 1.563rem;
     line-height: 29px;
     display: flex;
     align-items: center;
@@ -108,7 +108,7 @@
     font-family: Raleway;
     font-style: normal;
     font-weight: 500;
-    font-size: 25px;
+    font-size: 1.563;
     line-height: 29px;
     display: flex;
     align-items: center;
@@ -122,7 +122,7 @@
     font-family: Raleway;
     font-style: normal;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 0.938rem;
     line-height: 18px;
     color: #FFFFFF;
     margin: 0;
@@ -130,10 +130,10 @@
 }
 
 @mixin select-1 {
-font-family: Raleway;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
-line-height: 23px;
-color: rgba(0, 0, 0, 0.58);
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.25rem;
+    line-height: 23px;
+    color: rgba(0, 0, 0, 0.58);
 }

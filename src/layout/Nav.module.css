@@ -4,6 +4,25 @@
   -ms-grid-columns: (auto)[3];
       grid-template-columns: repeat(3, auto);
   grid-column-gap: 40px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
   margin-right: 3%;
+}
+
+.nav p {
+  color: white;
 }
 /*# sourceMappingURL=Nav.module.css.map */

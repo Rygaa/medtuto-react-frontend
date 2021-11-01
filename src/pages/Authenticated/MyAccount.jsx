@@ -7,7 +7,7 @@ import Model from "../../components/Model"
 import Course from "../../components/Course"
 import carta from "../../img/carta.png"
 import carta1 from "../../img/carta1.png"
-import classes from "./Courses.module.scss"
+// import classes from "./Courses.module.scss"
 
 import { requestCourses } from '../../store/user-actions'
 

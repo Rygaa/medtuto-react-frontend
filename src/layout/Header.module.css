@@ -1,5 +1,4 @@
 .header {
-  margin-top: 1%;
   margin-left: .5%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12,6 +11,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 10%;
+  max-height: 10%;
 }
 
 body {

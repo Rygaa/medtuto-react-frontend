@@ -1,0 +1,68 @@
+html, body {
+    height: 100vh;
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    max-height: 100vh;
+}
+#root {
+    height: 100%;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10vh 90vh;
+}
+
+.layout header {
+    grid-row: 1 / 2;
+}
+
+.layout main {
+    grid-row: 2 / 3;
+    display: grid;
+    
+}
+
+
+@media (max-width: 1350px){
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1200px){
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1050px){
+    html {
+        font-size: 11px;
+    }
+
+
+}
+
+@media (max-width: 950px){
+    html {
+        font-size: 11px;
+    }
+}
+
+
+@media (max-width: 600px){
+    html {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 400px){
+    html {
+        font-size: 8px;
+    }
+}

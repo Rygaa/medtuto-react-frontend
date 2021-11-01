@@ -1,7 +1,7 @@
 // import classes from './NavLinkButton.module.scss'
 import { NavLink } from "react-router-dom"
 import NavLinkButton from './NavLinkButton'
-import classes from './Teacher.module.scss'
+import classes from '../assets/5-components/Teacher.module.scss'
 import ppIMG from "../img/pp.png"
 import { useEffect, useState } from "react"
 

@@ -1,9 +1,10 @@
-@import '../../_scss/font.module';
+@import '../main.scss' ;
 
 .choose-your-teacher {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    justify-items: center;
     margin-top: 5%;
     min-height: 85%;
 }
@@ -11,7 +12,7 @@
 .teachers-container {
     display: flex;
     flex-direction: row;
-    min-width: 300px;
+    min-width: 35rem;
     background: rgba(255, 255, 255, 0.39);
     border-radius: 10px;
 }
@@ -19,7 +20,7 @@
 .teacher-info-container {
     display: flex;
     flex-direction: column;
-    min-width: 400px;
+    min-width: 35rem;
     background: rgba(255, 255, 255, 0.56);
     border-radius: 10px;
     margin-top: 1%;

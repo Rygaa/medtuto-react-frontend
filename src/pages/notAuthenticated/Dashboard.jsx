@@ -1,6 +1,6 @@
 // import classes from './Header.module.scss'
 import { NavLink } from "react-router-dom"
-import classes from "./Dashboard.module.scss"
+import classes from '../../assets/6-pages/Dashboard.module.scss'
 import image01 from '../../img/image01.png'
 const Dashboard = (props) => {
     return (

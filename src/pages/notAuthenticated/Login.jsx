@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { login } from '../../store/user-actions'
 import { userActions } from "../../store/user-slice";
-import classes from './Login.module.scss'
+import classes from '../../assets/6-pages/Login.module.scss'
 import img from "../../img/email.png"
 
 const Login = (props) => {

@@ -1,4 +1,4 @@
-@import '../_scss/_font.module.scss';
+@import '/src/assets/main.scss' ;
 
 .nav {
     display: grid;
@@ -11,3 +11,10 @@
         color: white;
     }
 }
+
+@media (max-width: 650px){
+    .nav {
+        display:none;
+    }
+}
+

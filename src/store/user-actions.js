@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { userActions } from "./user-slice"
 import { socket } from '../App'
 import { useHistory } from "react-router"
+import { url } from "../_globalVar/_ip"
 
 export const signUp = ({ username, password, email, history }) => {
     return async (dispatch) => {
-        const response = await axios.post('http://38.133.52.102:3005/signUp', {
+        const response = await axios.post(url + `/signUp`, {
             username,
             password,
             email
@@ -24,7 +25,7 @@ export const signUp = ({ username, password, email, history }) => {
 
 export const login = ({ username, password, email, history }) => {
     return async (dispatch) => {
-        const response = await axios.post('http://38.133.52.102:3005/login', {
+        const response = await axios.post(url + `/login`, {
             username,
             password,
         })
@@ -47,7 +48,7 @@ export const login = ({ username, password, email, history }) => {
 export const checkIdToken = ({ idToken }) => {
     return async (dispatch) => {
         console.log('checkidtoken');
-        const response = await axios.post('http://38.133.52.102:3005/checkIdToken', {
+        const response = await axios.post(url + `/checkIdToken`, {
             idToken,
         })
 

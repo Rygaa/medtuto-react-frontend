@@ -1,7 +1,7 @@
 // import classes from './NavLinkButton.module.scss'
 import { NavLink } from "react-router-dom"
 import NavLinkButton from './NavLinkButton'
-import classes from './Model.module.scss'
+import classes from '../assets/5-components/Model.module.scss'
 import carta from '../img/carta.png'
 import { useRef } from "react"
 import { useEffect } from "react"
@@ -43,7 +43,7 @@ const Model = (props) => {
 
     }, [isMouseIn])
 
-    const image = `http://localhost:3005/models/small/${props.pubId}`;
+    const image = `http://192.168.1.4:3005/models/small/${props.pubId}`;
 
     return (
         <ReactCardFlip containerClassName={classes["model"]} isFlipped={isFlipped} flipDirection="horizontal">

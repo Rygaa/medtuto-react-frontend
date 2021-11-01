@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom"
 import Select from 'react-select'
 import Model from "../../components/Model"
 import { requestFaculties, requestModels, requestYears } from '../../store/models-actions'
-import classes from './Models.module.scss'
+import classes from '../../assets/6-pages/Models.module.scss'
 
 const Models = (props) => {
     const dispatch = useDispatch();

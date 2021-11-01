@@ -5,9 +5,10 @@ import { NavLink } from "react-router-dom"
 import Select from 'react-select'
 import Model from "../../components/Model"
 import Course from "../../components/Course"
-import classes from "./Learning.module.scss"
+import classes from "../../assets/6-pages/Learning.module.scss"
 import { requestLearning } from '../../store/models-actions'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import classnames from 'classnames';
 
 const Learning = (props) => {
     const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const Learning = (props) => {
     const links = useSelector((state) => state.models.links);
     const files = useSelector((state) => state.models.files);
     const [videoDisplayedNumber, setVideoDisplayedNumber] = useState(0)
+    const [switched, setSwitched] = useState(false)
 
     useEffect(() => {
         dispatch(requestLearning({ idToken }))
@@ -51,11 +53,16 @@ const Learning = (props) => {
         <p>{file}</p>
     ));
 
+    const switchOnClick = (e) => {
+        setSwitched(!switched)
+    }
+
     return (
         <section className={classes['learning']}>
             <p>Learning</p>
-            <div >
-                {videoDisplayed}
+            <div className={classnames(classes['video-container'], (switched ? classes['switch-effect-on'] : classes['switch-effect-off']))}>
+                
+            {videoDisplayed}
                 <div>
                     <button onClick={previous}>Previous</button>
                     <button onClick={next}>Next</button>
@@ -63,7 +70,7 @@ const Learning = (props) => {
                 
 
             </div>
-            <Tabs className={classes['tabs']}>
+            <Tabs className={classnames(classes['tabs'], (!switched ? classes['switch-effect-on'] : classes['switch-effect-off']))}>
                 <TabList className={classes['tabList']}>
                     <Tab className={classes['tab-links']}>Links</Tab>
                     <Tab className={classes['tab-files']}>Files</Tab>
@@ -76,6 +83,7 @@ const Learning = (props) => {
                     <div>{filesList}</div>
                 </TabPanel>
             </Tabs>
+            <button className={classes['switch-button']} onClick={switchOnClick}>switch</button>
     
         </section>
     );

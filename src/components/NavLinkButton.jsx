@@ -1,10 +1,10 @@
 // import classes from './NavLinkButton.module.scss'
 import { NavLink } from "react-router-dom"
-import classes from './NavLinkButton.module.scss'
+import classes from '../assets/5-components/NavLinkButton.module.scss'
 const NavLinkButton = (props) => {
     return (
         <NavLink to={props.path} className={classes.navLink}>
-            <img src={props.img}/>
+            <img src={props.img} className={(props.path == '/' ? classes['img-logo'] : classes['img-'])}/>
             <p>{props.text}</p>
         </NavLink>
     );

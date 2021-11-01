@@ -7,7 +7,8 @@ import Model from "../../components/Model"
 import Course from "../../components/Course"
 import carta from "../../img/carta.png"
 import carta1 from "../../img/carta1.png"
-import classes from "./Courses.module.scss"
+import classes from "../../assets/6-pages/Courses.module.scss"
+
 
 import { requestCourses } from '../../store/models-actions'
 
@@ -17,7 +18,7 @@ const Courses = (props) => {
     const courses = useSelector((state) => state.models.courses);
     const location = useLocation();
     const modelPubId = location.pathname.split('/')[2];
-    const image = `http://localhost:3005/models/big/${modelPubId}`;
+    const image = `http://192.168.1.4:3005/models/big/${modelPubId}`;
 
     useEffect(() => {
         dispatch(requestCourses({ idToken }))
