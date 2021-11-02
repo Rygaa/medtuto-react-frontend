@@ -5,7 +5,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 10%;
+    align-content: center;
+    align-items: center;
 }
 
 .sign-up form {
@@ -13,7 +14,8 @@
     flex-direction: column;
     background: rgba(255, 255, 255, 0.39);
     border-radius: 10px;
-    width: 25%;
+    width: 560px;
+
 
     p {
         @include title1;
@@ -26,24 +28,27 @@
 .div-input-container {
     background: rgba(255, 255, 255, 0.58);
     border-radius: 10px;
-    margin-top: 5%;
+    margin-top: 2rem;
+
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: auto 5fr;
     align-self: center;
     width: 80%;
     height: 60px;
     img {
         align-self: center;
-        object-fit: contain;
-        justify-self: center;
+        margin-left: 10px;
+        width: 35px;
+        opacity: .5;
     }
     input {
         background-color: transparent;
         border: none;
+        margin-left: 10px;
     }
 }
 
-.sign-up button {
+.submit-button {
     height: 60px;
     width: 45%;
     background: #00A99D;
@@ -55,5 +60,14 @@
     justify-content: center;
     margin-top: 5%;
     margin-right: 10%;
-    margin-bottom: 15%;
+    margin-bottom: 12.5%;
 }
+
+@media (max-width: 700px){
+    .sign-up form {
+        min-width: 20rem;
+        width: 90%;
+    }
+
+}
+

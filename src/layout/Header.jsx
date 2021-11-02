@@ -6,8 +6,11 @@ import signupIMG from '../img/sign up.png'
 import loginIMG from '../img/login.png'
 import logo from '../img/logo.png'
 import Nav from "./Nav";
+import { useState } from "react";
 
 const Header = (props) => {
+
+
     return(
         <header className={classes.header}>
             <NavLinkButton

@@ -48,7 +48,7 @@ const SignUp = (props) => {
                     <img src={img} />
                     <input placeholder='password' value={password} type="password" onChange={passwordOnChange}/>
                 </div>
-                <button>Submit</button>
+                <button className={classes['submit-button']}>Submit</button>
             </form>
         </section>
     );
