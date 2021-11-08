@@ -1,59 +1,74 @@
+@import '/src/assets/main.scss' ;
 
 
 .model {
-    margin-top: 2.5%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    img {
-        width: 100%;
-    }
-}
-    
-.back {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    img {
-        opacity: 0.35;
-    }
+    display: grid;
+    grid-template-rows: 4fr 1fr 1fr 1fr;
+    border: 1px solid rgba(255, 255, 255, 20%);
+    min-width: 20rem;
+    margin-bottom: 1.2rem;
+    // height: 26rem;
+    max-width: 25rem;
+    max-height: 30rem;
+    // max-height: 35rem;
 }
 
-.front {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    img {
-        opacity: 1;
-        transition: .5s ease;
+@media (max-width: 1200px){
+    .model {
+        min-width: 10rem;
     }
+
 }
 
-.navLink {
-    position: absolute;
-    transform-origin: (50%, 50%);
-    text-decoration: none;
-    width: 10rem;
-    height: 3rem;
-    background-color: rgba(255, 255, 255, 0.814);
-    border-radius: 5px;
-    padding: 0;
+
+.model > div:nth-child(1) {
+    // max-width: 22.5rem;
+    width: 100%;
+    background-color: red;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.model > p:nth-child(2) {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.156rem;
+    color: $font-color1;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    line-height: 0px;
+    padding: 0;
+    margin-left: 10%;
+    margin-top: 5%;
+
 }
 
+.model > p:nth-child(3) {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: $font-color2;
+    margin: 0;
+    padding: 0;
+    margin-left: 10%;
+    margin-top: 2%;
 
+}
 
-@media (max-width: 1600px){
-    .navLink {
-        width: 9rem;
-        height: 2.5rem;
-        
-    }
+.nav-link {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 0.938rem;
+    color: #00DBB6;
+    background-color: transparent;
+    border: none;
+    justify-self: left;
+    margin: 0;
+    padding: 0;
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-bottom: 3%;
+    text-decoration: none;
+
 }

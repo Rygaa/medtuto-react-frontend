@@ -11,6 +11,8 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
+import RightNav from "./RightNav";
+import LeftNav from "./LeftNav";
 
 const Nav = (props) => {
     const isConnected = useSelector((state) => state.user.isConnected)
@@ -30,60 +32,22 @@ const Nav = (props) => {
     }, [])
   
 
-    return (!isConnected ? 
-        <nav className={classes.nav}>
-            {navDisplay &&
-                <div>
-                    <NavLinkButton
-                        path={'/aboutus'}
-                        img={loginIMG}
-                        text={'About us'}
-                    >About us</NavLinkButton>
+    return (
+        navDisplay ? 
+            <nav className = {classes.nav}>
+                <RightNav />
+                <LeftNav />
+            </nav> :
+            <nav>
+                <button
+                    ref={displayButtonRef}
+                    className={classes['nav-button']}
+                    onClick={navDisplayOnClick}
+                >Display</button>
+            </nav>
 
-                    <NavLinkButton
-                        path={'/sign-up'}
-                        img={signupIMG}
-                        text={'Signup'}
-                    >Sign up</NavLinkButton>
-
-                    <NavLinkButton
-                        path={'/login'}
-                        img={loginIMG}
-                        text={'Login'}
-                    >Login</NavLinkButton>
-                </div>
-            }
-            <button
-                ref={displayButtonRef}
-                className={classes['nav-button']}
-                onClick={navDisplayOnClick}
-            >Display</button>
-        </nav> :
-        <nav className={classes.nav}>
-            {navDisplay &&
-                <div>
-                    <NavLinkButton
-                        path={'/aboutus'}
-                        img={aboutusIMG}
-                        text={'About us'}
-                    >About us</NavLinkButton>
-
-                    <NavLinkButton
-                        path={'/myaccount'}
-                        img={loginIMG}
-                        text={'My account'}
-                    >My account</NavLinkButton>
-                </div>
-            }
-
-            <button 
-                ref={displayButtonRef}
-                className={classes['nav-button']} 
-                onClick={navDisplayOnClick}
-            >Display</button>
-
-
-        </nav>
+        
+        
     );
 }
 

@@ -1,59 +1,76 @@
 @import '/src/assets/main.scss' ;
+
+
 .course {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    align-items: center;
-    background-color: #3EA39B;
-    border-radius: 5px;
-    margin-bottom: 1%;
-    width: 80%;
-    p {
-        @include course-name;
-        justify-content: center;
-        margin-top: 2.5%;
-        margin-bottom: 2.5%;
-    }
-
+    grid-template-columns: 2fr 6fr;
+    min-width: 19rem;
+    min-height: 16rem;
+    // min-height: 12.5rem;
+    background-color: $color5;
 }
-
-.navLink {
-    justify-self: center;
-    width: 100%;
-    height: 100%;
-    background: #FFFFFF;
-    border-radius: 0px 5px 5px 0px;
-    color: black;
+// @media (max-width: 950px) {
+//     .course {
+//         grid-column: span 2;
+//     }
+// }
+.nav-link {
+    color: $font-color1;
     text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    /* Access */
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin: 0;
+    padding: 0;
 
+}
+
+.course > div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
-    @include button-1;
+    margin-top: 1.4rem;
+    > img {
+        object-fit: contain;
+        width: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .course > div:nth-child(1) > img {
+        width: 20px;
+    }
 }
 
 
-// @media (max-width: 1650px){
-//     .navLink {
-//         width: 9rem;
-//         height: 2.5rem;
-//     }
-// }
+.course > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    > p:nth-child(1) {
+        color: $font-color1;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.156rem;
+        margin: 0;
+        padding: 0;
 
-// @media (max-width: 900px){
-//     .navLink {
-//         width: 8rem;
-//         height: 2.5rem;
-//     }
-// }
 
-// @media (max-width: 800px){
-//     .navLink {
-//         width: 7rem;
-//         height: 2.5rem;
-//     }
-// }
+    }
+    > p:nth-child(2) {
+        color: $font-color2;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.875rem;
+        margin: 0;
+        padding: 0;
+        margin-right: 20%;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+
+    }
+}

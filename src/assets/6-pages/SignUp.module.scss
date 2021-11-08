@@ -5,36 +5,31 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-content: center;
     align-items: center;
-}
-
-.sign-up form {
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.39);
-    border-radius: 10px;
-    width: 560px;
-
-
-    p {
-        @include title1;
-        align-self: center;
-        margin-top: 10%;
-        margin-bottom: 5%;
+    form {
+        display: flex;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.39);
+        border-radius: 10px;
+        width: 560px;
+        p {
+            @include title1;
+            align-self: center;
+            margin-top: 10%;
+            margin-bottom: 5%;
+        }
     }
 }
 
 .div-input-container {
-    background: rgba(255, 255, 255, 0.58);
-    border-radius: 10px;
-    margin-top: 2rem;
-
     display: grid;
     grid-template-columns: auto 5fr;
     align-self: center;
     width: 80%;
     height: 60px;
+    background: rgba(255, 255, 255, 0.58);
+    border-radius: 10px;
+    margin-top: 2rem;
     img {
         align-self: center;
         margin-left: 10px;
@@ -68,6 +63,5 @@
         min-width: 20rem;
         width: 90%;
     }
-
 }
 

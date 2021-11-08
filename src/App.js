@@ -70,11 +70,11 @@ function App() {
         <Route path="/models/:modelName" exact>
           <Courses></Courses>
         </Route>
-        <Route path="/courses/:courseName/:teacherName" exact>
-          <Learning></Learning>
+        <Route path="/models/:modelName/:courseName/:teacherName" exact>
+          <Courses></Courses>
         </Route>
-        <Route path="/courses/:courseName" exact>
-          <ChooseYourTeacher></ChooseYourTeacher>
+        <Route path="/models/:modelName/:courseName" exact>
+          <Courses></Courses>
         </Route>
         <Route path="/teacher" exact>
           <TeacherDashboard></TeacherDashboard>

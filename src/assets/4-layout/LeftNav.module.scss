@@ -1,0 +1,27 @@
+@import '/src/assets/main.scss' ;
+
+
+.left-nav {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    width: 80%;
+    margin-top: .9rem;
+    justify-items: center;
+}
+
+.nav-link {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.156rem;
+    text-decoration: none;
+    color: $font-color1;
+}
+
+@media (min-width: 1440px){
+    .left-nav {
+        width: 65%;
+    }
+}

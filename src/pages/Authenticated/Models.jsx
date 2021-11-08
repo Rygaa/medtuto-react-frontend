@@ -30,7 +30,7 @@ const Models = (props) => {
         setSelectedYear(e.target.value)
         dispatch(requestModels({ idToken, yearPubId: e.target.value }))
     }
-    
+
     const facultiesList = []
     facultiesList.push(<option value="" disabled selected>{`\xa0`}{`\xa0`}Choose your faculty</option>)
     facultiesList.push(faculties.map((faculty) => (
@@ -54,13 +54,20 @@ const Models = (props) => {
 
     return (
         <section className={classes['models']}>
-            <p>Choose your learning</p>
             <div>
-                <form>  
+                <p>ENJOY YOUR COURSE</p>
+                <p>By selecting your</p>
+                <form>
+                    <label>Department: </label>
                     <select className={classes.faculty} onChange={facultiesSelectOnChange}>{facultiesList}</select>
+                </form>
+                <form>
+                    <label>Year: </label>
                     <select className={classes.year} onChange={yearsSelectOnChange}>{yearsList}</select>
                 </form>
-                <div>{modelsList}</div>
+            </div>
+            <div>
+                        {modelsList}
             </div>
         </section>
     );

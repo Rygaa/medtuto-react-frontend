@@ -2,12 +2,24 @@
 import { NavLink } from "react-router-dom"
 import NavLinkButton from './NavLinkButton'
 import classes from '../assets/5-components/Course.module.scss'
+import img from '../img/image 2.png'
 
 const Course = (props) => {
+    const modelId = decodeURI(window.location.pathname).split('/')[2];
+    // <p>{props.name}</p>
+
     return (
         <div className={classes['course']}>
-            <p>{props.name}</p>
-            <NavLink to={`/courses/${props.pubId}/`} className={classes['navLink']}>Access</NavLink>
+            <div>
+                <img src={img}/>
+            </div>
+            <div>
+                <p>Introduction a la celule</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re
+                    ugue ac enim pulv quis </p>
+                <NavLink to={`/models/${modelId}/${props.pubId}/`} className={classes['nav-link']}>{`Learn more`}</NavLink>
+            </div>
+
         </div>
     );
 }

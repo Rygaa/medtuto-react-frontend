@@ -4,37 +4,32 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-content: center;
     align-items: center;
-}
-
-.login form {
-    height: max-content;
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.39);
-    border-radius: 10px;
-    // min-width: 35rem;
-    width: 560px;
-
-    p {
-        @include title1;
-        align-self: center;
-        margin-top: 10%;
-        margin-bottom: 5%;
+    form {
+        display: flex;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.39);
+        border-radius: 10px;
+        width: 560px;
+        p {
+            @include title1;
+            align-self: center;
+            margin-top: 10%;
+            margin-bottom: 5%;
+        }
     }
 }
 
+
 .div-input-container {
-    background: rgba(255, 255, 255, 0.58);
-    border-radius: 10px;
-    margin-top: 2rem;
     display: grid;
     grid-template-columns: auto 5fr;
     align-self: center;
     width: 80%;
     height: 60px;
-
+    background: rgba(255, 255, 255, 0.58);
+    border-radius: 10px;
+    margin-top: 2rem;
     img {
         align-self: center;
         margin-left: 10px;
@@ -45,7 +40,6 @@
         background-color: transparent;
         border: none;
         margin-left: 10px;
-
     }
 }
 
@@ -80,9 +74,9 @@
         // -moz-appearance: none;
         // appearance: none;
     }
-    input:hover {
-        background: rgba(255, 255, 255, 0.752);
-    }
+    // input:hover {
+    //     background: rgba(255, 255, 255, 0.752);
+    // }
     label {
         @include text-1;
         margin-left: 1%;
@@ -97,13 +91,4 @@
         min-width: 20rem;
         width: 90%;
     }
-
 }
-
-
-
-// @media (orientation: portrait) and (min-height: 750px ) {
-//     .login form {
-//         margin: 8rem 0% 6vh 0%;
-//     }
-// }

@@ -2,46 +2,14 @@
 
 
 .nav {
-    position: fixed;
-    right: 0;
-    display: flex;
-    flex-direction: row;
-
-}
-
-.nav > div {
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-column-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    margin-top: .2rem;
+
 }
+
 
 .nav-button {
     display: none;
 }
-
-@media (max-width: 650px){
-    .nav-button {
-        display: block;
-        width: 100px;
-        height: 50px;
-        background-color: rgba(0, 0, 0, 0.186);
-
-        border: none;
-    }
-    
-    .nav > div {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(3, auto);
-        grid-column-gap: 50px;
-        background-color: rgba(0, 0, 0, 0.186);
-        border: none;
-        padding-left: 50px;
-        padding-right: 50px;
-        backdrop-filter: blur(10px);
-
-    }
-}
-
-
 

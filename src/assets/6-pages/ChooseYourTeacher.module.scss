@@ -1,28 +1,48 @@
 @import '../main.scss' ;
 
 .choose-your-teacher {
+    background-color: green;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
-    justify-items: center;
-    margin-top: 5%;
-    min-height: 85%;
+    grid-template-rows: 1fr 1fr;
+    margin-right: 6rem;
+    max-height: 90vh;
+    margin-left: 1rem;
+}
+
+.teacher-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.choose-your-teacher {
+    > div:nth-child(2) {
+        background-color: $color5;
+        display: grid;
+        grid-auto-flow: row;
+        overflow-y: scroll;
+        grid-row-gap: 1.5rem;
+        grid-column-gap: 1.5rem;
+        margin-bottom: 2.5rem;
+
+        > p {
+            font-family: Raleway;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            min-height: 100px;
+            padding-top: .5rem;
+            padding-left: .5rem;
+            padding-right: 2rem;
+        
+        }
+    }
 }
 
 .teachers-container {
-    display: flex;
-    flex-direction: row;
-    min-width: 35rem;
-    background: rgba(255, 255, 255, 0.39);
-    border-radius: 10px;
-}
-
-.teacher-info-container {
-    display: flex;
-    flex-direction: column;
-    min-width: 35rem;
-    background: rgba(255, 255, 255, 0.56);
-    border-radius: 10px;
-    margin-top: 1%;
-    flex: 1;
+  
 }

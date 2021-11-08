@@ -9,14 +9,9 @@ import Nav from "./Nav";
 import { useState } from "react";
 
 const Header = (props) => {
-
-
     return(
         <header className={classes.header}>
-            <NavLinkButton
-                path={'/'}
-                img={logo}
-            >Dashboard</NavLinkButton>
+            <img src={logo}></img>
             <Nav></Nav>
         </header>
     );

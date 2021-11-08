@@ -1,0 +1,29 @@
+@import '/src/assets/main.scss' ;
+
+
+.right-nav {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 25px;
+    margin-top: .9rem;
+    width: 25%;
+    justify-self: right;
+    margin-right: 3rem;
+}
+
+.nav-link {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.156rem;
+    text-decoration: none;
+    color: $font-color1;
+}
+
+
+
+@media (min-width: 1440px){
+    .right-nav {}
+}

@@ -9,7 +9,6 @@ const initialState = {
     links: [],
     files: [],
     videos: [],
-
 }
 
 const modelsSlice = createSlice({

@@ -1,5 +1,5 @@
 const port = 3005;
-const ip = `http://localhost`
+const ip = `http://192.168.1.4`
 const url = `${ip}:${port}`
 
 

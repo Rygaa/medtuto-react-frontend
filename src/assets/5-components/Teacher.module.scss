@@ -7,16 +7,19 @@
     // margin-left: 5%;
     // margin-top: 2.5%;
     // margin-bottom: 2.5%;
+    width: 3.75rem;
 
     img {
         object-fit: contain;
-        width: 60px;
+        width: 3.75rem;
+        height: 3.75rem;
+        resize: both;
     }
-    p {
-        color: white;
-        align-self: center;
-        @include text-1;
-        // margin-top: 10px;
+    // p {
+    //     color: white;
+    //     align-self: center;
+    //     @include text-1;
+    //     // margin-top: 10px;
 
-    }
+    // }
 }

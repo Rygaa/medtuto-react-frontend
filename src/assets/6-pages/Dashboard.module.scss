@@ -7,15 +7,14 @@ $space1: 5%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 2fr;
-    
-    margin-top: 6%;
-
-    height: 100%;
+    background-color: green;
+    border:rgb(255, 0, 149) 10px solid;
 }
 
 .dashboard div {
     justify-self: right;
     margin-right: $space1;
+
     
     > p:nth-child(1) {
         @include dashboard-1;
@@ -64,7 +63,7 @@ $space1: 5%;
 @media (max-width: 950px){
     .dashboard {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto;
         justify-items: center;
     }
     .dashboard div {

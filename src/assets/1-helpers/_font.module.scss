@@ -137,3 +137,40 @@
     line-height: 23px;
     color: rgba(0, 0, 0, 0.58);
 }
+
+
+
+
+
+@mixin nav-link-font {
+
+}
+
+@mixin mini-title-font {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.156rem;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin title-font {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.188rem;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin text-font {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin: 0;
+    padding: 0;
+}
+
+

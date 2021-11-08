@@ -1,88 +1,147 @@
 @import '../main.scss' ;
-
+$heighttt: calc(100%);
 .models {
-    display: flex;
-    flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
-    > p:nth-child(1) {
-        @include title1;
-        align-self: center;
-        margin-top: 3%;
-        margin-bottom: 3%;
-    }
-    height: 90%;
-
+    height: 100%;
+    max-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    max-height: 90vh;
 }
 
-.models > div:nth-child(2) {
-    background: rgba(255, 255, 255, 0.39);
-    border-radius: 10px;
-    margin-left: 10%;
-    margin-right: 10%;
+.models > div:nth-child(1) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
-
-}
-
-.models > div:nth-child(2) > form {
-    width: 80%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 25px;
-    margin-top: 2.3rem;
-    select {
-        width: 20.875rem;
-        height: 3.875rem;
-        background: #FFFFFF;
-        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-        border: none;
-        margin-right: 2.5%;
-        width: 100%;
+    align-self: center;
+    > p:nth-child(1) {
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.875rem;
+        color: #FFFFFF;
         margin: 0;
-        border-radius: 5px;
-        @include select-1;
+        padding: 0;
+    }
+    > p:nth-child(2) {
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.156rem;
+        color: #FFFFFF;
+        margin: 0;
+        padding: 0;
+        margin-top: .5rem;
+        margin-bottom: 1rem;
 
+    }
+    form {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        width: 22rem;
+        label {
+            font-family: Raleway;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 1.156rem;
+            color: #FFFFFF;
+            justify-self: right;
+            align-self: center;
+        }
+        select {
+            background: #214C4E;
+            border-radius: 5px;
+            font-family: Raleway;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 1.125rem;
+            color: #00DBB6;
+            width: 12rem;
+            justify-self: left;
+            margin-left: 1rem;
+            padding: .65rem 0rem;
+            padding-left: .8rem;
+
+        }
     }
 }
 
-.models > div:nth-child(2) > div {
-    overflow-y: scroll;
-    overflow-x:hidden;
-    max-width: 80%;
-    // height: 400px;
-    margin-top: 2.5%;
-    width: 80%;
+.models > div:nth-child(2) {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 2rem;
-    margin-bottom: 3%;
+    grid-column: auto;
+    grid-template-columns: auto-fill;
+    grid-auto-flow: column;
+    overflow-x: scroll;
+    max-height: $heighttt;
+    grid-column-gap: 1.5rem;
+    margin-left: 2rem;
 }
 
 ::-webkit-scrollbar {
-    width: 0;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+    // width: 0;  /* Remove scrollbar space */
+    // background: transparent;  /* Optional: just make scrollbar invisible */
+    color: white;
+    // background-color: $color2;
+    width: 1.5rem;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $color1;
+    width: 50px;
 }
 
 
-@media (max-width: 1000px){
-    .models > p:nth-child(1) {
-        margin-top: 5rem;
-    }
-    .models > p:nth-child(1) {
-    }
+@media (max-width: 1250px) {
+}
+
+@media (max-width: 1350px){
+
+}
+
+@media (max-width: 1200px){
     .models > div:nth-child(2) {
-        margin-bottom: 5rem;
-    }
-    .models > div:nth-child(2) > div {
-        grid-template-columns: 1fr 1fr;
+        grid-column: unset;
+        grid-auto-flow: unset;
+        overflow-x: scroll;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        overflow-y: scroll;
+        overscroll-behavior-y: contain;
+        max-height: $heighttt;
+        grid-column-gap: 1.5rem;
+        margin-left: 2rem;
+        justify-items: center;
     }
 }
 
-@media (max-width: 500px){
-    .models > div:nth-child(2) > div {
-        grid-template-columns: 1fr;
+@media (max-width: 1050px){
+    .models > div:nth-child(2) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        overflow-y: scroll;
+        max-height: $heighttt;
     }
+}
+
+@media (max-width: 755px){
+    .models > div:nth-child(2) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        max-height: $heighttt;
+    }
+    .models > div:nth-child(1) {
+    }
+}
+
+
+@media (max-width: 600px){
+
+}
+
+@media (max-width: 400px){
+
 }
