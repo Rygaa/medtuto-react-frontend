@@ -11,7 +11,8 @@ import { useState } from "react";
 const Header = (props) => {
     return(
         <header className={classes.header}>
-            <img src={logo}></img>
+            <NavLink className={classes['nav-link']} to={'/home'}><img src={logo}></img></NavLink>
+            
             <Nav></Nav>
         </header>
     );
