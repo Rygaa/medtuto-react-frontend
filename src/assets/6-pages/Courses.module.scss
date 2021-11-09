@@ -1,181 +1,28 @@
 @import '../main.scss';
-.section {
-    height: 100%;
-    display: grid;
-    grid-template-columns: 5fr 3fr;
-    // grid-template-columns: auto minmax(auto, 700px);
-    max-height: 90vh;
 
-    grid-template-rows: 90vh;
-    margin-right: 5rem;
-    margin-left: 5rem;
-}
 
 .courses-section {
-    margin-top: 3rem;
-    grid-column: 1 / 2;
+    height: 100%;
     display: grid;
-    grid-template-rows: auto 1fr;
-    > p { 
-        @include title-font(); 
-        color: $font-color1; 
-        margin-bottom: 1.5rem;
+    grid-template-rows: min-content auto;
+    margin-right: 5rem;
+    margin-left: 5rem;
+    > p {
+        @include title-font();
+        color: $font-color1;
+        margin-top: 2rem;
+        text-align: center;
+
     }
-    margin-right: 3.5rem;
 }
 
 .courses-container {
+    margin-top: 2rem;
     display: grid;
     grid-auto-flow: row;
-    grid-template-columns: repeat(auto-fill, (minmax(19rem, 1fr)));
+    grid-template-columns: repeat(auto-fill, (minmax(25rem, 1fr)));
     // grid-template-columns: 1fr 1fr;
     overflow-y: scroll;
     grid-row-gap: 1.25rem;
     grid-column-gap: 1.25rem;
-
-}
-
-
-.teachers-section {
-    margin-top: 3rem;
-    grid-column: 2 / 3;
-    display: grid;
-    grid-template-rows: min-content min-content min-content min-content auto;
-}
-
-.titles { 
-    margin-bottom: 1.8rem;
-    > p:nth-child(1) {
-        @include title-font();
-        color: $font-color1;
-    }
-    > p:nth-child(2) {
-        @include mini-title-font();
-        color: $font-color1;
-    }
-    
-}
-.teachers-picture {
-    display: grid;
-    grid-auto-flow: column;
-    max-width: calc(3.75rem * 4);
-    margin-bottom: 2.3rem;
-}
-.teacher-info {
-    > p {
-        @include mini-title-font();
-        color: $font-color1;
-        margin-bottom: .4rem;
-    }
-}
-.teachers-section > p:nth-child(4) {
-    @include mini-title-font();
-    color: $font-color1;
-    margin-bottom: .3rem;
-}
-.button-choose-teacher {
-    background-color: $color3;
-    color: $font-color1;
-    border: none;
-    height: 3rem;
-    width: 10rem;
-    margin-bottom: 2rem;
-    margin-top: 1rem;
-    justify-self: right;
-}
-.reviews-container {
-    background-color: $color5;
-    // border-radius: 5px;
-    display: grid;
-    grid-auto-flow: row;
-    overflow-y: scroll;
-    grid-row-gap: 1rem;
-    grid-column-gap: 1.5rem;
-    > p {
-        @include text-font();
-        color: rgba(255, 255, 255, 0.6);
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        box-sizing: border-box;
-        height: 5.625rem;
-        padding-top: .5rem;
-        padding-left: .5rem;
-        padding-right: 2rem;
-    }
-
-}
-@media (max-width: 950px) {
-    .section {
-        grid-template-columns: 1fr 1fr;
-        margin-right: 3rem;
-        margin-left: 3rem;
-    }
-    .courses-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 800px) {
-    .section {
-        grid-template-columns: 1fr;
-        grid-template-rows: minmax(0vh, min-content) minmax(0vh, 90vh);
-        margin-right: 0;
-        margin-left: 0;
-
-    }
-    .courses-section {
-        grid-column: 1 / 2;
-        grid-row: 1 / 2;
-        margin-right: 0;
-        margin-top: 2.5rem;
-        > p { 
-            text-align: center;
-        }
-    }
-
-    .courses-container {
-        margin-top: 1.5rem;
-        grid-auto-flow: column;
-        overflow-x: scroll;
-        overflow-y: hidden;
-        // grid-template-rows: repeat(auto-fit, minmax(16rem, 1fr));
-        // grid-template-rows: 1fr 1fr;
-        // grid-template-rows: repeat(auto-fit, minmax(16rem, 1fr));
-
-    }
-    .teachers-section {
-        grid-row: 2 / 3;
-        grid-column: 1 / 2;
-        margin-top: 3.5rem;
-
-    }
-    .titles { 
-        > p:nth-child(1) {
-            text-align: center;
-            margin-bottom: .8rem;
-        }
-        > p:nth-child(2) {
-            text-align: center;
-            margin-bottom: 1rem;
-
-        }
-    }
-    .teachers-picture {
-        justify-self: center;
-        margin-bottom: 2.5rem;
-
-    }
-    .teacher-info {
-        > p {
-            text-align: center;
-
-        }
-    }
-    .teachers-section > p:nth-child(4) {
-    }
-    .reviews-container {
-        > p {
-        }
-
-    }
-
 }

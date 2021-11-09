@@ -1,5 +1,35 @@
 @import '/src/assets/main.scss' ;
 
+.Modal {
+    position: fixed;
+    height: 100%;
+    background-color: rgba($color3, 0.7);
+    right: 0;
+    width: 40%;
+    display: grid;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 2rem;
+    grid-row-gap: 3rem;
+    grid-template-rows: min-content 70px 120px;
+}
+
+.close-button {
+    background-color: $color2;
+    color: $font-color1;
+    border: none;
+    @include mini-title-font();
+    padding: 1rem 0rem;
+    border-radius: 5px;
+}
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color3, 0.1);
+}
 
 .nav {
     display: grid;
@@ -8,8 +38,30 @@
 
 }
 
+.nav-dropdown-closed {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(rgb(0, 145, 255), 30%);
+    position: fixed;
+    right: 0;
+
+}
+
+.nav-dropdown-opened {
+    > button {
+        display: none;
+    }
+}
+
 
 .nav-button {
-    display: none;
+    display: block;
+    right: 0;
+
+    background-color: $color2;
+    color: $font-color1;
+    border: none;
+    @include mini-title-font();
+    padding: 1.15rem 3rem;
 }
 

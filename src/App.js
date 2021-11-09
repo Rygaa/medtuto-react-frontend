@@ -36,7 +36,7 @@ function App() {
   return (
     <Layout>
       <Switch>
-        <Route path="/" exact>
+        <Route path="/home" exact>
           
           {isConnected && 
             <Dashboard></Dashboard>
@@ -70,11 +70,11 @@ function App() {
         <Route path="/models/:modelName" exact>
           <Courses></Courses>
         </Route>
-        <Route path="/models/:modelName/:courseName/:teacherName" exact>
-          <Courses></Courses>
+        <Route path="/courses/:courseName/:teacherName" exact>
+          <Learning></Learning>
         </Route>
-        <Route path="/models/:modelName/:courseName" exact>
-          <Courses></Courses>
+        <Route path="/courses/:courseName" exact>
+          <ChooseYourTeacher></ChooseYourTeacher>
         </Route>
         <Route path="/teacher" exact>
           <TeacherDashboard></TeacherDashboard>

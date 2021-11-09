@@ -27,22 +27,13 @@ const Courses = (props) => {
     const teachers = useSelector((state) => state.models.teachers);
     const [selectedTeacher, setSelectedTeacher] = useState('');
     useEffect(() => {
-        dispatch(requestTeachers({ idToken }))
+        dispatch(requestCourses({ idToken }))
     }, [])
     const selectedTeacherOnChange = (teacher) => {
         console.log('teacher:', teacher);
         setSelectedTeacher(teacher)
     }
 
-    useEffect(() => {
-
-    }, [selectedTeacher])
-
-    useEffect(() => {
-        console.log('location changed');
-        dispatch(requestTeachers({ idToken }))
-        console.log(location);
-    }, [location])
 
     // { value: course.name, label: course.name, pubId: course.pubId }
     const path = window.location.pathname;
@@ -50,12 +41,6 @@ const Courses = (props) => {
         <Teacher name={teacher.name} selectedTeacherOnChange={selectedTeacherOnChange} />
     ));
 
-    teachersList.push(teachers.map((teacher) => (
-        <Teacher name={teacher.name} selectedTeacherOnChange={selectedTeacherOnChange} />
-    )));
-    teachersList.push(teachers.map((teacher) => (
-        <Teacher name={teacher.name} selectedTeacherOnChange={selectedTeacherOnChange} />
-    )));
 
 
 
@@ -77,40 +62,9 @@ const Courses = (props) => {
     console.log(location);
 
     return (
-        <section className={classes['section']}>
-            <div className={classes['courses-section']}>
-                <p>Select one of this courses</p>
-                <div className={classes['courses-container']}>{coursesList}</div>
-            </div>
-            <div className={classes['teachers-section']}>
-                <div className={classes['titles']}>
-                    <p>Make your choices</p>
-                    <p>We deliver multiple choice of teachers</p>
-                </div>
-                <div className={classes['teachers-picture']}>{teachersList}</div>
-                <div className={classes['teacher-info']}>
-                    <p>First name: Frih</p>
-                    <p>Last name: Mokhtar</p>
-                    <p>Rating: 10%</p>
-                    <p>Number of videos: 10</p>
-                </div>
-                <p onClick={showReviewsOnClick}>Reviews:</p>
-                <div className={classes['reviews-container']}>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                </div>
-                <button className={classes['button-choose-teacher']}>Choose</button>
-            </div>
-
-
+        <section className={classes['courses-section']}>
+            <p>Select one of this courses</p>
+            <div className={classes['courses-container']}>{coursesList}</div>
         </section>
     );
 }

@@ -4,6 +4,7 @@ import { userActions } from "./user-slice"
 import { socket } from '../App'
 import { useHistory } from "react-router"
 import { url } from "../_globalVar/_ip"
+import { ToastContainer, toast } from 'react-toastify';
 
 export const signUp = ({ username, password, email, history }) => {
     return async (dispatch) => {
@@ -15,11 +16,11 @@ export const signUp = ({ username, password, email, history }) => {
 
         const data = response.data
         if (data.error) {
-            console.error(data.error)
+            toast.error(data.error)
             return;
         }
-        console.log(data);
-        history.push('/')
+        toast.success(data.message)
+        dispatch(login({username, password, history}))
     }
 }
 
@@ -32,10 +33,11 @@ export const login = ({ username, password, email, history }) => {
 
         const data = response.data
         if (data.error) {
-            console.error(data.error)
+            toast.error(data.error)
             return;
         }
-        console.log(data);
+        toast.success(data.message)
+
         dispatch(userActions.setUsername(data.username));
         dispatch(userActions.setIsConnected(true));
         dispatch(userActions.setIdToken(data.idToken));

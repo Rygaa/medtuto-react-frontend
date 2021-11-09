@@ -6,6 +6,7 @@ import Select from 'react-select'
 import Model from "../../components/Model"
 import { requestFaculties, requestModels, requestYears } from '../../store/models-actions'
 import classes from '../../assets/6-pages/Models.module.scss'
+import { useRef } from "react";
 
 const Models = (props) => {
     const dispatch = useDispatch();
@@ -15,11 +16,8 @@ const Models = (props) => {
     const models = useSelector((state) => state.models.models);
     const [selectedFaculty, setSelectedFaculty] = useState('')
     const [selectedYear, setSelectedYear] = useState('')
-
-    useEffect(() => {
-        dispatch(requestFaculties({ idToken }))
-    }, [])
-
+    const facultiesRef = useRef();
+    const yearsRef = useRef();
     const facultiesSelectOnChange = (e) => {
         setSelectedFaculty(e.value)
         console.log(e.target.value);
@@ -30,15 +28,25 @@ const Models = (props) => {
         setSelectedYear(e.target.value)
         dispatch(requestModels({ idToken, yearPubId: e.target.value }))
     }
+    
+    useEffect(() => {
+        dispatch(requestFaculties({ idToken }))
+    }, [])
+
+    useEffect(() => {
+        dispatch(requestYears({ idToken, facultyPubId: facultiesRef.current.value }))
+    }, [faculties])
+
+    useEffect(() => {
+        dispatch(requestModels({ idToken, yearPubId: yearsRef.current.value }))
+    }, [years])
 
     const facultiesList = []
-    facultiesList.push(<option value="" disabled selected>{`\xa0`}{`\xa0`}Choose your faculty</option>)
     facultiesList.push(faculties.map((faculty) => (
         <option value={faculty.pubId} label={faculty.label}>{faculty.name}</option>
     )));
 
     const yearsList = []
-    yearsList.push(<option value="" disabled selected>{`\xa0`}{`\xa0`}Choose your year</option>)
     yearsList.push(years.map((year) => (
         <option value={year.pubId} label={year.label}>{year.name}</option>
     )));
@@ -59,11 +67,11 @@ const Models = (props) => {
                 <p>By selecting your</p>
                 <form>
                     <label>Department: </label>
-                    <select className={classes.faculty} onChange={facultiesSelectOnChange}>{facultiesList}</select>
+                    <select ref={facultiesRef} className={classes.faculty}  onChange={facultiesSelectOnChange}>{facultiesList}</select>
                 </form>
                 <form>
                     <label>Year: </label>
-                    <select className={classes.year} onChange={yearsSelectOnChange}>{yearsList}</select>
+                    <select ref={yearsRef} className={classes.year} onChange={yearsSelectOnChange}>{yearsList}</select>
                 </form>
             </div>
             <div>

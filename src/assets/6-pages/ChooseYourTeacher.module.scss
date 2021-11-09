@@ -1,48 +1,180 @@
 @import '../main.scss' ;
 
-.choose-your-teacher {
-    background-color: green;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    margin-right: 6rem;
+.teachers-section {
+    height: 100%;
     max-height: 90vh;
-    margin-left: 1rem;
+    display: grid;
+    grid-template-rows: min-content auto min-content;
+    margin: 0rem 7rem;
 }
 
-.teacher-container {
+.nav-link {
     display: flex;
-    flex-direction: row;
-}
-
-.choose-your-teacher {
-    > div:nth-child(2) {
-        background-color: $color5;
-        display: grid;
-        grid-auto-flow: row;
-        overflow-y: scroll;
-        grid-row-gap: 1.5rem;
-        grid-column-gap: 1.5rem;
-        margin-bottom: 2.5rem;
-
-        > p {
-            font-family: Raleway;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-            min-height: 100px;
-            padding-top: .5rem;
-            padding-left: .5rem;
-            padding-right: 2rem;
-        
-        }
-    }
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background: #214C4E;
+    border-radius: 5px;
+    border: none;
+    width: 10rem;
+    color: $font-color3;
+    height: 3rem;
+    @include mini-title-font();
+    justify-self: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .teachers-container {
-  
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 2rem;
+
+    .choices-container {
+        > p:nth-child(1) {
+            @include title-font();
+            color: $font-color1;
+            margin-bottom: .6rem;
+
+        }
+        > p:nth-child(2) {
+            @include mini-title-font();
+            color: $font-color1;
+            margin-bottom: 1.5rem;
+
+        }
+        .profiles-pictures-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 20rem;
+        }
+    }
+    .info-container {
+        background-color: $color2;
+        padding-top: 1rem;
+        padding-left: 1rem;
+        > p:nth-child(1), p:nth-child(2), p:nth-child(3), p:nth-child(4) {
+            @include mini-title-font();
+            color: $font-color1;
+            margin-bottom: .5rem;
+        }
+    }
+
+}
+
+
+
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    margin-top: 7rem;
+    // background-color: rgba($color3, 10%);
+    > p {
+        @include mini-title-font();
+        color: $font-color1;
+
+    }
+
+    > div {
+    // padding: 2rem 2rem;
+
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: repeat(auto-fill, (minmax(40rem, 1fr)));
+        // grid-template-columns: 1fr 1fr;
+        overflow-y: scroll;
+        grid-row-gap: 1.25rem;
+        grid-column-gap: 1.25rem;
+        p {
+            @include text-font();
+            color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-sizing: border-box;
+            height: 5.625rem;
+            padding-top: .5rem;
+            padding-left: .5rem;
+            padding-right: 2rem;
+        }
+    }
+
+}
+
+
+@media (max-width: 750px) {
+    .teachers-section {
+        height: 100%;
+        max-height: 90vh;
+        display: grid;
+        grid-template-rows: min-content auto min-content ;
+        margin: 0rem 4rem;
+    }
+
+
+    .teachers-container {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+
+        .choices-container {
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .info-container {
+            margin-top: 2rem;
+            grid-row: 2 / 3;
+            grid-column: 1 / 2;
+            padding: .8rem 5rem;
+            background-color: transparent;
+            > p:nth-child(1), p:nth-child(2), p:nth-child(3), p:nth-child(4) {
+            }
+        }
+
+    }
+
+
+
+    .reviews-container {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+        overflow-y: scroll;
+        margin-top: 2rem;
+        // background-color: rgba($color3, 10%);
+        padding: 2rem 2rem;
+        > p {
+            @include text-font();
+            color: $font-color1;
+        }
+
+        > div {
+            display: grid;
+            grid-auto-flow: row;
+            grid-template-columns: repeat(auto-fill, (minmax(20rem, 1fr)));
+            // grid-template-columns: 1fr 1fr;
+            overflow-y: scroll;
+            grid-row-gap: 1.25rem;
+            grid-column-gap: 1.25rem;
+            p {
+                @include text-font();
+                color: rgba(255, 255, 255, 0.6);
+                border: 1px solid rgba(255, 255, 255, 0.4);
+                box-sizing: border-box;
+                height: 5.625rem;
+                padding-top: .5rem;
+                padding-left: .5rem;
+                padding-right: 2rem;
+            }
+        }
+            .teachers-section > button {
+        grid-row: 3 / 4;
+        grid-column: 1 / 2;
+    }
+
+    }
+
 }

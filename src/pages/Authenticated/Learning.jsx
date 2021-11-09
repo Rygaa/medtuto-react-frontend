@@ -59,8 +59,8 @@ const Learning = (props) => {
 
     return (
         <section className={classes['learning']}>
-            <p>Learning</p>
-            <div className={classnames(classes['video-container'], (switched ? classes['switch-effect-on'] : classes['switch-effect-off']))}>
+            <p>Introduction a la molecule</p>
+            <div className={classnames(classes['videos-container'], (switched ? classes['switch-effect-on'] : classes['switch-effect-off']))}>
                 
             {videoDisplayed}
                 <div>
@@ -77,10 +77,10 @@ const Learning = (props) => {
                 </TabList>
 
                 <TabPanel className={classes['tabPanel']}>
-                    <div>{linksList}</div>
+                    {linksList}
                 </TabPanel>
                 <TabPanel className={classes['tabPanel']}>
-                    <div>{filesList}</div>
+                    {filesList}
                 </TabPanel>
             </Tabs>
             <button className={classes['switch-button']} onClick={switchOnClick}>switch</button>

@@ -17,7 +17,7 @@ const Course = (props) => {
                 <p>Introduction a la celule</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re
                     ugue ac enim pulv quis </p>
-                <NavLink to={`/models/${modelId}/${props.pubId}/`} className={classes['nav-link']}>{`Learn more`}</NavLink>
+                <NavLink to={`/courses/${props.pubId}/`} className={classes['nav-link']}>{`Learn more`}</NavLink>
             </div>
 
         </div>

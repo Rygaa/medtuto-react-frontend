@@ -276,7 +276,7 @@ export const requestCourses2 = ({ idToken, modelPubId }) => {
 export const requestTeachers = ({ idToken }) => {
     return async (dispatch) => {
         const link = decodeURI(window.location.pathname).split('/');
-        const course = link[3];
+        const course = link[2];
 
         const response = await axios.post(url + `/teachers`, {
             idToken,
