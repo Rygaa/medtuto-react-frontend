@@ -10,16 +10,14 @@ import Models from './pages/Authenticated/Models';
 import Courses from './pages/Authenticated/Courses';
 import ChooseYourTeacher from './pages/Authenticated/ChooseYourTeacher';
 import Learning from './pages/Authenticated/Learning';
-import AddFaculty from './pages/root/AddFaculty';
-import AddYear from './pages/root/AddYear';
-import AddModel from './pages/root/AddModel';
-import AddCourse from './pages/root/AddCourse';
 import TeacherDashboard from './pages/Authenticated/TeacherDashboard';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { checkIdToken } from './store/user-actions'
-import { userActions } from './store/user-slice'
+import { checkIdToken } from './store/User/user-actions'
+import { userActions } from './store/User/user-slice'
 import MyAccount from './pages/Authenticated/MyAccount';
+
+
 function App() {
   const isConnected = useSelector((state) => state.user.isConnected)
   const idToken = localStorage.getItem('idToken');
@@ -31,8 +29,8 @@ function App() {
     } else {
       dispatch(userActions.setIsConnected(false));
     }
+    console.log(process.cwd());
   }, [])
-
   return (
     <Layout>
       <Switch>
@@ -56,14 +54,6 @@ function App() {
             <Login></Login>
           }
         </Route>
-        <Route path="/root" exact>
-          <div style={{display:"grid", gridTemplateColumns:"1fr 1fr 1fr"}}>
-            <AddFaculty></AddFaculty>
-            <AddYear></AddYear>
-            <AddModel></AddModel>
-            <AddCourse></AddCourse>
-          </div>
-        </Route>
         <Route path="/models" exact>
           <Models></Models>
         </Route>
@@ -76,11 +66,13 @@ function App() {
         <Route path="/courses/:courseName" exact>
           <ChooseYourTeacher></ChooseYourTeacher>
         </Route>
-        <Route path="/teacher" exact>
+        <Route path="/tutor-panel" exact>
           <TeacherDashboard></TeacherDashboard>
         </Route>
-        <Route path="/myaccount" exact>
-          <MyAccount></MyAccount>
+        <Route path="/my-account" exact>
+          {isConnected &&
+            <MyAccount></MyAccount>
+          }
         </Route>
       </Switch>
     </Layout>

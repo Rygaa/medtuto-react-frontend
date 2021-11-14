@@ -1,0 +1,34 @@
+@import '../main.scss' ;
+
+
+.tutor-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 5rem;
+}
+
+.selects-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    select {
+        background-color: $color2;
+        width: 15rem;
+        height: 2.5rem;
+        margin: 0rem 2rem;
+        padding-left: 1rem;
+        border: none;
+        border-radius: 5px;
+        color: $color3;
+    }
+}
+
+
+.tutor-panel {
+    > div:nth-child(3) {
+        display: flex;
+        align-self: center;
+        justify-self: center;
+    }
+}

@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import {signUp} from '../../store/user-actions'
-import { userActions } from "../../store/user-slice";
+import {signUp} from '../../store/User/user-actions'
 import classes from '../../assets/6-pages/SignUp.module.scss'
 import img from "../../img/email.png"
 

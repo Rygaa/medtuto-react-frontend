@@ -3,11 +3,15 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { signUp } from '../../store/user-actions'
-import { userActions } from "../../store/user-slice";
+import { signUp } from '../../store/User/user-actions'
+import { userActions } from "../../store/User/user-slice";
 import Select from 'react-select'
-import { createNewYear, teachForCourse, addLink, requestFaculties, createNewModel, removeCourse, requestModels, requestYears, requestCourses, createNewCourse, requestCourses2 } from '../../store/models-actions'
-import { modelsActions } from "../../store/models-slice";
+import { createNewYear, teachForCourse, addLink, createNewModel, removeCourse, requestModels, createNewCourse } from '../../store/Joho/models-actions'
+import {requestCourses2 } from "../../store/proxy"
+
+import { modelsActions } from "../../store/Joho/joho-slice";
+import { requestFaculties, requestYears } from '../../store/proxy'
+import classes from "assets/6-pages/TutorPanel.module.scss"
 
 const TeacherDashboard = (props) => {
     
@@ -35,33 +39,46 @@ const TeacherDashboard = (props) => {
     const [video, setVideo] = useState('')
     const [file, setFile] = useState('')
 
-    const facultiesList = faculties.map((faculty) => (
-        { key: Math.random(), value: faculty.name, label: faculty.name, pubId: faculty.pubId }
-    ));
-    const yearsList = years.map((year) => (
-        { key: Math.random(), value: year.name, label: year.name, pubId: year.pubId }
-    ));
-    const modelsList = models.map((model) => (
-        { key: Math.random(), value: model.name, label: model.name, pubId: model.pubId }
-    ));
-    const coursesList = courses.map((course) => (
-        { key: Math.random(), value: course.name, label: course.name, pubId: course.pubId }
-    ));
+    
+    const facultiesList = [<option selected disabled>Select</option>]
+    facultiesList.push(
+        faculties.map((faculty) => (
+            <option value={faculty.pubId} label={faculty.name}>{faculty.name}</option>
+        ))
+    )
+    const yearsList = [<option selected disabled>Select</option>]
+    yearsList.push(
+        years.map((year) => (
+            <option value={year.pubId} label={year.name}>{year.name}</option>
+        ))
+    )
+    const modelsList = [<option selected disabled>Select</option>]
+    modelsList.push(
+        models.map((model) => (
+            <option value={model.pubId} label={model.name}>{model.name}</option>
+        ))
+    )
+    const coursesList = [<option selected disabled>Select</option>]
+    coursesList.push(
+        courses.map((course) => (
+            <option value={course.pubId} label={course.name}>{course.name}</option>
+        ))
+    )
 
     const facultiesSelectOnChange = (e) => {
-        setSelectedFaculty(e.pubId)
-        dispatch(requestYears({ idToken, facultyPubId: e.pubId}))
+        setSelectedFaculty(e.target.value)
+        dispatch(requestYears({ idToken, facultyPubId: e.target.value}))
     }
     const yearsSelectOnChange = (e) => {
-        setSelectedYear(e.pubId)
-        dispatch(requestModels({ idToken, yearPubId: e.pubId}));
+        setSelectedYear(e.target.value)
+        dispatch(requestModels({ idToken, yearPubId: e.target.value}));
     }
     const modelsSelectOnChange = (e) => {
-        setSelectedModel(e.pubId)
-        dispatch(requestCourses2({idToken, modelPubId: e.pubId}))
+        setSelectedModel(e.target.value)
+        dispatch(requestCourses2({ idToken, modelPubId: e.target.value}))
     }
     const coursesSelectOnChange = (e) => {
-        setSelectedCourse(e.pubId)
+        setSelectedCourse(e.target.value)
     }
 
     const linkOnChange = (e) => {
@@ -90,22 +107,27 @@ const TeacherDashboard = (props) => {
  
 
     return (
-        <section >
-            <Select options={facultiesList} placeholder='Choose your faculty' onChange={facultiesSelectOnChange}></Select>
-            <Select options={yearsList} placeholder='Choose your year' onChange={yearsSelectOnChange}></Select>
-            <Select options={modelsList} placeholder='Choose your model' onChange={modelsSelectOnChange}></Select>
-            <Select options={coursesList} placeholder='Choose your course' onChange={coursesSelectOnChange}></Select>
+        <section className={classes['tutor-panel']}>
+            <div className={classes['selects-container']}>
+                <select placeholder='Choose your faculty' onChange={facultiesSelectOnChange}>{facultiesList}</select>
+                <select placeholder='Choose your year' onChange={yearsSelectOnChange}>{yearsList}</select>
+                <select placeholder='Choose your model' onChange={modelsSelectOnChange}>{modelsList}</select>
+                <select placeholder='Choose your course' onChange={coursesSelectOnChange}>{coursesList}</select>
+            </div>
             <button onClick={subscribeOnClick}>Subscribe</button>
-            <br/>
-            <input value={link} onChange={linkOnChange}/>
-            <button onClick={addLinkOnClick}>Add Link</button>
-            <br />
-            <input value={file} onChange={fileOnChange}/>
-            <button onClick={addFileOnClick}>Add File</button>
-            <br />
-            <input value={video} onChange={videoOnChange}/>
-            <button onClick={addVideoOnClick}>Add Video</button>
-            <br />
+            <div>
+                <br />
+                <input value={link} onChange={linkOnChange} />
+                <button onClick={addLinkOnClick}>Add Link</button>
+                <br />
+                <input value={file} onChange={fileOnChange} />
+                <button onClick={addFileOnClick}>Add File</button>
+                <br />
+                <input value={video} onChange={videoOnChange} />
+                <button onClick={addVideoOnClick}>Add Video</button>
+                <br />
+            </div>
+
         </section>
 
 

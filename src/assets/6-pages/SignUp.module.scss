@@ -63,6 +63,13 @@
 }
 
 
+.div-input-container:focus-within {
+    input {
+        outline: none;
+    }
+    outline: 1px solid rgba($color3, 30%);
+}
+
 
 @media (max-width: 700px){
     .login form {

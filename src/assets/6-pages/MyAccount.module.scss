@@ -1,0 +1,58 @@
+@import '../main.scss' ;
+
+
+.my-account {
+    margin: auto;
+    background-color: red;
+    background-color: rgba(#12262B, 30%);
+    height: 80%;
+    display: grid;
+    grid-template-rows: 1fr 1fr min-content;
+}
+
+.public-container {
+    display: flex;
+    flex-direction: column;
+    > p {
+        @include mini-title-font();
+        color: $font-color1;
+        align-self: center;
+        margin-top: 2rem;
+    }
+
+    > div {
+        margin: 0 2rem;
+        margin-top: 1.3rem;
+    }
+
+
+}
+
+.private-container {
+    display: flex;
+    flex-direction: column;
+    > p {
+        @include mini-title-font();
+        color: $font-color1;
+        align-self: center;
+        margin-top: 2rem;
+    }
+
+    > div {
+        margin: 0 2rem;
+        margin-top: 1.3rem;
+    }
+
+}
+
+.update-button {
+    background-color: $color2;
+    color: $color3;
+    border: none;
+    border-radius: 5px;
+    height: 3rem;
+    width: 10rem;
+    @include mini-title-font;
+    justify-self: center;
+    margin-bottom: 1rem;
+}

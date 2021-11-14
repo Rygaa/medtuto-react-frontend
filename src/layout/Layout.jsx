@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Layout = (props) => {
     return (
         <div className={classes.layout}>
-            <ToastContainer limit={1}  autoClose={2000}
+            <ToastContainer limit={1} autoClose={1500} position={'top-center'}
                 className={classes['toast-container']}
                 toastClassName={classes['toast-wrapper']}
                 bodyClassName={classes['toast-body']}

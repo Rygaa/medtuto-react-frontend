@@ -7,7 +7,7 @@ import Course from "../../components/Course"
 import NavLinkButton from "../../components/NavLinkButton";
 import ppIMG from "../../img/pp.png"
 import classes from "../../assets/6-pages/ChooseYourTeacher.module.scss"
-import { requestTeachers } from '../../store/models-actions'
+import { requestTeachers } from '../../store/Joho/models-actions'
 import Teacher from "../../components/Teacher";
 import { NavLink, useParams, useLocation } from "react-router-dom"
 

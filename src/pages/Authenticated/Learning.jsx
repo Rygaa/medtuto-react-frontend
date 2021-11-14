@@ -6,7 +6,7 @@ import Select from 'react-select'
 import Model from "../../components/Model"
 import Course from "../../components/Course"
 import classes from "../../assets/6-pages/Learning.module.scss"
-import { requestLearning } from '../../store/models-actions'
+import { requestLearning } from '../../store/Joho/models-actions'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import classnames from 'classnames';
 

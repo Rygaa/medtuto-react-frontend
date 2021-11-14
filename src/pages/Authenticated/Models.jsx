@@ -4,9 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom"
 import Select from 'react-select'
 import Model from "../../components/Model"
-import { requestFaculties, requestModels, requestYears } from '../../store/models-actions'
+import { requestModels } from '../../store/Joho/models-actions'
+import { requestFaculties } from '../../store/proxy'
 import classes from '../../assets/6-pages/Models.module.scss'
 import { useRef } from "react";
+import { requestYears } from "../../store/proxy"
+
 
 const Models = (props) => {
     const dispatch = useDispatch();
@@ -53,7 +56,7 @@ const Models = (props) => {
 
 
     const modelsList = models.map((model) => {
-        return (<Model key={Math.random()} name={model.name} pubId={model.pubId} facultyName={selectedFaculty} yearName={selectedYear}></Model>)
+        return (<Model key={Math.random()} name={model.name} description={model.description} pubId={model.pubId} facultyName={selectedFaculty} yearName={selectedYear}></Model>)
     })
     const x = []
     x.push(

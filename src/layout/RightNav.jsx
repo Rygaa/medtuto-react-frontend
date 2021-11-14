@@ -7,15 +7,20 @@ import signupIMG from '../img/sign up.png'
 import aboutusIMG from '../img/about us.png'
 import loginIMG from '../img/login.png'
 import logo from '../img/logo.png'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router"
+
 import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { userActions } from "store/User/user-slice";
 const RightNav = (props) => {
+    const dispatch = useDispatch();
     const isConnected = useSelector((state) => state.user.isConnected)
     const [NavDropdown, setNavDropDown] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const history = useHistory();
 
     useEffect(() => {
         if (props.dropdown)
@@ -25,11 +30,23 @@ const RightNav = (props) => {
 
     }, [])
 
-    return (
+    const disconnectOnClick = (e) => {
+        localStorage.setItem('idToken', null);
+        dispatch(userActions.setIsConnected(false))
+        history.push('/login')
+
+    }
+
+    return (!isConnected ? 
         <nav className={props.dropdown ? classes['right-nav-dropdown'] : classes['right-nav']}>
             <NavLink to={'/login'} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Login</NavLink>
             <NavLink to={'/sign-up'} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Sign up</NavLink>
-        </nav> 
+        </nav> : 
+        <nav className={props.dropdown ? classes['right-nav-dropdown'] : classes['right-nav']}>
+            <NavLink to={'/tutor-panel'} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Tutor-Panel</NavLink>
+            <NavLink to={'/my-account'} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Profile</NavLink>
+            <button className={!dropdownOpen ? classes['normal-button'] : classes['normal-button-dropdown']} onClick={disconnectOnClick}>Disconnect</button>
+        </nav>
         );
 
 }

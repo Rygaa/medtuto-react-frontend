@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import { login } from '../../store/user-actions'
-import { userActions } from "../../store/user-slice";
+import { login } from '../../store/User/user-actions'
 import classes from '../../assets/6-pages/Login.module.scss'
 import img from "../../img/email.png"
 
@@ -15,8 +14,13 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { ToastContainer, toast } from 'react-toastify';
 const Login = (props) => {
     const dispatch = useDispatch();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+
+    // const [rememberMe, setRememberMe] = useState();
+    const rememberMe = localStorage.getItem('remember-me') == 'true' ? true : false
+    const savedUsername = localStorage.getItem('username')
+    const savedPassword = localStorage.getItem('password')
+    const [username, setUsername] = useState(savedUsername);
+    const [password, setPassword] = useState(savedPassword);
 
     const usernameOnChange = (e) => {
         setUsername(e.target.value);
@@ -63,6 +67,12 @@ const Login = (props) => {
         lineHeight: 1,
         userSelect: 'none',
     });
+    const testtt = (e) => {
+        console.log(rememberMe);
+        localStorage.setItem('remember-me', e)
+        localStorage.removeItem('username')
+        localStorage.removeItem('password')
+    }
 
     return (
         <section className={classes['login']}>
@@ -78,7 +88,7 @@ const Login = (props) => {
                 </div>
             
                 <div className={classes['div-checkbox-container']}>
-                    <Checkbox id="c1">
+                    <Checkbox id="c1" defaultChecked={rememberMe} onCheckedChange={testtt}>
                         <CheckboxIndicator>
                             <CheckIcon />
                         </CheckboxIndicator>

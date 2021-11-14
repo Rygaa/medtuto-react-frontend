@@ -4,6 +4,8 @@ const initialState = {
     username: '',
     idToken: '',
     isConnected: null,
+    email: null,
+    isTeacher: null,
 }
 
 const userSlice = createSlice({
@@ -19,6 +21,12 @@ const userSlice = createSlice({
         setIdToken: (state, { payload: idToken }) => {
             state.idToken = idToken;
             localStorage.setItem('idToken', idToken)
+        },
+        setEmail: (state, { payload: email }) => {
+            state.email = email;
+        },
+        setIsTeacher: (state, { payload: status }) => {
+            state.isTeacher = status;
         },
     }
 })
