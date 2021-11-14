@@ -1,9 +1,10 @@
 // import classes from './NavLinkButton.module.scss'
 import { NavLink } from "react-router-dom"
 import classes from '../assets/5-components/Model.module.scss'
+import {url} from "_globalVar/_ip"
 
 const Model = (props) => {
-    const image = `http://192.168.1.4:3005/models/small/${props.pubId}`;
+    const image = `${url}/models/small/${props.pubId}`;
     return (
         <div className={classes['model']}>
             <div style={{ backgroundImage: `url(${image})`}}></div>
