@@ -31,16 +31,10 @@ const ChooseYourTeacher = (props) => {
 
     }, [selectedTeacher])
 
-    // useEffect(() => {
-    //     console.log('location changed');
-    //     dispatch(requestTeachers({ idToken }))
-    //     console.log(location);
-    // }, [location])
 
-    // { value: course.name, label: course.name, pubId: course.pubId }
     const path = window.location.pathname;
     const teachersList = teachers.map((teacher) => (
-        <Teacher name={teacher.name} selectedTeacherOnChange={selectedTeacherOnChange} />
+        <Teacher name={teacher.name} pubId={teacher.pubId} reviews={teacher.reviews} numberOfVideos={teacher.numberOfVideos} selectedTeacherOnChange={selectedTeacherOnChange} />
     ));
     teachersList.push(teachers.map((teacher) => (
         <Teacher name={teacher.name} selectedTeacherOnChange={selectedTeacherOnChange} />
@@ -63,10 +57,8 @@ const ChooseYourTeacher = (props) => {
                     <div className={classes['profiles-pictures-container']}>{teachersList}</div>
                 </div>
                 <div className={classes['info-container']}>
-                    <p>First name: Frih</p>
-                    <p>Last name: Mokhtar</p>
-                    <p>Rating: 10%</p>
-                    <p>Number of videos: 10</p>
+                    <p>First name: {`${selectedTeacher.name}`}</p>
+                    <p>Number of videos: {`${selectedTeacher.numberOfVideos}`}</p>
                 </div>
             </div>
             <div className={classes['reviews-container']}>

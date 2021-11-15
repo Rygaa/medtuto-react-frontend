@@ -4,7 +4,7 @@ import classes from '../assets/5-components/Model.module.scss'
 import {url} from "_globalVar/_ip"
 
 const Model = (props) => {
-    const image = `${url}/models/small/${props.pubId}`;
+    const image = `${url}/models/${props.pubId}`;
     return (
         <div className={classes['model']}>
             <div style={{ backgroundImage: `url(${image})`}}></div>

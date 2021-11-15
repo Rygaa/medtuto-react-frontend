@@ -7,7 +7,21 @@
     background-color: rgba(#12262B, 30%);
     height: 80%;
     display: grid;
-    grid-template-rows: 1fr 1fr min-content;
+    grid-template-rows: min-content 1fr 1fr min-content;
+    
+    > label {
+        margin-top: 5%;
+        // justify-self: center;
+        margin-left: 2rem;
+        > img {
+            width: 5rem;
+            height: 5rem;
+
+        }
+        > input {
+            display: none;
+        }
+    }
 }
 
 .public-container {
@@ -24,6 +38,7 @@
         margin: 0 2rem;
         margin-top: 1.3rem;
     }
+
 
 
 }

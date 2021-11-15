@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+    pubId: '',
     username: '',
     idToken: '',
     isConnected: null,
@@ -12,6 +13,9 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
+        setPubId: (state, { payload: pubId }) => {
+            state.pubId = pubId;
+        },
         setUsername: (state, { payload: username }) => {
             state.username = username;
         },

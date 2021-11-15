@@ -83,6 +83,7 @@ export const requestTeachers = ({ idToken }) => {
             console.error(data.error)
             return;
         }
+        console.log(data);
         dispatch(modelsActions.setTeachers(data.teachers))
     }
 }

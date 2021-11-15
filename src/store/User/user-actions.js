@@ -39,6 +39,7 @@ export const login = ({ username, password, email, history }) => {
         toast.success(data.message)
 
         dispatch(userActions.setUsername(data.username));
+        dispatch(userActions.setPubId(data.pubId));
         dispatch(userActions.setIsConnected(true));
         dispatch(userActions.setIdToken(data.idToken));
         dispatch(userActions.setEmail(data.email));
@@ -70,6 +71,7 @@ export const checkIdToken = ({ idToken }) => {
         console.log(data);
         const username = data.username
         dispatch(userActions.setUsername(username));
+        dispatch(userActions.setPubId(data.pubId));
         dispatch(userActions.setIsConnected(true));
         dispatch(userActions.setEmail(data.email));
         dispatch(userActions.setIsTeacher(data.isTeacher));
@@ -98,4 +100,24 @@ export const requestMyAccount = ({ idToken }) => {
 
     }
 }
+
+
+
+export const updateMyAccountProfile = ({ idToken, newProfilePicture }) => {
+    return async (dispatch) => {
+        const formData = new FormData();
+        formData.append("idToken", idToken);
+        formData.append("files", newProfilePicture);
+        const response = await axios.post(url + `/update-my-account-picture`, formData)
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        console.log(data);
+    }
+
+}
+
 

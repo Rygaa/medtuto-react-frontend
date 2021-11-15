@@ -14,7 +14,7 @@ const Course = (props) => {
                 <img src={img}/>
             </div>
             <div>
-                <p>Introduction a la celule</p>
+                <p>{props.name}</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re
                     ugue ac enim pulv quis </p>
                 <NavLink to={`/courses/${props.pubId}/`} className={classes['nav-link']}>{`Learn more`}</NavLink>
