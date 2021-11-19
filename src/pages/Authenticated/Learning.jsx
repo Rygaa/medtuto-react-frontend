@@ -6,7 +6,7 @@ import Select from 'react-select'
 import Model from "../../components/Model"
 import Course from "../../components/Course"
 import classes from "../../assets/6-pages/Learning.module.scss"
-import { requestLearning } from '../../store/Joho/models-actions'
+import { addReview, requestLearning } from '../../store/Joho/models-actions'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import classnames from 'classnames';
 
@@ -18,6 +18,7 @@ const Learning = (props) => {
     const files = useSelector((state) => state.models.files);
     const [videoDisplayedNumber, setVideoDisplayedNumber] = useState(0)
     const [switched, setSwitched] = useState(false)
+    const [review, setReview] = useState('')
 
     useEffect(() => {
         dispatch(requestLearning({ idToken }))
@@ -57,6 +58,14 @@ const Learning = (props) => {
         setSwitched(!switched)
     }
 
+    const addReviewOnClick = () => {
+        dispatch(addReview({idToken, review}))
+    }
+
+    const reviewOnChange = (e) => {
+        setReview(e.target.value)
+    }
+
     return (
         <section className={classes['learning']}>
             <p>Introduction a la molecule</p>
@@ -74,6 +83,7 @@ const Learning = (props) => {
                 <TabList className={classes['tabList']}>
                     <Tab className={classes['tab-links']}>Links</Tab>
                     <Tab className={classes['tab-files']}>Files</Tab>
+                    <Tab className={classes['tab-files']}>Add review</Tab>
                 </TabList>
 
                 <TabPanel className={classes['tabPanel']}>
@@ -81,6 +91,10 @@ const Learning = (props) => {
                 </TabPanel>
                 <TabPanel className={classes['tabPanel']}>
                     {filesList}
+                </TabPanel>
+                <TabPanel className={classes['tabPanel']}>
+                    <textarea value={review} onChange={reviewOnChange}></textarea>
+                    <button onClick={addReviewOnClick}>Add review</button>
                 </TabPanel>
             </Tabs>
             <button className={classes['switch-button']} onClick={switchOnClick}>switch</button>

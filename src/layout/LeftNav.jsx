@@ -19,10 +19,9 @@ const LeftNav = (props) => {
 
     return (
         <nav className={props.dropdown ? classes['left-nav-dropdown'] : classes['left-nav']}>
-            <NavLink to={'/home'} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Home</NavLink>
-            <NavLink to={'/models'} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Learning</NavLink>
-            <NavLink to={'/about-us'} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>About us</NavLink>
-            <NavLink to={'/contact'} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Contact</NavLink>
+            <NavLink to={'/home'} activeClassName={!dropdownOpen ? classes['nav-link-active'] : null} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Home</NavLink>
+            <NavLink to={'/models'} activeClassName={!dropdownOpen ? classes['nav-link-active'] : null} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Learning</NavLink>
+            <NavLink to={'/about-us'} activeClassName={!dropdownOpen ? classes['nav-link-active'] : null} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>About us</NavLink>
         </nav> 
     )
 }

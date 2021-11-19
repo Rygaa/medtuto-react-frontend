@@ -4,7 +4,7 @@ $heighttt: calc(100%);
     height: 100%;
     max-height: 100%;
     display: grid;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 2fr 3fr;
     max-height: 90vh;
 }
 
@@ -70,6 +70,8 @@ $heighttt: calc(100%);
     display: grid;
     grid-column: auto;
     grid-template-columns: auto-fill;
+    grid-template-rows: repeat(auto-fit, (minmax(20rem, 1fr)));
+
     grid-auto-flow: column;
     overflow-x: scroll;
     max-height: $heighttt;
@@ -81,14 +83,14 @@ $heighttt: calc(100%);
     // width: 0;  /* Remove scrollbar space */
     // background: transparent;  /* Optional: just make scrollbar invisible */
     color: white;
-    // background-color: $color2;
+    background-color: $color2;
     width: 1.5rem;
 
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: $color1;
-    width: 50px;
+
 }
 
 
@@ -103,12 +105,15 @@ $heighttt: calc(100%);
     .models > div:nth-child(2) {
         grid-column: unset;
         grid-auto-flow: unset;
-        overflow-x: scroll;
 
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        overflow-y: scroll;
+        overflow-y: auto;
+        overflow-x: hidden;
         overscroll-behavior-y: contain;
+        grid-template-rows: repeat(auto-fit, (minmax(30rem, 1fr)));
+        grid-template-columns: repeat(auto-fit, (minmax(20rem, 1fr)));
+
         max-height: $heighttt;
         grid-column-gap: 1.5rem;
         margin-left: 2rem;
@@ -117,22 +122,11 @@ $heighttt: calc(100%);
 }
 
 @media (max-width: 1050px){
-    .models > div:nth-child(2) {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        overflow-y: scroll;
-        max-height: $heighttt;
-    }
+
 }
 
 @media (max-width: 755px){
-    .models > div:nth-child(2) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        max-height: $heighttt;
-    }
+
     .models > div:nth-child(1) {
     }
 }

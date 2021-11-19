@@ -16,6 +16,7 @@ import { useEffect } from 'react';
 import { checkIdToken } from './store/User/user-actions'
 import { userActions } from './store/User/user-slice'
 import MyAccount from './pages/Authenticated/MyAccount';
+import ToNameSection from 'pages/Authenticated/ToNameSection';
 
 
 function App() {
@@ -58,13 +59,19 @@ function App() {
           <Models></Models>
         </Route>
         <Route path="/models/:modelName" exact>
-          <Courses></Courses>
+          <ToNameSection>
+            <Courses></Courses>
+            <ChooseYourTeacher></ChooseYourTeacher>
+          </ToNameSection>
         </Route>
-        <Route path="/courses/:courseName/:teacherName" exact>
+        <Route path="/models/:modelName/:courseName/:teacherName" exact>
           <Learning></Learning>
         </Route>
-        <Route path="/courses/:courseName" exact>
-          <ChooseYourTeacher></ChooseYourTeacher>
+        <Route path="/models/:modelName/:courseName" exact>
+          <ToNameSection>
+            <Courses></Courses>
+            <ChooseYourTeacher></ChooseYourTeacher>
+          </ToNameSection>
         </Route>
         <Route path="/tutor-panel" exact>
           <TeacherDashboard></TeacherDashboard>

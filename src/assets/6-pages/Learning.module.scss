@@ -29,6 +29,8 @@
         height: 90%;
         border: none;
         border-radius: 5px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
     }
     > div {
         display: flex;
@@ -89,7 +91,7 @@
 }
 .tabList {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     margin: 0;
     padding: 0;
 }

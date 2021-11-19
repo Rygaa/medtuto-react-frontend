@@ -2,11 +2,12 @@
 
 
 .courses-section {
-    height: 100%;
+    margin-top: 2rem;
     display: grid;
     grid-template-rows: min-content auto;
     margin-right: 5rem;
     margin-left: 5rem;
+    margin-bottom: 2rem;
     > p {
         @include title-font();
         color: $font-color1;
@@ -20,9 +21,32 @@
     margin-top: 2rem;
     display: grid;
     grid-auto-flow: row;
-    grid-template-columns: repeat(auto-fill, (minmax(25rem, 1fr)));
+    grid-template-columns: repeat(auto-fit, (minmax(20rem, 1fr)));
     // grid-template-columns: 1fr 1fr;
-    overflow-y: scroll;
+    overflow-y: auto;
     grid-row-gap: 1.25rem;
     grid-column-gap: 1.25rem;
+}
+
+
+@media (max-width: 700px) {
+    .courses-section {
+        margin-top: 0rem;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .courses-container {
+        margin-top: 2rem;
+        display: grid;
+        grid-auto-flow: column;
+        // grid-template-rows: repeat(auto-fill, (minmax(min-content, 1fr)));
+        overflow-y: hidden;
+        overflow-x: auto;
+        grid-row-gap: 1.25rem;
+        grid-column-gap: 1.25rem;
+    }
+
+    
+
 }

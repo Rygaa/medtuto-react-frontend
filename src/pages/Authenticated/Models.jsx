@@ -21,6 +21,7 @@ const Models = (props) => {
     const [selectedYear, setSelectedYear] = useState('')
     const facultiesRef = useRef();
     const yearsRef = useRef();
+    const modelsRef = useRef();
     const facultiesSelectOnChange = (e) => {
         setSelectedFaculty(e.value)
         console.log(e.target.value);
@@ -77,7 +78,7 @@ const Models = (props) => {
                     <select ref={yearsRef} className={classes.year} onChange={yearsSelectOnChange}>{yearsList}</select>
                 </form>
             </div>
-            <div>
+            <div ref={modelsRef}>
                         {modelsList}
             </div>
         </section>

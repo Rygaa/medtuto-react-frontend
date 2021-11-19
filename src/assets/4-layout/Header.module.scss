@@ -12,10 +12,14 @@ body {
 
 
 .header .nav-link {
-    width: 2.75rem;
-    height: 2.938rem;
+    > img {
+        width: 2.75rem;
+        height: 2.938rem;
+    }
+
     margin-top: 1rem;
     margin-left: .8rem;
+    margin-right: 1.5rem;
 }
 
 

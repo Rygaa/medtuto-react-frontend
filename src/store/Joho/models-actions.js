@@ -6,7 +6,26 @@ import { useHistory } from "react-router"
 import { modelsActions } from "./joho-slice"
 import { url } from "../../_globalVar/_ip"
 
-export const addLink = ({ idToken, username, coursePubId, links, videos, files }) => {
+export const addReview = ({ idToken, review }) => {
+    return async (dispatch) => {
+        const link = decodeURI(window.location.pathname).split('/');
+        const teacherPubId = link[4];
+        const response = await axios.post(url + `/add-review`, {
+            idToken,
+            teacherPubId,
+            review,
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+
+    }
+}
+
+export const addLink = ({ idToken, teacher, username, coursePubId, links, videos, files }) => {
     return async (dispatch) => {
         console.log('addLink');
         const response = await axios.post(url + `/add-link`, {
@@ -22,7 +41,7 @@ export const addLink = ({ idToken, username, coursePubId, links, videos, files }
             console.error(data.error)
             return;
         }
-
+        requestLearning2({idToken, teacher, course: coursePubId})
     }
 }
 
@@ -71,7 +90,7 @@ export const requestModels = ({ idToken, yearPubId }) => {
 export const requestTeachers = ({ idToken }) => {
     return async (dispatch) => {
         const link = decodeURI(window.location.pathname).split('/');
-        const course = link[2];
+        const course = link[3];
 
         const response = await axios.post(url + `/teachers`, {
             idToken,
@@ -94,9 +113,30 @@ export const requestLearning = ({ idToken }) => {
         console.log('requestLearning');
 
         const link = decodeURI(window.location.pathname).split('/');
-        const course = link[2];
-        const teacher = link[3];
+        const course = link[3];
+        const teacher = link[4];
         console.log(link);
+
+        const response = await axios.post(url + `/learning`, {
+            idToken,
+            course,
+            teacher
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        console.log(data);
+        dispatch(modelsActions.setVideos(data.videos))
+        dispatch(modelsActions.setLinks(data.links))
+        dispatch(modelsActions.setFiles(data.files))
+    }
+}
+
+export const requestLearning2 = ({ idToken, course, teacher }) => {
+    return async (dispatch) => {
 
         const response = await axios.post(url + `/learning`, {
             idToken,

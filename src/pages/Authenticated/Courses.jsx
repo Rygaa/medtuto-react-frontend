@@ -10,6 +10,7 @@ import { requestCourses } from "../../store/proxy"
 import { requestTeachers } from '../../store/Joho/models-actions'
 import ChooseYourTeacher from "./ChooseYourTeacher";
 import Teacher from "../../components/Teacher";
+import { useRef } from "react";
 
 const Courses = (props) => {
     const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const Courses = (props) => {
     const modelPubId = location.pathname.split('/')[2];
     const image = `http://192.168.1.4:3005/models/big/${modelPubId}`;
     const [showReviews, setShowReviews] = useState(false);
-
+    const myRef = useRef();
 
     const teachers = useSelector((state) => state.models.teachers);
     const [selectedTeacher, setSelectedTeacher] = useState('');
@@ -31,6 +32,11 @@ const Courses = (props) => {
         setSelectedTeacher(teacher)
     }
 
+    useEffect(() => {
+        const course = myRef.current.children[0]
+        console.log(course);
+    }, [courses])
+
 
     // { value: course.name, label: course.name, pubId: course.pubId }
     const path = window.location.pathname;
@@ -40,28 +46,21 @@ const Courses = (props) => {
 
 
 
-
-
-    useEffect(() => {
-        dispatch(requestCourses({ idToken }))
-    }, [])
-
     // { value: course.name, label: course.name, pubId: course.pubId }
     
     const coursesList = courses.map((course) => (
-        <Course key={Math.random()} name={course.name} pubId={course.pubId}></Course>
+        <Course key={Math.random()} name={course.name} pubId={course.pubId} index={course.index}></Course>
     ));
 
     const showReviewsOnClick = (e) => {
         setShowReviews(!showReviews);
     }
 
-    console.log(location);
 
     return (
         <section className={classes['courses-section']}>
             <p>Select one of this courses</p>
-            <div className={classes['courses-container']}>{coursesList}</div>
+            <div className={classes['courses-container']} ref={myRef}>{coursesList}</div>
         </section>
     );
 }

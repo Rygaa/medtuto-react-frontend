@@ -7,9 +7,14 @@ import { useEffect, useState } from "react"
 import { url } from "_globalVar/_ip"
 
 const Teacher = (props) => {
-    const selectedTeacherOnChange = (e) => {
+    const selectedTeacherOnChange = () => {
         props.selectedTeacherOnChange(props)
     }
+    useEffect(() => {
+        if (props.selected) {
+            selectedTeacherOnChange();
+        }
+    }, [])
     // <p>{props.name}</p>
     const image = props.pubId ? `${url}/account/${props.pubId}` : unfound;
 

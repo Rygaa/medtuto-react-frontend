@@ -3,18 +3,17 @@
 
 .course {
     display: grid;
-    grid-template-columns: 2fr 6fr;
-    min-width: 19rem;
-    min-height: 16rem;
-    max-height: 18rem;
-    // min-height: 12.5rem;
+    grid-template-columns: 1fr;
+    // min-width: 20rem;
+    // max-height: 18rem;
+    // min-width: 25rem;
+    // max-width: 26rem;
+    min-height: 12rem;
+    min-width: 20rem;
     background-color: $color5;
+    justify-items: center;
 }
-// @media (max-width: 950px) {
-//     .course {
-//         grid-column: span 2;
-//     }
-// }
+
 .nav-link {
     color: $font-color1;
     text-decoration: none;
@@ -24,7 +23,11 @@
     font-size: 0.875rem;
     margin: 0;
     padding: 0;
-
+    justify-self: flex-end;
+    align-self: flex-end;
+    color: $font-color3;
+    // background-color: $color2;
+    // padding: .5rem 1rem;
 }
 
 .course > div:nth-child(1) {
@@ -45,11 +48,15 @@
 }
 
 
-.course > div:nth-child(2) {
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+.course > div:nth-child(1) {
+    display: grid;
+    grid-template-rows: min-content min-content 1fr;
+    // margin-right: 10%;
+    // margin-left: 10%;
+    // margin-top: 10%;
+    // margin-bottom: 10%;
+    height: 80%;
+    width: 80%;
     > p:nth-child(1) {
         color: $font-color1;
         font-family: Raleway;
@@ -69,9 +76,7 @@
         font-size: 0.875rem;
         margin: 0;
         padding: 0;
-        margin-right: 20%;
         margin-top: 1rem;
-        margin-bottom: 2rem;
-
     }
+
 }

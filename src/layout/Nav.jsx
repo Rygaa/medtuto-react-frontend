@@ -50,7 +50,7 @@ const Nav = (props) => {
 
     useEffect(() => {
         window.addEventListener('resize', () => {
-            if (window.innerWidth < 700) {
+            if (window.innerWidth < 750) {
                 setNavDisplay(false);
                 console.log('small');
             } else {

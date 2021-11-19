@@ -22,7 +22,6 @@ const ChooseYourTeacher = (props) => {
     }, [])
 
     const selectedTeacherOnChange = (teacher) => {
-        console.log('teacher:', teacher);
         setSelectedTeacher(teacher)
     }
 
@@ -31,17 +30,25 @@ const ChooseYourTeacher = (props) => {
 
     }, [selectedTeacher])
 
+    useEffect(() => {
+        dispatch(requestTeachers({ idToken }))
+    }, [location])
 
-    const path = window.location.pathname;
+    const path = location.pathname;
     const teachersList = teachers.map((teacher) => (
-        <Teacher name={teacher.name} pubId={teacher.pubId} reviews={teacher.reviews} numberOfVideos={teacher.numberOfVideos} selectedTeacherOnChange={selectedTeacherOnChange} />
+        <Teacher name={teacher.name} pubId={teacher.pubId} reviews={teacher.reviews} numberOfVideos={teacher.numberOfVideos} selectedTeacherOnChange={selectedTeacherOnChange} selected={true} />
     ));
+
     teachersList.push(teachers.map((teacher) => (
         <Teacher name={teacher.name} selectedTeacherOnChange={selectedTeacherOnChange} />
     )));
     teachersList.push(teachers.map((teacher) => (
         <Teacher name={teacher.name} selectedTeacherOnChange={selectedTeacherOnChange} />
     )));
+
+    const reviews = selectedTeacher.reviews ? selectedTeacher.reviews.map((review) => (
+        <p>{review}</p>
+    )) : <p>No review. you can add a review in the learning page</p>
 
     // <div className={classes['teachers-container']}>{teachersList}</div>
     // <div className={classes['teacher-info-container']}>
@@ -64,35 +71,10 @@ const ChooseYourTeacher = (props) => {
             <div className={classes['reviews-container']}>
                 <p>Reviews: </p>
                 <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis reorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re</p>
+                    {reviews}
                 </div>
             </div>
-            <NavLink className={classes['nav-link']} to={`${path}${selectedTeacher}`}>Choose</NavLink>
+            <NavLink className={classes['nav-link']} to={`${path}${selectedTeacher.pubId}`}>Choose</NavLink>
             
         </section>
     );
