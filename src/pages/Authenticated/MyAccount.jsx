@@ -1,15 +1,6 @@
-// import classes from './Header.module.scss'
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useParams, useLocation } from "react-router-dom"
-import Select from 'react-select'
-import Model from "../../components/Model"
-import Course from "../../components/Course"
-import carta from "../../img/carta.png"
-import carta1 from "../../img/carta1.png"
-// import classes from "./Courses.module.scss"
 import classes from "assets/6-pages/MyAccount.module.scss"
-import { requestCourses, updateMyAccountProfile } from '../../store/User/user-actions'
+import { updateMyAccountProfile } from '../../store/User/user-actions'
 import Input from "components/Input"
 import { useRef } from "react";
 import { url } from "_globalVar/_ip"
@@ -32,13 +23,13 @@ const MyAccount = (props) => {
     return (
         <section className={classes['my-account']}>
             <label for="upload">
-                <img src={image} />
-                <input type="file" id="upload" type="file" ref={imgInputRef} onChange={imageOnChange}></input>
+                <img src={image} alt={'upload'}/>
+                <input type="file" id="upload" ref={imgInputRef} onChange={imageOnChange} />
             </label>
             <div className={classes['public-container']}>
                 <p>Public</p>
                 <Input txt={username} />
-                <Input txt={isTeacher == "true" ? "Teacher" : "Student"} />
+                <Input txt={isTeacher === "true" ? "Teacher" : "Student"} />
             </div>
             <div className={classes['private-container']}>
                 <p>Private</p>

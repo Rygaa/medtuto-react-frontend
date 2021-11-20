@@ -9,14 +9,13 @@ import img from "../../img/email.png"
 
 import { styled } from '@stitches/react';
 import { CheckIcon } from '@radix-ui/react-icons';
-import { violet, blackA } from '@radix-ui/colors';
+import { blackA } from '@radix-ui/colors';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import { ToastContainer, toast } from 'react-toastify';
 const Login = (props) => {
     const dispatch = useDispatch();
 
     // const [rememberMe, setRememberMe] = useState();
-    const rememberMe = localStorage.getItem('remember-me') == 'true' ? true : false
+    const rememberMe = localStorage.getItem('remember-me') === 'true' ? true : false
     const savedUsername = localStorage.getItem('username')
     const savedPassword = localStorage.getItem('password')
     const [username, setUsername] = useState(savedUsername);
@@ -59,14 +58,7 @@ const Login = (props) => {
     const Checkbox = StyledCheckbox;
     const CheckboxIndicator = StyledIndicator;
 
-    // Your app...
-    const Flex = styled('div', { display: 'flex' });
-    const Label = styled('label', {
-        color: 'white',
-        fontSize: 15,
-        lineHeight: 1,
-        userSelect: 'none',
-    });
+
     const testtt = (e) => {
         console.log(rememberMe);
         localStorage.setItem('remember-me', e)
@@ -79,11 +71,11 @@ const Login = (props) => {
             <form onSubmit={formOnSubmit}>
                 <p>Login</p>
                 <div className={classes['div-input-container']}>
-                    <img src={img}/>
-                    <input placeholder='username' value={username} onChange={usernameOnChange} />
+                    <img src={img} alt={'username'}/>
+                    <input placeholder='username' value={username} onChange={usernameOnChange} type="text" spellcheck="false"/>
                 </div>
                 <div className={classes['div-input-container']}>
-                    <img src={img}/>
+                    <img src={img} alt={'password'}/>
                     <input placeholder='password' value={password} type="password" onChange={passwordOnChange} />
                 </div>
             

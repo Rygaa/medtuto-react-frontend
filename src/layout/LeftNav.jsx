@@ -6,7 +6,7 @@ import classes from '../assets/4-layout/LeftNav.module.scss'
 
 
 const LeftNav = (props) => {
-    const [NavDropdown, setNavDropDown] = useState(false);
+    const [, setNavDropDown] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     useEffect(() => {
@@ -15,7 +15,7 @@ const LeftNav = (props) => {
         if (props.dropdown && props.open) 
             setDropdownOpen(true);
         
-    }, [])
+    }, [props.dropdown, props.open])
 
     return (
         <nav className={props.dropdown ? classes['left-nav-dropdown'] : classes['left-nav']}>

@@ -36,15 +36,15 @@ const SignUp = (props) => {
             <form onSubmit={formOnSubmit}>
                 <p>Sign up</p>
                 <div className={classes['div-input-container']}>
-                    <img src={img}/>
-                    <input placeholder='username' value={username} onChange={usernameOnChange}/>
+                    <img src={img} alt={'username'}/>
+                    <input placeholder='username' value={username} onChange={usernameOnChange} type="text" spellcheck="false" />
                 </div>
                 <div className={classes['div-input-container']}>
-                    <img src={img} />
-                    <input placeholder='email' value={email} onChange={emailOnChange}/>
+                    <img src={img} alt={'email'}/>
+                    <input placeholder='email' value={email} onChange={emailOnChange} type="text" spellcheck="false" />
                 </div>
                 <div className={classes['div-input-container']}>
-                    <img src={img} />
+                    <img src={img} alt={'password'} />
                     <input placeholder='password' value={password} type="password" onChange={passwordOnChange}/>
                 </div>
                 <button>Submit</button>

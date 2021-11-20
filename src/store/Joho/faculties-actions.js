@@ -1,8 +1,4 @@
 import axios from "axios"
-import { useDispatch, useSelector } from "react-redux"
-import { userActions } from "../User/user-slice"
-import { socket } from '../../App'
-import { useHistory } from "react-router"
 import { modelsActions } from "./joho-slice"
 import { url } from "../../_globalVar/_ip"
 

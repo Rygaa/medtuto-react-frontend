@@ -1,24 +1,16 @@
 // import classes from './Header.module.scss'
 import { NavLink } from "react-router-dom"
-import NavLinkButton from '../components/NavLinkButton';
 import classes from '../assets/4-layout/RightNav.module.scss'
-import classNames from 'classnames/bind';
-import signupIMG from '../img/sign up.png'
-import aboutusIMG from '../img/about us.png'
-import loginIMG from '../img/login.png'
-import logo from '../img/logo.png'
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router"
 
 import { useState } from "react";
-import { useRef } from "react";
 import { useEffect } from "react";
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { userActions } from "store/User/user-slice";
 const RightNav = (props) => {
     const dispatch = useDispatch();
     const isConnected = useSelector((state) => state.user.isConnected)
-    const [NavDropdown, setNavDropDown] = useState(false);
+    const [,setNavDropDown] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const history = useHistory();
 
@@ -28,7 +20,7 @@ const RightNav = (props) => {
         if (props.dropdown && props.open)
             setDropdownOpen(true);
 
-    }, [])
+    }, [props.dropdown, props.open])
 
     const disconnectOnClick = (e) => {
         localStorage.setItem('idToken', null);

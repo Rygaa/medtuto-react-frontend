@@ -4,7 +4,7 @@ import image from "img/email.png"
 const Input = (props) => {
     return (
         <div className={classes['Input']}>
-            <img src={image}/>
+            <img src={image} alt={'input'}/>
             <div />
             <input value={props.txt} />
         </div>

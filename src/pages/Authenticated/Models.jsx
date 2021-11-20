@@ -1,8 +1,6 @@
 // import classes from './Header.module.scss'
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom"
-import Select from 'react-select'
 import Model from "../../components/Model"
 import { requestModels } from '../../store/Joho/models-actions'
 import { requestFaculties } from '../../store/proxy'
@@ -35,15 +33,15 @@ const Models = (props) => {
     
     useEffect(() => {
         dispatch(requestFaculties({ idToken }))
-    }, [])
+    }, [dispatch, idToken])
 
     useEffect(() => {
         dispatch(requestYears({ idToken, facultyPubId: facultiesRef.current.value }))
-    }, [faculties])
+    }, [dispatch, idToken, faculties])
 
     useEffect(() => {
         dispatch(requestModels({ idToken, yearPubId: yearsRef.current.value }))
-    }, [years])
+    }, [dispatch, idToken, years])
 
     const facultiesList = []
     facultiesList.push(faculties.map((faculty) => (

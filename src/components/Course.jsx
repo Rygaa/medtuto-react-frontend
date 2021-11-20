@@ -1,26 +1,23 @@
 // import classes from './NavLinkButton.module.scss'
 import { NavLink } from "react-router-dom"
-import NavLinkButton from './NavLinkButton'
 import classes from '../assets/5-components/Course.module.scss'
-import img from '../img/image 2.png'
 import { useEffect } from "react"
 import { useRef } from "react"
-import { useState } from "react"
 
 const Course = (props) => {
-    const [oldLink, setOldLink] = useState(decodeURI(window.location.pathname))
     const modelId = decodeURI(window.location.pathname).split('/')[2];
     const link = decodeURI(window.location.pathname);
     const myRef = useRef();
 
     useEffect(() => {
         select();
-    }, [])
+    }) // to check
     // <p>{props.name}</p> 
+
     const select = () => {
-        if (props.index == 1) {
+        if (props.index === 1) {
             // myRef.current.click();
-            if (decodeURI(link).split('/').length == 3) {
+            if (decodeURI(link).split('/').length === 3) {
                 myRef.current.click();
             }
         }

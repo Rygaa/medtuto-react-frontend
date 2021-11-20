@@ -14,7 +14,7 @@ const Dashboard = (props) => {
                 </p>
             </div>
             <NavLink className={classes.navLink} to={'/models'}>Start Learning</NavLink>
-            <img src={image01}/>
+            <img src={image01} alt={'start learning'}/>
      
        </section>
     );

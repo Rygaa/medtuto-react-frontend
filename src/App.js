@@ -1,9 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
-import Header from './layout/Header';
 import Layout from './layout/Layout';
 import Dashboard from './pages/notAuthenticated/Dashboard';
-import { Route, Router, Switch } from 'react-router';
+import { Route, Switch } from 'react-router';
 import SignUp from './pages/notAuthenticated/SignUp';
 import Login from './pages/notAuthenticated/Login';
 import Models from './pages/Authenticated/Models';
@@ -24,14 +22,14 @@ function App() {
   const idToken = localStorage.getItem('idToken');
   const dispatch = useDispatch();
   useEffect(() => {
-    if (idToken && idToken != 'null') {
+    if (idToken && idToken !== 'null') {
       dispatch(userActions.setIdToken(idToken));
       dispatch(checkIdToken({ idToken }))
     } else {
       dispatch(userActions.setIsConnected(false));
     }
     console.log(process.cwd());
-  }, [])
+  }, [dispatch, idToken])
   return (
     <Layout>
       <Switch>

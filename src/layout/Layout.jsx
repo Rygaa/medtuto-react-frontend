@@ -1,8 +1,6 @@
-// import classes from './Header.module.scss'
-import { NavLink } from "react-router-dom"
 import Header from "./Header";
 import classes from '../assets/4-layout/Layout.module.scss'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Layout = (props) => {

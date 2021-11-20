@@ -2,11 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
-import { signUp } from '../../store/User/user-actions'
-import { userActions } from "../../store/User/user-slice";
-import Select from 'react-select'
-import { createNewYear, teachForCourse, addLink, createNewModel, removeCourse, requestModels, createNewCourse, requestLearning, requestLearning2 } from '../../store/Joho/models-actions'
+import { teachForCourse, addLink, requestModels, requestLearning2 } from '../../store/Joho/models-actions'
 import {requestCourses2 } from "../../store/proxy"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
@@ -22,30 +18,26 @@ const TeacherDashboard = (props) => {
     const username = useSelector((state) => state.user.username);
     useEffect(() => {
         dispatch(requestFaculties({idToken}))
-    }, [])
+    }, [dispatch, idToken])
     const subscribeOnClick = (e) => {
         dispatch(teachForCourse({ teacher: pubId, idToken, username, coursePubId: selectedCourse }))
     }
 
-    useEffect(() => {
-    }, [])
 
     const faculties = useSelector((state) => state.models.faculties);
     const years = useSelector((state) => state.models.years);
     const models = useSelector((state) => state.models.models);
     const courses = useSelector((state) => state.models.courses);
 
-    const [selectedFaculty, setSelectedFaculty] = useState('')
-    const [selectedYear, setSelectedYear] = useState('')
-    const [selectedModel, setSelectedModel] = useState('')
+    const [, setSelectedFaculty] = useState('')
+    const [, setSelectedYear] = useState('')
+    const [, setSelectedModel] = useState('')
     const [selectedCourse, setSelectedCourse] = useState('')
 
     const videos = useSelector((state) => state.models.videos);
     const links = useSelector((state) => state.models.links);
     const files = useSelector((state) => state.models.files);
-    // const [link, setLink] = useState('')
-    // const [video, setVideo] = useState('')
-    // const [file, setFile] = useState('')
+
 
 
     
@@ -113,10 +105,6 @@ const TeacherDashboard = (props) => {
 
     const addLinkOnClick = (e) => {
         dispatch(addLink({ idToken, username, coursePubId: selectedCourse, links: links, videos: videos, files: files}))
-    }
-    const addFileOnClick = (e) => {
-    }
-    const addVideoOnClick = (e) => {
     }
 
     

@@ -1,10 +1,6 @@
 // import classes from './Header.module.scss'
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom"
-import Select from 'react-select'
-import Model from "../../components/Model"
-import Course from "../../components/Course"
 import classes from "../../assets/6-pages/Learning.module.scss"
 import { addReview, requestLearning } from '../../store/Joho/models-actions'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -17,36 +13,31 @@ const Learning = (props) => {
     const links = useSelector((state) => state.models.links);
     const files = useSelector((state) => state.models.files);
     const [videoDisplayedNumber, setVideoDisplayedNumber] = useState(0)
+    const [videoDisplayed, setVideoDisplayed] = useState(`https://www.youtube.com/embed/${videos[videoDisplayedNumber]}`)
     const [switched, setSwitched] = useState(false)
     const [review, setReview] = useState('')
 
     useEffect(() => {
         dispatch(requestLearning({ idToken }))
-    }, [])
+    }, [dispatch, idToken])
 
     const previous = (e) => {
-        if (videoDisplayedNumber != 0) {
+        if (videoDisplayedNumber !== 0) {
             setVideoDisplayedNumber(videoDisplayedNumber - 1);
 
         }
     }
 
     const next = (e) => {
-        if (videoDisplayedNumber != videos.length - 1) {
+        if (videoDisplayedNumber !== videos.length - 1) {
             setVideoDisplayedNumber(videoDisplayedNumber + 1);
         }
     }
 
 
-    let videoDisplayed = (<iframe src={`https://www.youtube.com/embed/${videos[videoDisplayedNumber]}`}></iframe>)
     useEffect(() => {
-        videoDisplayed = (<iframe 
-        src={`https://www.youtube.com/embed/${videos[videoDisplayedNumber]}`}
-            frameborder="2" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"
-
-        
-        ></iframe>)
-    }, [videoDisplayedNumber])
+        setVideoDisplayed(`https://www.youtube.com/embed/${videos[videoDisplayedNumber]}`)
+    }, [videos, videoDisplayedNumber])
     const linksList = links.map((link) => (
         <p>{link}</p>
     ));
@@ -66,12 +57,16 @@ const Learning = (props) => {
         setReview(e.target.value)
     }
 
+    const video = <iframe 
+        src={videoDisplayed}
+        title={'video'}
+    ></iframe>
     return (
         <section className={classes['learning']}>
             <p>Introduction a la molecule</p>
             <div className={classnames(classes['videos-container'], (switched ? classes['switch-effect-on'] : classes['switch-effect-off']))}>
                 
-            {videoDisplayed}
+                {video}
                 <div>
                     <button onClick={previous}>Previous</button>
                     <button onClick={next}>Next</button>

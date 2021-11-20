@@ -1,10 +1,7 @@
 import axios from "axios"
-import { useDispatch, useSelector } from "react-redux"
 import { userActions } from "./user-slice"
-import { socket } from '../../App'
-import { useHistory } from "react-router"
 import { url } from "../../_globalVar/_ip"
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export const signUp = ({ username, password, email, history }) => {
     return async (dispatch) => {
@@ -44,7 +41,7 @@ export const login = ({ username, password, email, history }) => {
         dispatch(userActions.setIdToken(data.idToken));
         dispatch(userActions.setEmail(data.email));
         dispatch(userActions.setIsTeacher(data.isTeacher));
-        const rememberMe = localStorage.getItem('remember-me') == 'true' ? true : false
+        const rememberMe = localStorage.getItem('remember-me') === 'true' ? true : false
         if (rememberMe) {
             localStorage.setItem('username', username)
             localStorage.setItem('password', password)
@@ -94,9 +91,6 @@ export const requestMyAccount = ({ idToken }) => {
             return;
         }
         console.log(data);
-        const username = data.username
-  
-
 
     }
 }

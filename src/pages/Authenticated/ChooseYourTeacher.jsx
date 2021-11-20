@@ -1,15 +1,9 @@
-// import classes from './Header.module.scss'
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Select from 'react-select'
-import Model from "../../components/Model"
-import Course from "../../components/Course"
-import NavLinkButton from "../../components/NavLinkButton";
-import ppIMG from "../../img/pp.png"
 import classes from "../../assets/6-pages/ChooseYourTeacher.module.scss"
 import { requestTeachers } from '../../store/Joho/models-actions'
 import Teacher from "../../components/Teacher";
-import { NavLink, useParams, useLocation } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
 
 const ChooseYourTeacher = (props) => {
     const dispatch = useDispatch();
@@ -19,7 +13,7 @@ const ChooseYourTeacher = (props) => {
     const location = useLocation();
     useEffect(() => {
         dispatch(requestTeachers({ idToken }))
-    }, [])
+    }, [dispatch, idToken])
 
     const selectedTeacherOnChange = (teacher) => {
         setSelectedTeacher(teacher)
@@ -28,11 +22,11 @@ const ChooseYourTeacher = (props) => {
     useEffect(() => {
         dispatch(requestTeachers({ idToken }))
 
-    }, [selectedTeacher])
+    }, [selectedTeacher, dispatch, idToken])
 
     useEffect(() => {
         dispatch(requestTeachers({ idToken }))
-    }, [location])
+    }, [location, dispatch, idToken])
 
     const path = location.pathname;
     const teachersList = teachers.map((teacher) => (
