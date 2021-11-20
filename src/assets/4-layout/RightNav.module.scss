@@ -5,10 +5,8 @@
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     display: grid;
-    grid-column-gap: 25px;
-    margin-top: .9rem;
+    grid-template-columns: repeat(2, 8rem);
     justify-self: right;
-    margin-right: 1.8rem;
 }
 
 .right-nav-dropdown {
@@ -25,10 +23,12 @@
     font-size: 1.156rem;
     text-decoration: none;
     color: $font-color1;
-    height: 60%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
+
 
 }
 
@@ -40,7 +40,6 @@
     text-decoration: none;
     color: $font-color1;
     height: 60%;
-
 }
 
 .normal-button-dropdown {
@@ -57,6 +56,13 @@
     border: none;
     border-radius: 5px;
     padding: 0rem 1.5rem;
-
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: .6rem;
+    cursor: pointer;
 }
 
+.nav-link-active {
+    background-color: rgba($color2, 55%);
+    border-bottom: 2px solid $color3;
+}

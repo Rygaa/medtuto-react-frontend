@@ -1,12 +1,11 @@
-// import classes from './Header.module.scss'
 import { NavLink } from "react-router-dom"
 import classes from '../assets/4-layout/RightNav.module.scss'
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router"
-
 import { useState } from "react";
 import { useEffect } from "react";
 import { userActions } from "store/User/user-slice";
+
 const RightNav = (props) => {
     const dispatch = useDispatch();
     const isConnected = useSelector((state) => state.user.isConnected)
@@ -31,12 +30,12 @@ const RightNav = (props) => {
 
     return (!isConnected ? 
         <nav className={props.dropdown ? classes['right-nav-dropdown'] : classes['right-nav']}>
-            <NavLink to={'/login'} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Login</NavLink>
-            <NavLink to={'/sign-up'} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Sign up</NavLink>
+            <NavLink to={'/login'} activeClassName={!dropdownOpen ? classes['nav-link-active'] : null} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Login</NavLink>
+            <NavLink to={'/sign-up'} activeClassName={!dropdownOpen ? classes['nav-link-active'] : null} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Sign up</NavLink>
         </nav> : 
         <nav className={props.dropdown ? classes['right-nav-dropdown'] : classes['right-nav']}>
-            <NavLink to={'/tutor-panel'} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Tutor-Panel</NavLink>
-            <NavLink to={'/my-account'} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Profile</NavLink>
+            <NavLink to={'/tutor-panel'} activeClassName={!dropdownOpen ? classes['nav-link-active'] : null} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Tutor-Panel</NavLink>
+            <NavLink to={'/my-account'} activeClassName={!dropdownOpen ? classes['nav-link-active'] : null} className={!dropdownOpen ? classes['nav-link'] : classes['nav-link-dropdown']}>Profile</NavLink>
             <button className={!dropdownOpen ? classes['normal-button'] : classes['normal-button-dropdown']} onClick={disconnectOnClick}>Disconnect</button>
         </nav>
         );
