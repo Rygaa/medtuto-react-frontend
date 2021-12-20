@@ -34,12 +34,16 @@
         margin-top: 0rem;
         margin-right: 0;
         margin-left: 0;
+        grid-template-rows: max-content auto;
+
     }
 
     .courses-container {
         margin-top: 2rem;
         display: grid;
         grid-auto-flow: column;
+        grid-template-columns: unset;
+
         // grid-template-rows: repeat(auto-fill, (minmax(min-content, 1fr)));
         overflow-y: hidden;
         overflow-x: auto;

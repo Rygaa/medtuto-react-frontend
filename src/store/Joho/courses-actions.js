@@ -40,3 +40,20 @@ export const requestCourses2 = ({ idToken, modelPubId }) => {
         dispatch(modelsActions.setCourses(data.courses))
     }
 }
+
+
+export const rqLastelyAddedCourses = ({ idToken }) => {
+    return async (dispatch) => {
+
+        const response = await axios.post(url + `/recently-added-courses`, {
+            idToken,
+        })
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        dispatch(modelsActions.setCourses(data.coursess))
+    }
+}

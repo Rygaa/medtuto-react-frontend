@@ -1,65 +1,32 @@
 @import '/src/assets/main.scss' ;
 
-.Modal {
-    position: fixed;
-    height: 100%;
-    background-color: rgba($color3, 0.7);
-    right: 0;
-    width: 40%;
-    display: grid;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 2rem;
-    grid-row-gap: 3rem;
-    grid-template-rows: min-content 70px 120px;
-}
-
-.close-button {
-    background-color: $color2;
-    color: $font-color1;
-    border: none;
-    @include mini-title-font();
-    padding: 1rem 0rem;
-    border-radius: 5px;
-}
-.Overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba($color3, 0.1);
-}
 
 .nav {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
 }
 
-.nav-dropdown-closed {
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(rgb(0, 145, 255), 30%);
-    position: fixed;
-    right: 0;
-
+.nav-left-side {
+    display: grid;
+    grid-template-columns: repeat(3, 8rem);
 }
 
-.nav-dropdown-opened {
-    > button {
-        display: none;
-    }
+.nav-right-side {
+    display: grid;
+    grid-template-columns: repeat(2, 8rem);
+    justify-self: right;
 }
 
 
-.nav-button {
-    display: block;
-    right: 0;
-
-    background-color: $color2;
+.nav-link {
+    @include nav-link-font();
     color: $font-color1;
-    border: none;
-    @include mini-title-font();
-    padding: 1.15rem 3rem;
+    height: 80%;
+    transition: .3s;
+    border-bottom: 2px solid transparent;
 }
 
+.nav-link-active {
+    background-color: rgba($color2, 55%);
+    border-bottom: 2px solid $color3;
+}

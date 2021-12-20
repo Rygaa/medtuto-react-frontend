@@ -19,6 +19,7 @@ const Courses = (props) => {
     }, [dispatch, idToken])
 
 
+
     const coursesList = courses.map((course) => (
         <Course key={Math.random()} name={course.name} pubId={course.pubId} index={course.index}></Course>
     ));

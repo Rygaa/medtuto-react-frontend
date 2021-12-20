@@ -7,6 +7,86 @@ import { requestFaculties } from '../../store/proxy'
 import classes from '../../assets/6-pages/Models.module.scss'
 import { useRef } from "react";
 import { requestYears } from "../../store/proxy"
+import { motion } from "framer-motion";
+
+
+const containerVariants = {
+    hidden: {
+        opacity: 0,
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            type: 'spring',
+            mass: 0.4,
+            damping: 8,
+            staggerChildren: 1,
+            when: "beforeChildren",
+        }
+    },
+};
+
+const childVariants = {
+    hidden: {
+        opacity: 0,
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            duration: .75,
+            delay: .25,
+        }
+    },
+}
+const childVariants1 = {
+    hidden: {
+        opacity: 0,
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            duration: .5,
+            delay: .8,
+        }
+    },
+}
+const childVariants2 = {
+    hidden: {
+        x: '-100vw',
+    },
+    visible: {
+        x: 0,
+        transition: {
+            duration: .75,
+            delay: .8,
+
+        }
+    },
+}
+
+
+const childVariants3 = {
+    hidden: {
+        y: '100vh',
+    },
+    visible: {
+        y: 0,
+        transition: {
+            duration: 1,
+            delay: 1,
+
+        }
+    },
+}
+
+
+
+
+
+
+
+
+
 
 
 const Models = (props) => {
@@ -63,23 +143,24 @@ const Models = (props) => {
     )
 
     return (
-        <section className={classes['models']}>
-            <div>
-                <p>ENJOY YOUR COURSE</p>
-                <p>By selecting your</p>
-                <form>
+        <motion.section className={classes['models']} variants={containerVariants} initial="hidden"
+            animate="visible">
+            <motion.div>
+                <motion.p variants={childVariants} >ENJOY YOUR COURSE</motion.p>
+                <motion.p variants={childVariants1}>By selecting your</motion.p>
+                <motion.form variants={childVariants2}>
                     <label>Department: </label>
                     <select ref={facultiesRef} className={classes.faculty}  onChange={facultiesSelectOnChange}>{facultiesList}</select>
-                </form>
-                <form>
+                </motion.form>
+                <motion.form variants={childVariants2}>
                     <label>Year: </label>
                     <select ref={yearsRef} className={classes.year} onChange={yearsSelectOnChange}>{yearsList}</select>
-                </form>
-            </div>
-            <div ref={modelsRef}>
-                        {modelsList}
-            </div>
-        </section>
+                </motion.form>
+            </motion.div>
+            <motion.div variants={childVariants3} ref={modelsRef}>
+                {modelsList}
+            </motion.div>
+        </motion.section>
     );
 }
 

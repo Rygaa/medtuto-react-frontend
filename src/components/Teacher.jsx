@@ -11,7 +11,7 @@ const Teacher = (props) => {
         if (props.selected) {
             selectedTeacherOnChange();
         }
-    })
+    }, [])
     const image = props.pubId ? `${url}/account/${props.pubId}` : unfound;
 
 

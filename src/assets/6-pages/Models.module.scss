@@ -84,7 +84,7 @@ $heighttt: calc(100%);
     // background: transparent;  /* Optional: just make scrollbar invisible */
     color: white;
     background-color: $color2;
-    width: 1.5rem;
+    height: .8rem;
 
 }
 
@@ -108,6 +108,7 @@ $heighttt: calc(100%);
 
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-row-gap: 1.5rem;
         overflow-y: auto;
         overflow-x: hidden;
         overscroll-behavior-y: contain;

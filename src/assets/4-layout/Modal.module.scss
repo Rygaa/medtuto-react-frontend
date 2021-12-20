@@ -1,0 +1,15 @@
+.Overlay {
+    position: fixed;
+    z-index: 100;
+    background-color: red;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.Modal {
+    position: fixed;
+    right: 0;
+    width: 40%;
+    background-color: pink;
+}

@@ -1,0 +1,68 @@
+@import '/src/assets/main.scss' ;
+
+
+.menu-button {
+    background-color: $color1;
+    position: fixed;
+    right: 0;
+    height: 3.5rem;
+    width: 9rem;
+    background-color: $color2;
+    color: $font-color1;
+    border: none;
+    @include mini-title-font();
+}
+
+.overlay {
+    z-index: 99;
+    background-color: rgba( #FFFFFF, 5%);
+    backdrop-filter: blur(2.5px);
+
+    position: absolute;
+    top:0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.nav-dropdown {
+    position: fixed;
+    width: 40%;
+    height: 100vh;
+    background-color: rgba( #FFFFFF, 10%);
+
+    right: 0;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.nav-left-side {
+    display: grid;
+    grid-template-rows: repeat(3, 6rem);
+}
+
+.nav-right-side {
+    display: grid;
+    grid-template-rows: repeat(2, 6rem);
+    align-self: flex-end
+}
+
+
+.nav-link {
+    @include nav-link-font();
+    color: $font-color1;
+    height: 100%;
+    transition: .3s;
+    border-bottom: 2px solid transparent;
+
+    // border-bottom: 2px solid $color2;
+    // background-color: rgba($color3, 10%);
+}
+
+.nav-link-active {
+    background-color: rgba($color2, 55%);
+    border-bottom: 2px solid $color3;
+}

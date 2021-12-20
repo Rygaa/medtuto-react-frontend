@@ -146,6 +146,16 @@
 
 }
 
+@mixin text-font {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin: 0;
+    padding: 0;
+}
+
+
 @mixin mini-title-font {
     font-family: Raleway;
     font-style: normal;
@@ -164,13 +174,19 @@
     padding: 0;
 }
 
-@mixin text-font {
+
+
+@mixin nav-link-font {
     font-family: Raleway;
     font-style: normal;
     font-weight: 600;
-    font-size: 0.875rem;
+    font-size: 1.156rem;
     margin: 0;
     padding: 0;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 

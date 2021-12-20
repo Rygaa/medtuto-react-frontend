@@ -38,9 +38,9 @@ const Learning = (props) => {
     useEffect(() => {
         setVideoDisplayed(`https://www.youtube.com/embed/${videos[videoDisplayedNumber]}`)
     }, [videos, videoDisplayedNumber])
-    const linksList = links.map((link) => (
+    const linksList = (links.length > 0 ? links.map((link) => (
         <p>{link}</p>
-    ));
+    )) : null);
     const filesList = files.map((file) => (
         <p>{file}</p>
     ));
@@ -88,8 +88,10 @@ const Learning = (props) => {
                     {filesList}
                 </TabPanel>
                 <TabPanel className={classes['tabPanel']}>
-                    <textarea value={review} onChange={reviewOnChange}></textarea>
-                    <button onClick={addReviewOnClick}>Add review</button>
+                    <div className={classes['add-review']}>
+                        <textarea value={review} onChange={reviewOnChange}></textarea>
+                        <button onClick={addReviewOnClick}>Add review</button> 
+                    </div>
                 </TabPanel>
             </Tabs>
             <button className={classes['switch-button']} onClick={switchOnClick}>switch</button>

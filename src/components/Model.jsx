@@ -8,8 +8,7 @@ const Model = (props) => {
         <div className={classes['model']}>
             <div style={{ backgroundImage: `url(${image})`}}></div>
             <p>{props.name}</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-            officiis doloribus quod, eligendi repudiandae fugiat dolore. {props.description} </p>
+            <p>{props.description} </p>
             <NavLink className={classes['nav-link']} to={`/models/${props.pubId}`}>Access</NavLink>
         </div>
     )

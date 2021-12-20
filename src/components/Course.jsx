@@ -1,4 +1,3 @@
-// import classes from './NavLinkButton.module.scss'
 import { NavLink } from "react-router-dom"
 import classes from '../assets/5-components/Course.module.scss'
 import { useEffect } from "react"
@@ -11,11 +10,12 @@ const Course = (props) => {
 
     useEffect(() => {
         select();
-    }) // to check
+    }, []) // to check
     // <p>{props.name}</p> 
 
     const select = () => {
-        if (props.index === 1) {
+        console.log('select: ', props.index);
+        if (props.index == 1) {
             // myRef.current.click();
             if (decodeURI(link).split('/').length === 3) {
                 myRef.current.click();

@@ -22,7 +22,7 @@ const ChooseYourTeacher = (props) => {
     useEffect(() => {
         dispatch(requestTeachers({ idToken }))
 
-    }, [selectedTeacher, dispatch, idToken])
+    }, [dispatch, idToken])
 
     useEffect(() => {
         dispatch(requestTeachers({ idToken }))
@@ -40,14 +40,20 @@ const ChooseYourTeacher = (props) => {
         <Teacher name={teacher.name} selectedTeacherOnChange={selectedTeacherOnChange} />
     )));
 
-    const reviews = selectedTeacher.reviews ? selectedTeacher.reviews.map((review) => (
-        <p>{review}</p>
-    )) : <p>No review. you can add a review in the learning page</p>
+    let reviews = null;
+    if (selectedTeacher.reviews) {
+        if (selectedTeacher.reviews.length > 0) {
+            reviews = selectedTeacher.reviews.map((review) => (
+                <p>{review}</p>
+            ))
+        } else {
+            reviews = <p style={{ marginTop: "1rem" }}>No review. you can add a review in the learning page</p>
 
-    // <div className={classes['teachers-container']}>{teachersList}</div>
-    // <div className={classes['teacher-info-container']}>
-    //     <NavLink to={`${path}${selectedTeacher}`}>{selectedTeacher}e</NavLink>
-    // </div>
+        }
+    } else { 
+        reviews = <p style={{marginTop:"1rem"}}>No review. you can add a review in the learning page</p>
+
+    }
 
     return (
         <section className={classes['teachers-section']}>

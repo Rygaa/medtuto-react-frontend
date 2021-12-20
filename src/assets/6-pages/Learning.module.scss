@@ -110,6 +110,40 @@
 .switch-effect-off {
     display: block;
 }
+
+.add-review {
+    $width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > textarea {
+        resize: none;
+        height: 15rem;
+        width: $width;
+        background-color: $color3;
+        border-radius: 5px;
+        border: none;
+        @include text-font;
+        margin-top: 6.5rem;
+        padding-left: .35rem;
+        padding-top: .25rem;
+    }
+    > textarea:focus-within {
+        outline: none;
+    }
+    > button {
+        height: 2.5rem;
+        border-radius: 5px;
+        border: none;
+        width: $width;
+        background-color: $color3;
+        @include button-2;
+        font-size: 1.25rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+        color: black;
+    }
+}
 @media (max-width: 950px){
     .learning {
         display: grid;
@@ -117,14 +151,19 @@
         grid-template-rows: auto 1fr;
         grid-row-gap: 1rem;
         height: 100%;
+        margin-left: 0%;
+        margin-right: 0%;
+        margin-top: 2.5rem;
         > p {
             grid-column: 1 / 2;
             grid-row: 1 / 2;
+            margin-bottom: 1rem;
         }
     }
     .video-container {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
+
     }
 
     .tabs {
@@ -141,16 +180,18 @@
         align-items: center;
         text-decoration: none;
         background: #214C4E;
-        border-radius: 5px;
         border: none;
-        width: 10rem;
         color: $font-color3;
-        height: 3rem;
+        height: 4rem;
         @include mini-title-font();
+        color: white;
+        font-size: 1.5rem;
+        letter-spacing: 0.15em;
         justify-self: center;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        margin-right: 1rem;
+        // margin-left: 5%;
+        // margin-right: 5%;
+        // width: 90%;
+        width: 100%;
     }
     .switch-effect-on {
         display: none;
