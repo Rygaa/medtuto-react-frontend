@@ -1,42 +1,8 @@
 import classes from '../assets/4-layout/NavDropdown.module.scss'
 import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
 const activeClassName = classes['nav-link-active']
 const className = classes['nav-link']
-
-const navDropDownAnimation = {
-    hidden: {
-        x: "40vw",
-    },
-    visible: {
-        x: 0,
-        transition: {
-            duration: .35,
-            when: "beforeChildren",
-        }
-    },
-    exit: {
-        x: "40vw",
-        transition: {
-            duration: .15,
-        }
-    }
-}
-
-const elementsAnimation = {
-    hidden: {
-        x: "30vw",
-    },
-    visible: {
-        x: 0,
-        transition: {
-            duration: .25,
-        }
-    },
- 
-}
-
 
 const NavDropdown = (props) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,15 +17,10 @@ const NavDropdown = (props) => {
             {!isMenuOpen && 
                 <button className={classes['menu-button']} onClick={setIsMenuOpen.bind(this, true)}>Menu</button>
             }
-            <AnimatePresence>
 
             {isMenuOpen &&
-                    <motion.nav 
+                    <nav 
                     className={classes['nav-dropdown']} 
-                    variants={navDropDownAnimation} 
-                    initial="hidden" 
-                    animate="visible" 
-                    exit="exit"
                     >
                     <div className={classes['nav-left-side']}>
                         <NavLink
@@ -90,10 +51,10 @@ const NavDropdown = (props) => {
                             className={className}
                         >Sign up</NavLink>
                     </div>
-                </motion.nav>
+                </nav>
         
             }
-            </AnimatePresence>
+
 
             {isMenuOpen && <div className={classes['overlay']} onClick={setIsMenuOpen.bind(this, false)}></div> } 
 

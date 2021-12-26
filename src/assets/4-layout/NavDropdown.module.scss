@@ -10,7 +10,7 @@
     background-color: $color2;
     color: $font-color1;
     border: none;
-    @include mini-title-font();
+    @include text-3();
 }
 
 .overlay {
@@ -29,7 +29,8 @@
 .nav-dropdown {
     position: fixed;
     width: 40%;
-    height: 100vh;
+    //height: 100vh;
+	height: 100%;
     background-color: rgba( #FFFFFF, 10%);
 
     right: 0;
@@ -52,12 +53,14 @@
 
 
 .nav-link {
-    @include nav-link-font();
+    @include button-4();
     color: $font-color1;
     height: 100%;
     transition: .3s;
     border-bottom: 2px solid transparent;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     // border-bottom: 2px solid $color2;
     // background-color: rgba($color3, 10%);
 }

@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: column;
     > p {
-        @include mini-title-font();
+        @include text-3();
         color: $font-color1;
         align-self: center;
         margin-top: 2rem;
@@ -47,7 +47,7 @@
     display: flex;
     flex-direction: column;
     > p {
-        @include mini-title-font();
+        @include text-3();
         color: $font-color1;
         align-self: center;
         margin-top: 2rem;
@@ -67,7 +67,7 @@
     border-radius: 5px;
     height: 3rem;
     width: 10rem;
-    @include mini-title-font;
+    @include text-3;
     justify-self: center;
     margin-bottom: 1rem;
 }

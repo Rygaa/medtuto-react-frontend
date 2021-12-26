@@ -35,7 +35,7 @@
         flex-direction: column;
         align-items: center;
         > p {
-            @include mini-title-font();
+            @include text-3();
             color: white;
             margin-top: 2rem;
 
@@ -44,7 +44,7 @@
             width: 10%;
             background-color: $color2;
             color: $color3;
-            @include text-font();
+            @include text-2;
             height: 2.5rem;
             border: none;
             border-radius: 5px;
@@ -62,7 +62,7 @@
         width: 10%;
         background-color: $color2;
         color: $color3;
-        @include text-font();
+        @include text-2;
         height: 2.5rem;
         border: none;
         border-radius: 5px;
@@ -87,7 +87,7 @@
         width: 10%;
         background-color: $color2;
         color: $color3;
-        @include text-font();
+        @include text-2;
         height: 2.5rem;
         border: none;
         border-radius: 5px;
@@ -138,7 +138,7 @@
     width: 100%;
 
     > p {
-        @include mini-title-font;
+        @include text-3;
         margin-top: 1.5rem;
     }
     > textarea {
@@ -148,7 +148,7 @@
         background-color: $color2;
         border: none;
         width: 50%;
-        @include mini-title-font;
+        @include text-3;
         color: $font-color1;
         margin-top: .8rem;
     }

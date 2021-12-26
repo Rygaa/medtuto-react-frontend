@@ -31,7 +31,7 @@
     color: $color3;
     align-self: center;
     color: rgba($color3, 50%);
-    @include text-font();
+    @include text-2;
 }
 
 .Input input:focus {

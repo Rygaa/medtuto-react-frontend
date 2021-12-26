@@ -8,83 +8,14 @@ import classes from '../../assets/6-pages/Models.module.scss'
 import { useRef } from "react";
 import { requestYears } from "../../store/proxy"
 import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
+import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 
-
-const containerVariants = {
-    hidden: {
-        opacity: 0,
-    },
-    visible: {
-        opacity: 1,
-        transition: {
-            type: 'spring',
-            mass: 0.4,
-            damping: 8,
-            staggerChildren: 1,
-            when: "beforeChildren",
-        }
-    },
-};
-
-const childVariants = {
-    hidden: {
-        opacity: 0,
-    },
-    visible: {
-        opacity: 1,
-        transition: {
-            duration: .75,
-            delay: .25,
-        }
-    },
-}
-const childVariants1 = {
-    hidden: {
-        opacity: 0,
-    },
-    visible: {
-        opacity: 1,
-        transition: {
-            duration: .5,
-            delay: .8,
-        }
-    },
-}
-const childVariants2 = {
-    hidden: {
-        x: '-100vw',
-    },
-    visible: {
-        x: 0,
-        transition: {
-            duration: .75,
-            delay: .8,
-
-        }
-    },
-}
-
-
-const childVariants3 = {
-    hidden: {
-        y: '100vh',
-    },
-    visible: {
-        y: 0,
-        transition: {
-            duration: 1,
-            delay: 1,
-
-        }
-    },
-}
-
-
-
-
-
-
-
+import 'swiper/swiper.min.css'
+import 'swiper/modules/pagination/pagination.min.css'
+import 'swiper/modules/scrollbar/scrollbar.min.css'
+import SwiperCore, { Scrollbar, Pagination, FreeMode, Autoplay } from "swiper";
+SwiperCore.use([Pagination, Scrollbar, FreeMode, Autoplay]);
 
 
 
@@ -99,7 +30,6 @@ const Models = (props) => {
     const [selectedYear, setSelectedYear] = useState('')
     const facultiesRef = useRef();
     const yearsRef = useRef();
-    const modelsRef = useRef();
     const facultiesSelectOnChange = (e) => {
         setSelectedFaculty(e.value)
         console.log(e.target.value);
@@ -135,7 +65,19 @@ const Models = (props) => {
 
 
     const modelsList = models.map((model) => {
-        return (<Model key={Math.random()} name={model.name} description={model.description} pubId={model.pubId} facultyName={selectedFaculty} yearName={selectedYear}></Model>)
+        return (
+            <SwiperSlide 
+                className={classes['swiper-slide-models-course']}
+            >
+                <Model 
+                    key={Math.random()} 
+                    name={model.name} 
+                    description={model.description} 
+                    pubId={model.pubId} 
+                    facultyName={selectedFaculty} 
+                    yearName={selectedYear}
+                ></Model>
+            </SwiperSlide>)
     })
     const x = []
     x.push(
@@ -143,24 +85,43 @@ const Models = (props) => {
     )
 
     return (
-        <motion.section className={classes['models']} variants={containerVariants} initial="hidden"
-            animate="visible">
-            <motion.div>
-                <motion.p variants={childVariants} >ENJOY YOUR COURSE</motion.p>
-                <motion.p variants={childVariants1}>By selecting your</motion.p>
-                <motion.form variants={childVariants2}>
+        <section className={classes['models']}>
+            <div className={classes["top-side"]}>
+                <p>ENJOY YOUR COURSE</p>
+                <p>By selecting your</p>
+                <form>
                     <label>Department: </label>
                     <select ref={facultiesRef} className={classes.faculty}  onChange={facultiesSelectOnChange}>{facultiesList}</select>
-                </motion.form>
-                <motion.form variants={childVariants2}>
+                </form>
+                <form>
                     <label>Year: </label>
                     <select ref={yearsRef} className={classes.year} onChange={yearsSelectOnChange}>{yearsList}</select>
-                </motion.form>
-            </motion.div>
-            <motion.div variants={childVariants3} ref={modelsRef}>
-                {modelsList}
-            </motion.div>
-        </motion.section>
+                </form>
+            </div>
+       
+            <div className={classes['bottom-side']}>
+                {!isMobile && 
+                    <Swiper
+                        style={{ width: "100%" }}
+                        slidesPerView={'auto'}
+                        freeMode={false}
+                        observer={true}
+                        observeParents={true}
+                        simulateTouch={false}
+                        navigation={true}
+                        spaceBetween={1}
+                    >
+                        {modelsList}
+                    </Swiper>
+                }
+        
+                {isMobile && 
+                    <div className={classes['courses-container-mobile']}>{modelsList}</div>
+                }
+            </div>
+      
+
+        </section>
     );
 }
 

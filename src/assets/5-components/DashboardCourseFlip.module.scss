@@ -1,0 +1,93 @@
+@import '/src/assets/main.scss' ;
+
+
+.flip-button {
+    background-color: rgba($color2, 55%);
+    border:none;
+    width: 100%;
+    color: $font-color2;
+    font-family: Raleway;
+}
+
+.course-flip-front {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80% 20%;
+    min-height: 20rem;
+    min-width: 22rem;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    background-color: $color5;
+    padding-top: 3.5rem;
+    margin-bottom: 5px;
+    // margin-left: 2.5rem;
+    > div:nth-child(1) {
+        padding-left: 3rem;
+        padding-right: 2rem;
+        display: flex;
+        flex-direction: column;
+        > p:nth-child(1) {
+            @include text-3();
+        }
+        > p:nth-child(2) {
+            @include text-2();
+        }
+    }
+
+}
+
+.course-flip-back {
+
+    > div:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding-left: 3rem;
+        padding-right: 2rem;
+        > p {
+            @include text-3();
+        }
+    }
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80% 20%;
+    min-height: 20rem;
+    min-width: 22rem;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    background-color: $color5;
+    padding-top: 3.5rem;
+    margin-left: 2.5rem;
+
+}
+
+.ReactCardFlip {
+    width: 100%;
+}
+
+
+.nav-link {
+    color: $font-color1;
+    text-decoration: none;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin: 0;
+    padding: 0;
+    justify-self: flex-end;
+    align-self: flex-end;
+    color: $font-color3;
+    // background-color: $color2;
+    // padding: .5rem 1rem;
+    transition: .15s;
+    
+}
+.nav-link:hover {
+    color: #00ffd5;
+}
+
+@media (max-width: 500px) {
+    .course > div:nth-child(1) > img {
+        width: 20px;
+    }
+}

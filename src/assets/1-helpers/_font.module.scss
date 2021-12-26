@@ -1,192 +1,94 @@
-@mixin title1 {
+@mixin var1 { 
+    margin: 0;
+    padding: 0;
+    color: white;
     font-family: Raleway;
+}
+
+// 
+//  Title fonts
+//
+@mixin title-1-font {
     font-style: normal;
     font-weight: 600;
     font-size: 2.5rem;
-    line-height: 47px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-    margin: 0;
-    padding: 0;
+    @include var1();
 }
-
-@mixin nav-link {
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.875rem;
-    line-height: 35px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-    margin: 0;
-    padding: 0;
-}
-
-@mixin dashboard-1 {
-    font-family: Raleway;
+@mixin title-2-font {
     font-style: normal;
     font-weight: normal;
     font-size: 2.5rem;
-    line-height: 47px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-    margin: 0;
-    padding: 0;
+    @include var1();
 }
-
-@mixin dashboard-2 {
-    font-family: Raleway;
+@mixin title-3-font {
     font-style: normal;
     font-weight: 500;
     font-size: 3.125rem;
-    line-height: 59px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-    margin: 0;
-    padding: 0;
+    @include var1();
 }
-
-@mixin dashboard-3 {
-    font-family: Raleway;
+@mixin title-4-font {
     font-style: normal;
     font-weight: normal;
     font-size: 1.875rem;
-    line-height: 35px;
-    display: flex;
-    align-items: center;
-    color: rgba(255, 255, 255, 0.89);
-    margin: 0;
-    padding: 0;
+    @include var1();
 }
-
-@mixin button-3 {
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.25rem;
-    line-height: 23px;
-    color: #FFFFFF;
-}
-
-@mixin button-2 {
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.875rem;
-    line-height: 35px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-    margin: 0;
-    padding: 0;
-}
-
-@mixin button-1 {
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.563rem;
-    line-height: 29px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #000000;
-    margin: 0;
-    padding: 0;
-}
-
-@mixin course-name {
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.563;
-    line-height: 29px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-    margin: 0;
-    padding: 0;
-}
-
-@mixin text-1 {
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 0.938rem;
-    line-height: 18px;
-    color: #FFFFFF;
-    margin: 0;
-    padding: 0;
-}
-
-@mixin select-1 {
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.25rem;
-    line-height: 23px;
-    color: rgba(0, 0, 0, 0.58);
-}
-
-
-
-
-
-@mixin nav-link-font {
-
-}
-
-@mixin text-font {
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 0.875rem;
-    margin: 0;
-    padding: 0;
-}
-
-
-@mixin mini-title-font {
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.156rem;
-    margin: 0;
-    padding: 0;
-}
-
-@mixin title-font {
-    font-family: Raleway;
+@mixin title-5-font {
     font-style: normal;
     font-weight: 600;
     font-size: 2.188rem;
-    margin: 0;
-    padding: 0;
+    @include var1();
 }
 
 
 
-@mixin nav-link-font {
-    font-family: Raleway;
+// 
+//  Buttons fonts
+//
+@mixin button-1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.563rem;
+    @include var1();
+}
+@mixin button-2 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.875rem;
+    @include var1();
+}
+@mixin button-3 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25rem;
+    @include var1();
+}
+@mixin button-4 {
     font-style: normal;
     font-weight: 600;
     font-size: 1.156rem;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include var1();
 }
 
+
+
+// 
+//  Texte fonts
+//
+@mixin text-1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.938rem;
+    @include var1();
+}
+@mixin text-2 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.875rem;
+    @include var1();
+}
+@mixin text-3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.156rem;
+    @include var1();
+}

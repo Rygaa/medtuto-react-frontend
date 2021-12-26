@@ -6,17 +6,17 @@
     grid-template-rows: 4fr 1fr 1fr 1fr;
     border: 1px solid rgba(255, 255, 255, 20%);
     min-width: 20rem;
-    // height: 26rem;
+    height: 100%;
     max-width: 25rem;
-    max-height: 30rem;
-    // max-height: 35rem;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    margin-right: 2.5rem;
 }
 
 @media (max-width: 1200px){
     .model {
         min-width: 10rem;
     }
-
 }
 
 
@@ -38,7 +38,6 @@
     padding: 0;
     margin-left: 10%;
     margin-top: 5%;
-
 }
 
 .model > p:nth-child(3) {
@@ -51,6 +50,9 @@
     padding: 0;
     margin-left: 10%;
     margin-top: 2%;
+    // padding-right: 12.5%;
+    padding-right: 10%;
+
 
 }
 
@@ -66,7 +68,8 @@
     margin: 0;
     padding: 0;
     margin-top: 10%;
-    margin-left: 5%;
+    margin-left: 10%;
+
     margin-bottom: 3%;
     text-decoration: none;
 
