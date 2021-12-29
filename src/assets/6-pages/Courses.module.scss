@@ -26,9 +26,25 @@
     overflow-y: auto;
     grid-row-gap: 1.25rem;
     grid-column-gap: 1.25rem;
+    &::-webkit-scrollbar {
+        background-color: $color2;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: $color2;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $color1;
+    }
 }
 
+.swiper-slide-course {
+    max-width: 22.5rem;
+}
 
+    .courses-container-swiper {
+        width: 100%;
+
+    }
 @media (max-width: 700px) {
     .courses-section {
         margin-top: 0rem;
@@ -49,6 +65,11 @@
         overflow-x: auto;
         grid-row-gap: 1.25rem;
         grid-column-gap: 1.25rem;
+    }
+
+    .courses-container-swiper {
+    margin-top: 2rem;
+
     }
 
     

@@ -10,7 +10,7 @@ import { requestYears } from "../../store/proxy"
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
-
+import Container from "layout/Container";
 import 'swiper/swiper.min.css'
 import 'swiper/modules/pagination/pagination.min.css'
 import 'swiper/modules/scrollbar/scrollbar.min.css'
@@ -32,11 +32,9 @@ const Models = (props) => {
     const yearsRef = useRef();
     const facultiesSelectOnChange = (e) => {
         setSelectedFaculty(e.value)
-        console.log(e.target.value);
         dispatch(requestYears({ idToken, facultyPubId: e.target.value }))
     }
     const yearsSelectOnChange = (e) => {
-        console.log('request models');
         setSelectedYear(e.target.value)
         dispatch(requestModels({ idToken, yearPubId: e.target.value }))
     }
@@ -66,19 +64,15 @@ const Models = (props) => {
 
     const modelsList = models.map((model) => {
         return (
-            <SwiperSlide 
-                className={classes['swiper-slide-models-course']}
-            >
-                <Model 
-                    key={Math.random()} 
-                    name={model.name} 
-                    description={model.description} 
-                    pubId={model.pubId} 
-                    facultyName={selectedFaculty} 
-                    yearName={selectedYear}
-                ></Model>
-            </SwiperSlide>)
-    })
+            <Model 
+                key={Math.random()} 
+                name={model.name} 
+                description={model.description} 
+                pubId={model.pubId} 
+                facultyName={selectedFaculty} 
+                yearName={selectedYear}
+            ></Model>
+    )})
     const x = []
     x.push(
         <option value="" disabled selected> Select your option</option>
@@ -100,24 +94,9 @@ const Models = (props) => {
             </div>
        
             <div className={classes['bottom-side']}>
-                {!isMobile && 
-                    <Swiper
-                        style={{ width: "100%" }}
-                        slidesPerView={'auto'}
-                        freeMode={false}
-                        observer={true}
-                        observeParents={true}
-                        simulateTouch={false}
-                        navigation={true}
-                        spaceBetween={1}
-                    >
-                        {modelsList}
-                    </Swiper>
-                }
-        
-                {isMobile && 
-                    <div className={classes['courses-container-mobile']}>{modelsList}</div>
-                }
+                <Container containerClassName={(isMobile ? classes['courses-container-mobile'] : classes['courses-container'])}>
+                    {modelsList}
+                </Container>
             </div>
       
 

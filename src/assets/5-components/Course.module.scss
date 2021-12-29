@@ -12,6 +12,7 @@
     min-width: 20rem;
     background-color: $color5;
     justify-items: center;
+    // max-width: 25rem;
 }
 
 .nav-link {
@@ -44,6 +45,12 @@
 @media (max-width: 500px) {
     .course > div:nth-child(1) > img {
         width: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .course {
+        max-width: 25rem;
     }
 }
 

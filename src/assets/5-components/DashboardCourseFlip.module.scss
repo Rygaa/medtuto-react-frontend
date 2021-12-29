@@ -20,6 +20,10 @@
     padding-top: 3.5rem;
     margin-bottom: 5px;
     // margin-left: 2.5rem;
+    max-width: 25rem;
+    width: 20rem !important;
+    width: 100% !important;
+
     > div:nth-child(1) {
         padding-left: 3rem;
         padding-right: 2rem;
@@ -57,10 +61,12 @@
     background-color: $color5;
     padding-top: 3.5rem;
     margin-left: 2.5rem;
-
+    max-width: 25rem;
+    width: 20rem !important;
 }
 
 .ReactCardFlip {
+    display: flex;
     width: 100%;
 }
 

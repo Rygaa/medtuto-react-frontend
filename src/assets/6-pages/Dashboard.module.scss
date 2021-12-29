@@ -55,11 +55,7 @@
         }
     }
 }
-.swiper-slide-dashboard-course {
-    display: flex;
-    max-width: 25rem;
-    width: 20rem;
-}
+
 
 .nav-link {
     @include button-2;
@@ -113,9 +109,6 @@
         margin-bottom: 0rem;
         margin-top: 2.5rem;
     }
-    .courses-container {
-        margin-left: 0% !important;
-        background-color: red;
-    }
+
 }
 

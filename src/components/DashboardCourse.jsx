@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom"
 import classes from '../assets/5-components/DashboardCourse.module.scss'
 import { useRef } from "react"
-import { motion } from "framer-motion"
 
 const DashboardCourse = (props) => {
     const modelId = decodeURI(window.location.pathname).split('/')[2];
@@ -18,12 +17,7 @@ const DashboardCourse = (props) => {
     }
  
     return (
-        <motion.div className={classes['course']}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: .8 }}
-        >
-
+        <div className={classes['course']}>
             <div>
                 <p>{props.faculty}</p>
                 <p>{props.year}</p>
@@ -37,7 +31,7 @@ const DashboardCourse = (props) => {
                     ugue ac enim pulv quis </p>
                 <NavLink ref={myRef} to={`/models/${modelId}/${props.pubId}/`} onClick={select} className={classes['nav-link']}>{`Learn more`}</NavLink>
             </div>
-        </motion.div>
+        </div>
     );
 }
 

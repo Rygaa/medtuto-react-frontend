@@ -1,22 +1,16 @@
 import DashboardCourse from "components/DashboardCourse";
+import Container from "layout/Container"
 import { useEffect, useState } from "react";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { rqLastelyAddedCourses } from "store/proxy";
 import classes from '../../assets/6-pages/Dashboard.module.scss'
 import React from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
-import 'swiper/swiper.min.css'
-import 'swiper/modules/pagination/pagination.min.css'
-import 'swiper/modules/scrollbar/scrollbar.min.css'
-import 'swiper/modules/navigation/navigation.min.css'
-import 'assets/1-helpers/swiper-scrollbars.css'
-import SwiperCore, { Scrollbar, Pagination, FreeMode, Autoplay, Navigation  } from "swiper";
+
 import DashboardCourseFlip from "components/DashboardCourseFlip";
 import NavLinkMotion from "components/NavLinkMotion";
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 
-SwiperCore.use([Pagination, Scrollbar, FreeMode, Autoplay, Navigation]);
 
 
 
@@ -48,18 +42,7 @@ const Dashboard = (props) => {
             year: course.year,
             model: course.model,
         }
-        return (
-            useFlip ? 
-            <SwiperSlide className={classes['swiper-slide-dashboard-course']}
-            >
-                <DashboardCourseFlip {...propsToPass} />
-            </SwiperSlide>
-            :
-            <SwiperSlide className={classes['swiper-slide-dashboard-course']}
-                >
-                <DashboardCourse {...propsToPass} />
-            </SwiperSlide>
-        )
+        return (useFlip ? <DashboardCourseFlip {...propsToPass} /> : <DashboardCourse {...propsToPass} />)
 
     });
 
@@ -76,23 +59,10 @@ const Dashboard = (props) => {
             </div>
             <div ref={myRef} className={classes['right-side']}>
                 <p>RECENTLY ADDED COURSES</p>
-                {!isMobile && 
-                    <Swiper
-                        className={classes['courses-container']}
-                        slidesPerView={'auto'}
-                        simulateTouch={false}
-                        navigation={true}
-                        spaceBetween={30}
-                    >
-                        {coursesList}
-                        <div class="swiper-dashboard-courses-scrollbar"></div>
-                    </Swiper>
-                }
-                {isMobile &&
-                    <div className={classes['courses-container-mobile']}>
-                        {coursesList}
-                    </div>
-                }
+                <Container containerClassName={(isMobile ? classes['courses-container-mobile'] : classes['courses-container'])}>
+                    {coursesList}
+                </Container>
+
   
             </div>
         </section>
@@ -102,3 +72,26 @@ const Dashboard = (props) => {
 export default Dashboard;
 
 // 
+
+
+
+
+// {
+//     !isMobile &&
+//     <Swiper
+//         className={classes['courses-container']}
+//         slidesPerView={'auto'}
+//         simulateTouch={false}
+//         navigation={true}
+//         spaceBetween={30}
+//     >
+//         {coursesList}
+//         <div class="swiper-dashboard-courses-scrollbar"></div>
+//     </Swiper>
+// }
+// {
+//     isMobile &&
+//     <div className={classes['courses-container-mobile']}>
+//         {coursesList}
+//     </div>
+// }
