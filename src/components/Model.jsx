@@ -8,13 +8,11 @@ import { motion } from "framer-motion"
 const Model = (props) => {
     const image = `${url}/models/${props.pubId}`;
     return (
-        <div 
-            className={classes['model']}
-        >
+        <div className={classes['model']}>
             <div style={{ backgroundImage: `url(${image})`}}></div>
             <p>{props.name}</p>
             <p>{props.description} </p>
-            <NavLink className={classes['nav-link']} to={`/models/${props.pubId}`}>Access</NavLink>
+            <NavLink className={classes['nav-link']} to={`/models/${props.pubId}/null`}>Access</NavLink>
         </div>
     )
 

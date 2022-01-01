@@ -16,8 +16,6 @@ const Layout = (props) => {
             <main className={classes.main}>
                 {props.children}
             </main>
-            
-        
         </div>
     );
 }

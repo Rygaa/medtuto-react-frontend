@@ -5,6 +5,19 @@ import logo from '../img/logo.png'
 import Nav from "./Nav";
 import { useEffect, useState } from "react";
 import NavDropdown from "./NavDropdown";
+import { motion } from "framer-motion";
+
+const animation = {
+    hidden: {
+        y: '-10vh',
+    },
+    visible: {
+        y: 0,
+        transition: {
+            duration: .75,
+        }
+    },
+}
 
 const Header = (props) => {
     const [isDropdownMenu, setDropDownMenu] = useState(false);
@@ -15,7 +28,11 @@ const Header = (props) => {
     }, [])
 
     return(
-        <header className={classes.header}>
+        <motion.header className={classes.header}
+            variants={animation}
+            initial="hidden"
+            animate="visible"
+        >
             <NavLink 
      
                 className={classes['nav-link']} to={'/home'}
@@ -23,8 +40,7 @@ const Header = (props) => {
                 ><img src={logo} alt={'logo'}></img></NavLink>
             {!isDropdownMenu && <Nav></Nav>}
             {isDropdownMenu && <NavDropdown></NavDropdown>}
-            
-        </header>
+        </motion.header>
     );
 }
 

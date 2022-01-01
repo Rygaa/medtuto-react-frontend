@@ -5,7 +5,25 @@ import classes from "../../assets/6-pages/Learning.module.scss"
 import { addReview, requestLearning } from '../../store/Joho/models-actions'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import classnames from 'classnames';
+import { motion } from "framer-motion";
 
+const animation = {
+    hidden: {
+        y: '100vh'
+    },
+    visible: {
+        y: 0,
+        transition: {
+            duration: 1,
+        }
+    },
+    exit: {
+        y: '100vh',
+        transition: {
+            duration: .35,
+        }
+    }
+}
 const Learning = (props) => {
     const dispatch = useDispatch();
     const idToken = useSelector((state) => state.user.idToken);
@@ -51,6 +69,8 @@ const Learning = (props) => {
 
     const addReviewOnClick = () => {
         dispatch(addReview({idToken, review}))
+        setReview('')
+
     }
 
     const reviewOnChange = (e) => {
@@ -62,7 +82,12 @@ const Learning = (props) => {
         title={'video'}
     ></iframe>
     return (
-        <section className={classes['learning']}>
+        <motion.section className={classes['learning']}
+            variants={animation}
+            initial='hidden'
+            animate='visible'
+            exit='exit'
+        >
             <p>Introduction a la molecule</p>
             <div className={classnames(classes['videos-container'], (switched ? classes['switch-effect-on'] : classes['switch-effect-off']))}>
                 
@@ -78,7 +103,7 @@ const Learning = (props) => {
                 <TabList className={classes['tabList']}>
                     <Tab className={classes['tab-links']}>Links</Tab>
                     <Tab className={classes['tab-files']}>Files</Tab>
-                    <Tab className={classes['tab-files']}>Add review</Tab>
+                    <Tab className={classes['tab-reviews']}>Add review</Tab>
                 </TabList>
 
                 <TabPanel className={classes['tabPanel']}>
@@ -96,7 +121,7 @@ const Learning = (props) => {
             </Tabs>
             <button className={classes['switch-button']} onClick={switchOnClick}>switch</button>
     
-        </section>
+        </motion.section>
     );
 }
 

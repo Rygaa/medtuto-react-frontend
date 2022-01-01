@@ -1,4 +1,8 @@
 @import '/src/assets/main.scss' ;
+
+
+
+
 .teacher-profile-container {
     display: flex;
     flex-direction: column;
@@ -14,12 +18,56 @@
         width: 4.5rem;
         height: 4.5rem;
         resize: both;
-    }
-    // p {
-    //     color: white;
-    //     align-self: center;
-    //     @include text-1;
-    //     // margin-top: 10px;
+        filter: drop-shadow(0px 8px 5px rgba(0, 0, 0, 0.3));
+        transition: .5s;
+        &:hover {
+            cursor: pointer;
+            transform: translateY(4px);
+            filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, .75)); 
+        }
 
-    // }
+    }
+}
+
+
+
+.teacher-profile-container-selected {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    // margin-right: 5%;
+    // margin-left: 5%;
+    // margin-top: 2.5%;
+    // margin-bottom: 2.5%;
+    width: 5.5rem;
+    transform: translateY(4px);
+    filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, .55)); 
+    // cursor: pointer;
+    img {
+        object-fit: contain;
+        width: 4.5rem;
+        height: 4.5rem;
+        resize: both;
+        filter: drop-shadow(0px 8px 5px rgba(0, 0, 0, 0.3));
+        transition: .5s;
+    }
+    
+}
+
+
+.teacher-empty-profile-container {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    width: 5.5rem;
+    cursor:not-allowed;
+
+    img {
+        object-fit: contain;
+        width: 4.5rem;
+        height: 4.5rem;
+        resize: both;
+        filter: drop-shadow(0px 8px 5px rgba(0, 0, 0, 0.3));
+        transition: .5s;
+    }
 }

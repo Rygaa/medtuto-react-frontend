@@ -74,7 +74,7 @@ $heighttt: calc(100%);
     grid-template-rows: repeat(auto-fit, (minmax(20rem, 1fr)));
 
     grid-auto-flow: column;
-    overflow-x: hidden;
+    overflow: hidden;
     max-height: $heighttt;
     grid-column-gap: 1.5rem;
     // margin-left: 2rem;

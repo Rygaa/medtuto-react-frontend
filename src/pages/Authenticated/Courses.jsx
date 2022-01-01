@@ -5,8 +5,8 @@ import Course from "../../components/Course"
 import classes from "../../assets/6-pages/Courses.module.scss"
 import Container from "layout/Container";
 import { requestCourses } from "../../store/proxy"
-
 import { useRef } from "react";
+import { motion } from "framer-motion";
 
 
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
@@ -16,6 +16,24 @@ import 'swiper/modules/pagination/pagination.min.css'
 import 'swiper/modules/scrollbar/scrollbar.min.css'
 import SwiperCore, { Scrollbar, Pagination, FreeMode, Autoplay } from "swiper";
 SwiperCore.use([Pagination, Scrollbar, FreeMode, Autoplay]);
+
+const animation = {
+    hidden: {
+        y: '100vh'
+    }, 
+    visible: {
+        y: 0,
+        transition: {
+            duration: 1,
+        }
+    },
+    exit: {
+        y: '100vh',
+        transition: {
+            duration: .35,
+        }
+    }
+}
 
 const Courses = (props) => {
     const dispatch = useDispatch();
@@ -47,9 +65,19 @@ const Courses = (props) => {
 
     return (
         <section className={classes['courses-section']}>
-            <p>Select one of this courses</p>
+        <div style={{overflow: 'hidden'}}>
+            <motion.p
+                initial={{ y: "200%", }}
+                animate={{ y: "0", }}
+                transition={{ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 }}
+                exit={{ y: '100vh'}}
+                >Select one of this courses</motion.p></div>
             {verticalScroll && 
-                <div className={classes['courses-container']} ref={myRef}>{coursesList}</div>
+                <motion.div variants={animation}
+                    initial='hidden'
+                    animate='visible' 
+                    exit='exit'
+                    className={classes['courses-container']} ref={myRef}>{coursesList}</motion.div>
             }
             {!verticalScroll && 
                 <Container 
@@ -60,6 +88,11 @@ const Courses = (props) => {
                     simulateTouch={false}
                     navigation={true}
                     spaceBetween={30}
+                    motion = {true}
+                    variants = {animation}
+                    initial = 'hidden'
+                    animate = 'visible'
+                    exit = 'exit'
                     containerClassName={(isMobile ? classes['courses-container'] : classes['courses-container-swiper'])}>
                     {coursesList}
                 </Container>

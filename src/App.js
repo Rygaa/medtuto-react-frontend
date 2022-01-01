@@ -15,12 +15,17 @@ import { checkIdToken } from './store/User/user-actions'
 import { userActions } from './store/User/user-slice'
 import MyAccount from './pages/Authenticated/MyAccount';
 import ToNameSection from 'pages/Authenticated/ToNameSection';
-
+import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import { useState } from 'react';
 
 function App() {
   const isConnected = useSelector((state) => state.user.isConnected)
   const idToken = localStorage.getItem('idToken');
   const dispatch = useDispatch();
+  const location = useLocation();
+  const [mykey, setMykey] = useState(null);
+  const [oldLocation, setOldLocation] = useState(null);
   useEffect(() => {
     if (idToken && idToken !== 'null') {
       dispatch(userActions.setIdToken(idToken));
@@ -30,12 +35,32 @@ function App() {
     }
     console.log(process.cwd());
   }, [dispatch, idToken])
+  console.log(location);
+
+  useEffect(() => {
+    setOldLocation(location.pathname); 
+  }, [])
+
+  // useEffect(() => {
+  //   getTest();
+  // }, [location])
+
+  // const getTest = () => {
+  //   if (location.pathname.split('/').length) {
+  //     setOldLocation(Math.random());
+  //   } else {
+  //     setOldLocation(Math.random());
+  //   }
+
+  // }
+
   return (
     <Layout>
-      <Switch>
+    <AnimatePresence exitBeforeEnter >
+        <Switch location={location} key={location.pathname.split('/').length}>
         <Route path="/home" exact>
           
-          {isConnected && 
+          {isConnected &&
             <Dashboard></Dashboard>
           }
           {!isConnected &&
@@ -80,6 +105,7 @@ function App() {
           }
         </Route>
       </Switch>
+      </AnimatePresence>
     </Layout>
   );
 }

@@ -9,7 +9,7 @@ const Course = (props) => {
     const myRef = useRef();
 
     useEffect(() => {
-        select();
+        // select();
     }, []) // to check
     // <p>{props.name}</p> 
 
@@ -30,7 +30,7 @@ const Course = (props) => {
                 <p>{props.name}</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re
                     ugue ac enim pulv quis </p>
-                <NavLink ref={myRef} to={`/models/${modelId}/${props.pubId}/`} className={classes['nav-link']}>{`Learn more`}</NavLink>
+                <NavLink ref={myRef} to={`/models/${modelId}/${props.pubId}`} className={classes['nav-link']}>{`Learn more`}</NavLink>
             </div>
 
         </div>

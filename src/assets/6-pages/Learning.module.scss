@@ -55,9 +55,6 @@
   
 }
 
-.tabs {
-    background-color: red;
-}
 
 
 
@@ -66,28 +63,48 @@
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     background-color: $color1;
+    border-radius: 5px;
+
 }
 .tab-links {
+    cursor: pointer;
     text-decoration: none;
     list-style: none;
     background-color: $color3;
-    height: 100%;
     @include button-3;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 5px;
 
 }
 .tab-files {
+    cursor: pointer;
+
     text-decoration: none;
     list-style: none;
     background-color: rgba($color3, 75%);
-    height: 100%;
     @include button-3;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-reviews {
+    cursor: pointer;
+
+    text-decoration: none;
+    list-style: none;
+    background-color: rgba($color3, 100%);
+    @include button-3;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 5px;
+
 }
 .tabList {
     display: grid;
@@ -98,6 +115,8 @@
 .tabPanel {
     color: $font-color1;
     @include text-3;
+    margin-top: 1rem;
+    margin-left: 1rem;
 }
 .switch-button {
     display: none;
@@ -120,7 +139,7 @@
         resize: none;
         height: 15rem;
         width: $width;
-        background-color: $color3;
+        background-color: white;
         border-radius: 5px;
         border: none;
         @include text-2;
@@ -137,11 +156,25 @@
         border: none;
         width: $width;
         background-color: $color3;
+        box-shadow: 0px 7.5px 5px black;
         @include button-2;
         font-size: 1.25rem;
         justify-content: center;
         margin-top: 1.5rem;
-        color: black;
+        color: white;
+        transition: .3s;
+        cursor: pointer;
+            border: 1px solid transparent;
+
+        &:hover {
+            transform: translateY(2px);
+            box-shadow: 0px 5.5px 5px black;
+        }
+        &:active {
+            transform: translateY(4px);
+            box-shadow: 0px 3.5px 5px black;
+
+        }
     }
 }
 @media (max-width: 950px){

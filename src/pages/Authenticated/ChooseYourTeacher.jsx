@@ -4,6 +4,44 @@ import classes from "../../assets/6-pages/ChooseYourTeacher.module.scss"
 import { requestTeachers } from '../../store/Joho/models-actions'
 import Teacher from "../../components/Teacher";
 import { NavLink, useLocation } from "react-router-dom"
+import { motion, AnimatePresence } from "framer-motion";
+const animation = {
+    hidden: {
+        // opacity: 0,
+        y: '-100vh'
+    },
+    visible: {
+        // opacity: 1,
+        y: 0,
+        transition: {
+            duration: 1,
+        }
+    },
+    exit: {
+        y: '100vh',
+        transition: {
+            duration: .35,
+        }
+    }
+}
+
+const reviewsAnimation = {
+    hidden: {
+        opacity: 0,
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            duration: .75,
+        }
+    },
+    exit: {
+        y: '100vh',
+        transition: {
+            duration: .35,
+        }
+    }
+}
 
 const ChooseYourTeacher = (props) => {
     const dispatch = useDispatch();
@@ -20,6 +58,9 @@ const ChooseYourTeacher = (props) => {
     }
 
     useEffect(() => {
+        setSelectedTeacher(teachers.length > 0 ? teachers[0] : '')
+    }, [teachers])
+    useEffect(() => {
         dispatch(requestTeachers({ idToken }))
 
     }, [dispatch, idToken])
@@ -29,34 +70,38 @@ const ChooseYourTeacher = (props) => {
     }, [location, dispatch, idToken])
 
     const path = location.pathname;
-    const teachersList = teachers.map((teacher) => (
-        <Teacher name={teacher.name} pubId={teacher.pubId} reviews={teacher.reviews} numberOfVideos={teacher.numberOfVideos} selectedTeacherOnChange={selectedTeacherOnChange} selected={true} />
+    const teachersList = teachers.map((teacher, index) => (
+        <Teacher index={0} name={teacher.name} selected={(teacher.pubId == selectedTeacher.pubId ? true : false)} pubId={teacher.pubId} reviews={teacher.reviews} numberOfVideos={teacher.numberOfVideos} selectedTeacherOnChange={selectedTeacherOnChange}/>
     ));
 
-    teachersList.push(teachers.map((teacher) => (
-        <Teacher name={teacher.name} selectedTeacherOnChange={selectedTeacherOnChange} />
-    )));
-    teachersList.push(teachers.map((teacher) => (
-        <Teacher name={teacher.name} selectedTeacherOnChange={selectedTeacherOnChange} />
-    )));
+    teachersList.push(<Teacher />);
+    teachersList.push(<Teacher />);
+
 
     let reviews = null;
-    if (selectedTeacher.reviews) {
-        if (selectedTeacher.reviews.length > 0) {
-            reviews = selectedTeacher.reviews.map((review) => (
-                <p>{review}</p>
-            ))
-        } else {
-            reviews = <p style={{ marginTop: "1rem" }}>No review. you can add a review in the learning page</p>
-
-        }
-    } else { 
-        reviews = <p style={{marginTop:"1rem"}}>No review. you can add a review in the learning page</p>
-
+    if (selectedTeacher.reviews == null || (selectedTeacher.reviews != null && selectedTeacher.reviews.length <= 0)) {
+        reviews = <motion.div variants={reviewsAnimation}
+            initial='hidden'
+            animate='visible'><p key={Math.random()}
+            >No review. you can add a review in the learning page</p></motion.div>
+    } else {
+        reviews = selectedTeacher.reviews.map((review) => (
+            <motion.div key={Math.random()}
+                variants={reviewsAnimation}
+                initial='hidden'
+                animate='visible'
+                exit="exit" ><p 
+         
+            >{review}</p></motion.div>
+        ))
     }
 
     return (
-        <section className={classes['teachers-section']}>
+        <motion.section className={classes['teachers-section']}
+            variants={animation}
+            initial='hidden'
+            animate='visible'
+            exit='exit'>
             <div className={classes['teachers-container']}>
                 <div className={classes['choices-container']}>
                     <p>Make your choices</p>
@@ -70,13 +115,14 @@ const ChooseYourTeacher = (props) => {
             </div>
             <div className={classes['reviews-container']}>
                 <p>Reviews: </p>
-                <div>
-                    {reviews}
+                <div  >
+                     {reviews}
                 </div>
+                
             </div>
-            <NavLink className={classes['nav-link']} to={`${path}${selectedTeacher.pubId}`}>Choose</NavLink>
+            <NavLink className={classes['nav-link']} to={`${path}/${selectedTeacher.pubId}`}>Choose</NavLink>
             
-        </section>
+        </motion.section>
     );
 }
 

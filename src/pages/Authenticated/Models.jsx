@@ -17,8 +17,67 @@ import 'swiper/modules/scrollbar/scrollbar.min.css'
 import SwiperCore, { Scrollbar, Pagination, FreeMode, Autoplay } from "swiper";
 SwiperCore.use([Pagination, Scrollbar, FreeMode, Autoplay]);
 
+const animationTopSideContainer = {
+    hidden: {
+        opacity: 0,
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            type: 'spring',
+            mass: 0.4,
+            damping: 8,
+            staggerChildren: .5,
+            when: "beforeChildren",
+            duration: 1.25,
+        }
+    },
+    exit: {
+        y: '100vh',
+        transition: {
+            duration: .35,
+        }
+    }
+}
+
+const animationTopSideChild = {
+    hidden: {
+        opacity: 0,
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            duration: 1.5,
+        }
+    },
+    exit: {
+        y: '100vh',
+        transition: {
+            duration: .35,
+        }
+    }
+}
 
 
+const animationBottomSide = {
+    hidden: {
+        y: '100vh'
+    },
+    visible: {
+        y: 0,
+        transition: {
+            delay: 1.5,
+            duration: 1,
+        }
+    },
+    exit: {
+        y: '100vh',
+        transition: {
+            ease: 'easeInOut',
+            duration: .35,
+        }
+    }
+}
 
 const Models = (props) => {
     const dispatch = useDispatch();
@@ -80,21 +139,26 @@ const Models = (props) => {
 
     return (
         <section className={classes['models']}>
-            <div className={classes["top-side"]}>
-                <p>ENJOY YOUR COURSE</p>
-                <p>By selecting your</p>
-                <form>
+            <motion.div 
+            className={classes["top-side"]} 
+            variants={animationTopSideContainer} 
+            initial="hidden" 
+            animate="visible"
+            exit="exit">
+                <motion.p variants={animationTopSideChild}>ENJOY YOUR COURSE</motion.p>
+                <motion.p variants={animationTopSideChild}>By selecting your</motion.p>
+                <motion.form variants={animationTopSideChild}>
                     <label>Department: </label>
                     <select ref={facultiesRef} className={classes.faculty}  onChange={facultiesSelectOnChange}>{facultiesList}</select>
-                </form>
-                <form>
+                </motion.form>
+                <motion.form variants={animationTopSideChild}>
                     <label>Year: </label>
                     <select ref={yearsRef} className={classes.year} onChange={yearsSelectOnChange}>{yearsList}</select>
-                </form>
-            </div>
+                </motion.form>
+            </motion.div>
        
             <div className={classes['bottom-side']}>
-                <Container containerClassName={(isMobile ? classes['courses-container-mobile'] : classes['courses-container'])}>
+                <Container motion={true} variants={animationBottomSide} initial="hidden" animate="visible" exit="exit" spaceBetween={0} containerClassName={(isMobile ? classes['courses-container-mobile'] : classes['courses-container'])}>
                     {modelsList}
                 </Container>
             </div>

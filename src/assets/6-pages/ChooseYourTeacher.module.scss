@@ -13,6 +13,7 @@
     align-items: center;
     text-decoration: none;
     background: #214C4E;
+
     border-radius: 5px;
     border: none;
     width: 10rem;
@@ -22,6 +23,16 @@
     justify-self: center;
     margin-top: 1rem;
     margin-bottom: 2rem;
+        color: #ffffff;
+
+    border: 1px solid transparent;
+    transition: .225s;
+
+    &:hover {
+        border: 1px solid $color3;
+        color: $font-color4-hover;
+    }
+
 }
 
 .teachers-container {
@@ -60,6 +71,7 @@
         margin-top: 2rem;
         margin-bottom: 2rem;
         width: 60%;
+        border: 1px solid rgba($color3, 25%);
         > p:nth-child(1), p:nth-child(2), p:nth-child(3), p:nth-child(4) {
             @include text-3();
             color: $font-color1;
@@ -87,6 +99,7 @@
         overflow-y: auto;
         grid-row-gap: 1.25rem;
         grid-column-gap: 1.25rem;
+        margin-top: 1rem;
         p {
             @include text-2();
             color: rgba(255, 255, 255, 0.6);

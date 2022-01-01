@@ -4,6 +4,8 @@ import { url } from "../../_globalVar/_ip"
 
 export const addReview = ({ idToken, review }) => {
     return async (dispatch) => {
+        console.log(url);
+
         const link = decodeURI(window.location.pathname).split('/');
         const teacherPubId = link[4];
         const response = await axios.post(url + `/add-review`, {

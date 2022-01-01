@@ -10,7 +10,7 @@
     display: grid;
     grid-template-rows: 18% 82%;
     background: rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 4px 102px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 4px 75px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
     border-radius: 5px;
     // margin-bottom: 7.5rem;
@@ -22,9 +22,9 @@
         padding-left: 2.5rem;
     }
     .courses-container {
-        width: calc(100% - 2.5rem);
+        width: calc(100%);
         margin-bottom: 1.5rem;
-        margin-left: 2.5rem;
+        // padding-left: 2.5rem;
     }
     .courses-container-mobile {
         display: grid;
