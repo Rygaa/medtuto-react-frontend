@@ -12,7 +12,7 @@ import SwiperCore, { Scrollbar, Pagination, FreeMode, Autoplay, Navigation } fro
 import { useEffect, useState, forwardRef } from 'react';
 import { isMobile } from 'react-device-detect'
 import { motion } from 'framer-motion'
-
+import 'assets/1-helpers/swiper-scrollbars.css'
 
 SwiperCore.use([Pagination, Scrollbar, FreeMode, Autoplay, Navigation]);
 
@@ -26,6 +26,7 @@ const Container = forwardRef((props, ref) => {
         slidesPerView:'auto',
         simulateTouch: false,
         navigation:true,
+        
         spaceBetween: props.spaceBetween,
     }
 
@@ -58,10 +59,12 @@ const Container = forwardRef((props, ref) => {
         if (useSwiper) {
             const children = props.children.map((child) => (<SwiperSlide style={{ display: 'flex', width: 'auto' }}>{child}</SwiperSlide>))
             return (
-                
                 <Swiper
                     {...obj}
-                    >{children}</Swiper>
+                    navigation={true}
+                    >{children}
+            
+                </Swiper>
             )
 
         } else if (!useSwiper) {
