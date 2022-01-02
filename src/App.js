@@ -33,7 +33,6 @@ function App() {
     } else {
       dispatch(userActions.setIsConnected(false));
     }
-    console.log(process.cwd());
   }, [dispatch, idToken])
   console.log(location.pathname);
 

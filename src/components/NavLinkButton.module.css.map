@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AACA,AAAA,QAAQ,CAAC;EACL,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,eAAe,EAAE,IAAI;EACrB,WAAW,EAAE,MAAM;CACtB",
-    "sources": [
-        "NavLinkButton.module.scss"
-    ],
-    "names": [],
-    "file": "NavLinkButton.module.css"
-}

@@ -7,15 +7,8 @@ import Container from "layout/Container";
 import { requestCourses } from "../../store/proxy"
 import { useRef } from "react";
 import { motion } from "framer-motion";
-
-
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
-import 'swiper/swiper.min.css'
-import 'swiper/modules/pagination/pagination.min.css'
-import 'swiper/modules/scrollbar/scrollbar.min.css'
-import SwiperCore, { Scrollbar, Pagination, FreeMode, Autoplay } from "swiper";
-SwiperCore.use([Pagination, Scrollbar, FreeMode, Autoplay]);
+
 
 const animation = {
     hidden: {

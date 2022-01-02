@@ -1,11 +1,11 @@
 
 
 import classes from 'assets/4-layout/Container.module.scss'
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
-import 'swiper/swiper.min.css'
-import 'swiper/modules/pagination/pagination.min.css'
-import 'swiper/modules/scrollbar/scrollbar.min.css'
-import 'swiper/modules/navigation/navigation.min.css'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
+import 'swiper/css/navigation'
 import 'assets/1-helpers/swiper-scrollbars.css'
 import SwiperCore, { Scrollbar, Pagination, FreeMode, Autoplay, Navigation } from "swiper";
 

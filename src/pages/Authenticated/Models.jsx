@@ -8,14 +8,8 @@ import classes from '../../assets/6-pages/Models.module.scss'
 import { useRef } from "react";
 import { requestYears } from "../../store/proxy"
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 import Container from "layout/Container";
-import 'swiper/swiper.min.css'
-import 'swiper/modules/pagination/pagination.min.css'
-import 'swiper/modules/scrollbar/scrollbar.min.css'
-import SwiperCore, { Scrollbar, Pagination, FreeMode, Autoplay } from "swiper";
-SwiperCore.use([Pagination, Scrollbar, FreeMode, Autoplay]);
 
 const animationTopSideContainer = {
     hidden: {
