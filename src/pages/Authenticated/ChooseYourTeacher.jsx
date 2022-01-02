@@ -43,12 +43,45 @@ const reviewsAnimation = {
     }
 }
 
+
+const animationMobile = {
+    hidden: {
+        x: '100vw'
+    },
+    visible: {
+        x: 0,
+        transition: {
+            duration: 1,
+        }
+    },
+    exit: {
+        x: '100vw',
+        transition: {
+            duration: .35,
+        }
+    }
+}
+
+
+
+
 const ChooseYourTeacher = (props) => {
     const dispatch = useDispatch();
     const idToken = useSelector((state) => state.user.idToken);
     const teachers = useSelector((state) => state.models.teachers);
     const [selectedTeacher, setSelectedTeacher] = useState('');
     const location = useLocation();
+    const [lessThan700px, setLessThan700px] = useState(window.innerWidth <= 700 ? true : false);
+
+    // useEffect(() => {
+    //     window.addEventListener('resize', () => { window.innerWidth <= 700 ? setLessThan700px(true) : setLessThan700px(false); })
+    //     window.innerWidth <= 700 ? setLessThan700px(true) : setLessThan700px(false);
+    // }, [])
+
+    useEffect(() => {
+        console.log('lessThan700px:', lessThan700px);
+    }, [lessThan700px])
+
     useEffect(() => {
         dispatch(requestTeachers({ idToken }))
     }, [dispatch, idToken])
@@ -98,7 +131,7 @@ const ChooseYourTeacher = (props) => {
 
     return (
         <motion.section className={classes['teachers-section']}
-            variants={animation}
+            variants={(lessThan700px ? animationMobile : animation)}
             initial='hidden'
             animate='visible'
             exit='exit'>

@@ -114,4 +114,25 @@ export const updateMyAccountProfile = ({ idToken, newProfilePicture }) => {
 
 }
 
+export const updateMyAccount = ({ idToken, newUsername, currentPassword, newEmail, newProfilePicture }) => {
+    return async (dispatch) => {
+        const formData = new FormData();
+        formData.append("idToken", idToken);
+        formData.append("newUsername", newUsername);
+        formData.append("newEmail", newEmail);
+        formData.append("currentPassword", currentPassword);
+        formData.append("files", newProfilePicture);
+        const response = await axios.post(url + `/update-my-account`, formData)
+
+        const data = response.data
+        if (data.error) {
+            console.error(data.error)
+            return;
+        }
+        console.log(data);
+    }
+
+}
+
+
 

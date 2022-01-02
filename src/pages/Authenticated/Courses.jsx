@@ -35,17 +35,38 @@ const animation = {
     }
 }
 
+const animationMobile = {
+    hidden: {
+        x: '100vw'
+    },
+    visible: {
+        x: 0,
+        transition: {
+            duration: 1,
+        }
+    },
+    exit: {
+        x: '100vw',
+        transition: {
+            duration: .35,
+        }
+    }
+}
+
 const Courses = (props) => {
     const dispatch = useDispatch();
     const idToken = useSelector((state) => state.user.idToken);
     const courses = useSelector((state) => state.models.courses);
     const [verticalScroll, setVerticalScroll] = useState(true)
+    const [lessThan700px, setLessThan700px] = useState(window.innerWidth <= 700 ? true : false);
     const myRef = useRef();
 
     useEffect(() => {
         dispatch(requestCourses({ idToken }))
         window.addEventListener('resize', () => { window.innerWidth <= 700 & !isMobile ? setVerticalScroll(false) : setVerticalScroll(true); })
         window.innerWidth <= 700 & !isMobile ? setVerticalScroll(false) : setVerticalScroll(true);
+        // window.addEventListener('resize', () => { window.innerWidth <= 700 ? setLessThan700px(true) : setLessThan700px(false); })
+        // window.innerWidth <= 700 ? setLessThan700px(true) : setLessThan700px(false);
     }, [dispatch, idToken])
 
 
@@ -73,7 +94,7 @@ const Courses = (props) => {
                 exit={{ y: '100vh'}}
                 >Select one of this courses</motion.p></div>
             {verticalScroll && 
-                <motion.div variants={animation}
+                <motion.div variants={(lessThan700px ? animationMobile : animation)}
                     initial='hidden'
                     animate='visible' 
                     exit='exit'
@@ -89,7 +110,7 @@ const Courses = (props) => {
                     navigation={true}
                     spaceBetween={30}
                     motion = {true}
-                    variants = {animation}
+                    variants={(lessThan700px ? animationMobile : animation)}
                     initial = 'hidden'
                     animate = 'visible'
                     exit = 'exit'

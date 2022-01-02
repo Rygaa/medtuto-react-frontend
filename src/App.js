@@ -35,7 +35,7 @@ function App() {
     }
     console.log(process.cwd());
   }, [dispatch, idToken])
-  console.log(location);
+  console.log(location.pathname);
 
   useEffect(() => {
     setOldLocation(location.pathname); 
@@ -57,7 +57,8 @@ function App() {
   return (
     <Layout>
     <AnimatePresence exitBeforeEnter >
-        <Switch location={location} key={location.pathname.split('/').length}>
+        <Switch location={location} 
+        key={(location.pathname.split('/').length != 2 ? location.pathname.split('/').length : location.pathname.split('/')[1])}>
         <Route path="/home" exact>
           
           {isConnected &&

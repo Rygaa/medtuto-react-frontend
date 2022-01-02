@@ -5,7 +5,29 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import {signUp} from '../../store/User/user-actions'
 import classes from '../../assets/6-pages/SignUp.module.scss'
-import img from "../../img/email.png"
+import emailIMG from "../../img/email.png"
+import passwordIMG from "../../img/password.png"
+import usernameIMG from "../../img/username.png"
+import { motion } from "framer-motion";
+
+const animation = {
+    hidden: {
+        y: '100vh',
+    },
+    visible: {
+        y: 0,
+        transition: {
+            duration: 1.5,
+        }
+    },
+    exit: {
+        y: '100vh',
+        transition: {
+            ease: 'easeInOut',
+            duration: .35,
+        }
+    }
+}
 
 const SignUp = (props) => {
     const dispatch = useDispatch();
@@ -30,26 +52,34 @@ const SignUp = (props) => {
         e.preventDefault();
         dispatch(signUp({username, email, password, history}));
     }
-
+    const animObj = {
+        variants: animation,
+        initial: 'hidden',
+        animate: 'visible',
+        exit: 'exit',
+    }
     return (
-        <section className={classes['sign-up']}>
+        <motion.section {...animObj} className={classes['sign-up']}>
             <form onSubmit={formOnSubmit}>
                 <p>Sign up</p>
                 <div className={classes['div-input-container']}>
-                    <img src={img} alt={'username'}/>
+                    <img src={usernameIMG} alt={'username'}/>
+                    <div className={classes['separator']}></div>
                     <input placeholder='username' value={username} onChange={usernameOnChange} type="text" spellcheck="false" />
                 </div>
                 <div className={classes['div-input-container']}>
-                    <img src={img} alt={'email'}/>
+                    <img src={emailIMG} alt={'email'}/>
+                    <div className={classes['separator']}></div>
                     <input placeholder='email' value={email} onChange={emailOnChange} type="text" spellcheck="false" />
                 </div>
                 <div className={classes['div-input-container']}>
-                    <img src={img} alt={'password'} />
+                    <img src={passwordIMG} alt={'password'} />
+                    <div className={classes['separator']}></div>
                     <input placeholder='password' value={password} type="password" onChange={passwordOnChange}/>
                 </div>
                 <button>Submit</button>
             </form>
-        </section>
+        </motion.section>
     );
 }
 

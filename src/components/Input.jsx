@@ -5,7 +5,7 @@ const Input = (props) => {
         <div className={classes['Input']}>
             <img src={image} alt={'input'}/>
             <div />
-            <input value={props.txt} />
+            <input value={props.txt} onChange={props.onChange} />
         </div>
     );
 }

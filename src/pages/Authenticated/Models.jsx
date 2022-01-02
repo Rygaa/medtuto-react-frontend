@@ -73,7 +73,6 @@ const animationBottomSide = {
     exit: {
         y: '100vh',
         transition: {
-            ease: 'easeInOut',
             duration: .35,
         }
     }

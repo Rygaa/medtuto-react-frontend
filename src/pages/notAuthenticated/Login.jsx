@@ -6,11 +6,31 @@ import { useHistory } from "react-router";
 import { login } from '../../store/User/user-actions'
 import classes from '../../assets/6-pages/Login.module.scss'
 import img from "../../img/email.png"
+import { motion } from "framer-motion";
 
 import { styled } from '@stitches/react';
 import { CheckIcon } from '@radix-ui/react-icons';
 import { blackA } from '@radix-ui/colors';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
+
+const animation = {
+    hidden: {
+        y: '100vh',
+    },
+    visible: {
+        y: 0,
+        transition: {
+            duration: 1.5,
+        }
+    },
+    exit: {
+        y: '100vh',
+        transition: {
+            ease: 'easeInOut',
+            duration: .35,
+        }
+    }
+}
 const Login = (props) => {
     const dispatch = useDispatch();
 
@@ -66,16 +86,25 @@ const Login = (props) => {
         localStorage.removeItem('password')
     }
 
+
+    const animObj = {
+        variants: animation,
+        initial: 'hidden',
+        animate: 'visible',
+        exit: 'exit',
+    }
     return (
-        <section className={classes['login']}>
+        <motion.section {...animObj} className={classes['login']}>
             <form onSubmit={formOnSubmit}>
                 <p>Login</p>
                 <div className={classes['div-input-container']}>
                     <img src={img} alt={'username'}/>
+                    <div className={classes['separator']}></div>
                     <input placeholder='username' value={username} onChange={usernameOnChange} type="text" spellcheck="false"/>
                 </div>
                 <div className={classes['div-input-container']}>
                     <img src={img} alt={'password'}/>
+                    <div className={classes['separator']}></div>
                     <input placeholder='password' value={password} type="password" onChange={passwordOnChange} />
                 </div>
             
@@ -89,7 +118,7 @@ const Login = (props) => {
                 </div>
                 <button>Connect</button>
             </form>
-        </section>
+        </motion.section>
     );
 }
 
