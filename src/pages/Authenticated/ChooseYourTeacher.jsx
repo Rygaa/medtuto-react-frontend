@@ -5,62 +5,8 @@ import { requestTeachers } from '../../store/Joho/models-actions'
 import Teacher from "../../components/Teacher";
 import { NavLink, useLocation } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion";
-const animation = {
-    hidden: {
-        // opacity: 0,
-        y: '-100vh'
-    },
-    visible: {
-        // opacity: 1,
-        y: 0,
-        transition: {
-            duration: 1,
-        }
-    },
-    exit: {
-        y: '100vh',
-        transition: {
-            duration: .35,
-        }
-    }
-}
+import animations from "assets/1-helpers/animation";
 
-const reviewsAnimation = {
-    hidden: {
-        opacity: 0,
-    },
-    visible: {
-        opacity: 1,
-        transition: {
-            duration: .75,
-        }
-    },
-    exit: {
-        y: '100vh',
-        transition: {
-            duration: .35,
-        }
-    }
-}
-
-
-const animationMobile = {
-    hidden: {
-        x: '100vw'
-    },
-    visible: {
-        x: 0,
-        transition: {
-            duration: 1,
-        }
-    },
-    exit: {
-        x: '100vw',
-        transition: {
-            duration: .35,
-        }
-    }
-}
 
 
 
@@ -113,14 +59,14 @@ const ChooseYourTeacher = (props) => {
 
     let reviews = null;
     if (selectedTeacher.reviews == null || (selectedTeacher.reviews != null && selectedTeacher.reviews.length <= 0)) {
-        reviews = <motion.div variants={reviewsAnimation}
+        reviews = <motion.div variants={animations.chooseYourTeacher.reviewsAnimation}
             initial='hidden'
             animate='visible'><p key={Math.random()}
             >No review. you can add a review in the learning page</p></motion.div>
     } else {
         reviews = selectedTeacher.reviews.map((review) => (
             <motion.div key={Math.random()}
-                variants={reviewsAnimation}
+                variants={animations.chooseYourTeacher.reviewsAnimation}
                 initial='hidden'
                 animate='visible'
                 exit="exit" ><p 
@@ -131,7 +77,7 @@ const ChooseYourTeacher = (props) => {
 
     return (
         <motion.section className={classes['teachers-section']}
-            variants={(lessThan700px ? animationMobile : animation)}
+            variants={(lessThan700px ? animations.chooseYourTeacher.animationMobile : animations.chooseYourTeacher.animationDesktop)}
             initial='hidden'
             animate='visible'
             exit='exit'>

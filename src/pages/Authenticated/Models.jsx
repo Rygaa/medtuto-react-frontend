@@ -1,4 +1,3 @@
-// import classes from './Header.module.scss'
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Model from "../../components/Model"
@@ -8,69 +7,11 @@ import classes from '../../assets/6-pages/Models.module.scss'
 import { useRef } from "react";
 import { requestYears } from "../../store/proxy"
 import { motion } from "framer-motion";
-import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
 import Container from "layout/Container";
-
-const animationTopSideContainer = {
-    hidden: {
-        opacity: 0,
-    },
-    visible: {
-        opacity: 1,
-        transition: {
-            type: 'spring',
-            mass: 0.4,
-            damping: 8,
-            staggerChildren: .5,
-            when: "beforeChildren",
-            duration: 1.25,
-        }
-    },
-    exit: {
-        y: '100vh',
-        transition: {
-            duration: .35,
-        }
-    }
-}
-
-const animationTopSideChild = {
-    hidden: {
-        opacity: 0,
-    },
-    visible: {
-        opacity: 1,
-        transition: {
-            duration: 1.5,
-        }
-    },
-    exit: {
-        y: '100vh',
-        transition: {
-            duration: .35,
-        }
-    }
-}
+import animations from "assets/1-helpers/animation";
 
 
-const animationBottomSide = {
-    hidden: {
-        y: '100vh'
-    },
-    visible: {
-        y: 0,
-        transition: {
-            delay: 1.5,
-            duration: 1,
-        }
-    },
-    exit: {
-        y: '100vh',
-        transition: {
-            duration: .35,
-        }
-    }
-}
 
 const Models = (props) => {
     const dispatch = useDispatch();
@@ -133,25 +74,34 @@ const Models = (props) => {
     return (
         <section className={classes['models']}>
             <motion.div 
-            className={classes["top-side"]} 
-            variants={animationTopSideContainer} 
-            initial="hidden" 
-            animate="visible"
-            exit="exit">
-                <motion.p variants={animationTopSideChild}>ENJOY YOUR COURSE</motion.p>
-                <motion.p variants={animationTopSideChild}>By selecting your</motion.p>
-                <motion.form variants={animationTopSideChild}>
+                className={classes["top-side"]} 
+                variants={animations.models.animationTopSideContainer} 
+                initial="hidden" 
+                animate="visible"
+                exit="exit"
+            >
+                <motion.p variants={animations.models.animationTopSideChild}>ENJOY YOUR COURSE</motion.p>
+                <motion.p variants={animations.models.animationTopSideChild}>By selecting your</motion.p>
+                <motion.form variants={animations.models.animationTopSideChild}>
                     <label>Department: </label>
                     <select ref={facultiesRef} className={classes.faculty}  onChange={facultiesSelectOnChange}>{facultiesList}</select>
                 </motion.form>
-                <motion.form variants={animationTopSideChild}>
+                <motion.form variants={animations.models.animationTopSideChild}>
                     <label>Year: </label>
                     <select ref={yearsRef} className={classes.year} onChange={yearsSelectOnChange}>{yearsList}</select>
                 </motion.form>
             </motion.div>
        
             <div className={classes['bottom-side']}>
-                <Container motion={true} variants={animationBottomSide} initial="hidden" animate="visible" exit="exit" spaceBetween={0} containerClassName={(isMobile ? classes['courses-container-mobile'] : classes['courses-container'])}>
+                <Container 
+                    motion={true} 
+                    variants={animations.models.animationBottomSide} 
+                    initial="hidden" 
+                    animate="visible" 
+                    exit="exit" 
+                    spaceBetween={0} 
+                    containerClassName={(isMobile ? classes['courses-container-mobile'] : classes['courses-container'])}
+                >
                     {modelsList}
                 </Container>
             </div>

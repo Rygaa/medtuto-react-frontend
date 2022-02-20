@@ -8,43 +8,7 @@ import { requestCourses } from "../../store/proxy"
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
-
-
-const animation = {
-    hidden: {
-        y: '100vh'
-    }, 
-    visible: {
-        y: 0,
-        transition: {
-            duration: 1,
-        }
-    },
-    exit: {
-        y: '100vh',
-        transition: {
-            duration: .35,
-        }
-    }
-}
-
-const animationMobile = {
-    hidden: {
-        x: '100vw'
-    },
-    visible: {
-        x: 0,
-        transition: {
-            duration: 1,
-        }
-    },
-    exit: {
-        x: '100vw',
-        transition: {
-            duration: .35,
-        }
-    }
-}
+import animations from "assets/1-helpers/animation";
 
 const Courses = (props) => {
     const dispatch = useDispatch();
@@ -87,7 +51,7 @@ const Courses = (props) => {
                 exit={{ y: '100vh'}}
                 >Select one of this courses</motion.p></div>
             {verticalScroll && 
-                <motion.div variants={(lessThan700px ? animationMobile : animation)}
+                <motion.div variants={(lessThan700px ? animations.courses.animationMobile : animations.courses.animationDesktop)}
                     initial='hidden'
                     animate='visible' 
                     exit='exit'
@@ -103,7 +67,7 @@ const Courses = (props) => {
                     navigation={true}
                     spaceBetween={30}
                     motion = {true}
-                    variants={(lessThan700px ? animationMobile : animation)}
+                    variants={(lessThan700px ? animations.courses.animationMobile : animations.courses.animationDesktop)}
                     initial = 'hidden'
                     animate = 'visible'
                     exit = 'exit'

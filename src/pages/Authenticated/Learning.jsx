@@ -6,24 +6,7 @@ import { addReview, requestLearning } from '../../store/Joho/models-actions'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import classnames from 'classnames';
 import { motion } from "framer-motion";
-
-const animation = {
-    hidden: {
-        y: '100vh'
-    },
-    visible: {
-        y: 0,
-        transition: {
-            duration: 1,
-        }
-    },
-    exit: {
-        y: '100vh',
-        transition: {
-            duration: .35,
-        }
-    }
-}
+import animations from "assets/1-helpers/animation";
 const Learning = (props) => {
     const dispatch = useDispatch();
     const idToken = useSelector((state) => state.user.idToken);
@@ -83,7 +66,7 @@ const Learning = (props) => {
     ></iframe>
     return (
         <motion.section className={classes['learning']}
-            variants={animation}
+            variants={animations.learning}
             initial='hidden'
             animate='visible'
             exit='exit'
