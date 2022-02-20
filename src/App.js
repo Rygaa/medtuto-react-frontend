@@ -16,7 +16,7 @@ import { userActions } from './store/User/user-slice'
 import MyAccount from './pages/Authenticated/MyAccount';
 import ToNameSection from 'pages/Authenticated/ToNameSection';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import { useState } from 'react';
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
   const idToken = localStorage.getItem('idToken');
   const dispatch = useDispatch();
   const location = useLocation();
+  const history = useHistory();
   const [mykey, setMykey] = useState(null);
   const [oldLocation, setOldLocation] = useState(null);
   useEffect(() => {
@@ -37,7 +38,11 @@ function App() {
   console.log(location.pathname);
 
   useEffect(() => {
-    setOldLocation(location.pathname); 
+    setOldLocation(location.pathname);
+    console.log(window.location.pathname)
+    if (window.location.pathname == '/') {
+      history.push('/home')
+    }
   }, [])
 
   // useEffect(() => {
