@@ -5,8 +5,5 @@ import { requestCourses, requestCourses2, rqLastelyAddedCourses } from "./Joho/c
 
 
 
-
-
-
 // exports.module.requestFaculties = requestFaculties;
 export { requestFaculties, requestYears, requestModels, requestCourses, requestCourses2, rqLastelyAddedCourses };

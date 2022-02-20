@@ -1,123 +1,62 @@
-// import classes from './Header.module.scss'
-
-import { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { login } from '../../store/User/user-actions'
 import classes from '../../assets/6-pages/Login.module.scss'
 import img from "../../img/email.png"
 import { motion } from "framer-motion";
+import Checkbox from "components/Checkbox";
+import animations from "assets/1-helpers/animation";
 
-import { styled } from '@stitches/react';
-import { CheckIcon } from '@radix-ui/react-icons';
-import { blackA } from '@radix-ui/colors';
-import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-
-const animation = {
-    hidden: {
-        y: '100vh',
-    },
-    visible: {
-        y: 0,
-        transition: {
-            duration: 1.5,
-        }
-    },
-    exit: {
-        y: '100vh',
-        transition: {
-            ease: 'easeInOut',
-            duration: .35,
-        }
-    }
-}
 const Login = (props) => {
     const dispatch = useDispatch();
+    const history = useHistory();
 
-    // const [rememberMe, setRememberMe] = useState();
     const rememberMe = localStorage.getItem('remember-me') === 'true' ? true : false
     const savedUsername = localStorage.getItem('username')
     const savedPassword = localStorage.getItem('password')
-    const [username, setUsername] = useState(savedUsername);
-    const [password, setPassword] = useState(savedPassword);
-
-    const usernameOnChange = (e) => {
-        setUsername(e.target.value);
-    }
-
-    const passwordOnChange = (e) => {
-        setPassword(e.target.value);
-    }
-    const history = useHistory();
+    const [username, setUsername] = React.useState(savedUsername);
+    const [password, setPassword] = React.useState(savedPassword);
 
     const formOnSubmit = (e) => {
         e.preventDefault();
         dispatch(login({ username, password, history }));
     }
 
-
-
-    const StyledCheckbox = styled(CheckboxPrimitive.Root, {
-        all: 'unset',
-        backgroundColor: '#214C4E',
-        width: 20,
-        height: 20,
-        borderRadius: 5,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        boxShadow: `0 2px 10px ${blackA.blackA7}`,
-        '&:hover': { backgroundColor: "#12262B" },
-    });
-
-    const StyledIndicator = styled(CheckboxPrimitive.Indicator, {
-        color: '#00DBB6',
-    });
-
-    // Exports
-    const Checkbox = StyledCheckbox;
-    const CheckboxIndicator = StyledIndicator;
-
-
-    const testtt = (e) => {
-        console.log(rememberMe);
+    const rememberMeOnChange = (e) => {
         localStorage.setItem('remember-me', e)
         localStorage.removeItem('username')
         localStorage.removeItem('password')
     }
 
-
-    const animObj = {
-        variants: animation,
-        initial: 'hidden',
-        animate: 'visible',
-        exit: 'exit',
-    }
     return (
-        <motion.section {...animObj} className={classes['login']}>
+        <motion.section 
+            variants={animations.login} 
+            initial='hidden' 
+            animate='visible' 
+            exit='exit' 
+            className={classes['login']}
+        >
             <form onSubmit={formOnSubmit}>
                 <p>Login</p>
                 <div className={classes['div-input-container']}>
                     <img src={img} alt={'username'}/>
                     <div className={classes['separator']}></div>
-                    <input placeholder='username' value={username} onChange={usernameOnChange} type="text" spellcheck="false"/>
+                    <input placeholder='username' value={username} onChange={(e) => { setUsername(e.target.value); }} type="text" spellcheck="false"/>
                 </div>
                 <div className={classes['div-input-container']}>
                     <img src={img} alt={'password'}/>
                     <div className={classes['separator']}></div>
-                    <input placeholder='password' value={password} type="password" onChange={passwordOnChange} />
+                    <input placeholder='password' value={password} type="password" onChange={(e) => { setPassword(e.target.value); }} />
                 </div>
             
                 <div className={classes['div-checkbox-container']}>
-                    <Checkbox id="c1" defaultChecked={rememberMe} onCheckedChange={testtt}>
-                        <CheckboxIndicator>
-                            <CheckIcon />
-                        </CheckboxIndicator>
-                    </Checkbox>
+                    <Checkbox id="c1" defaultChecked={rememberMe} onCheckedChange={rememberMeOnChange} />
                     <label for="remeber_me">Remember me</label>
                 </div>
                 <button>Connect</button>
             </form>
+
         </motion.section>
     );
 }

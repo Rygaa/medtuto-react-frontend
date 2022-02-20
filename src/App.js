@@ -1,4 +1,3 @@
-import './App.css';
 import Layout from './layout/Layout';
 import Dashboard from './pages/notAuthenticated/Dashboard';
 import { Route, Switch } from 'react-router';
@@ -25,8 +24,6 @@ function App() {
   const dispatch = useDispatch();
   const location = useLocation();
   const history = useHistory();
-  const [mykey, setMykey] = useState(null);
-  const [oldLocation, setOldLocation] = useState(null);
   useEffect(() => {
     if (idToken && idToken !== 'null') {
       dispatch(userActions.setIdToken(idToken));
@@ -38,29 +35,15 @@ function App() {
   console.log(location.pathname);
 
   useEffect(() => {
-    setOldLocation(location.pathname);
     console.log(window.location.pathname)
     if (window.location.pathname == '/') {
       history.push('/home')
     }
   }, [])
 
-  // useEffect(() => {
-  //   getTest();
-  // }, [location])
-
-  // const getTest = () => {
-  //   if (location.pathname.split('/').length) {
-  //     setOldLocation(Math.random());
-  //   } else {
-  //     setOldLocation(Math.random());
-  //   }
-
-  // }
-
   return (
     <Layout>
-    <AnimatePresence exitBeforeEnter >
+      <AnimatePresence exitBeforeEnter >
         <Switch location={location} 
         key={(location.pathname.split('/').length != 2 ? location.pathname.split('/').length : location.pathname.split('/')[1])}>
         <Route path="/home" exact>
