@@ -70,8 +70,6 @@ const ChooseYourTeacher = (props) => {
         <Teacher index={0} name={teacher.name} selected={(teacher.pubId == selectedTeacher.pubId ? true : false)} pubId={teacher.pubId} reviews={teacher.reviews} numberOfVideos={teacher.numberOfVideos} selectedTeacherOnChange={selectedTeacherOnChange}/>
     ));
 
-    teachersList.push(<Teacher />);
-    teachersList.push(<Teacher />);
 
 
     let reviews = null;
@@ -93,32 +91,58 @@ const ChooseYourTeacher = (props) => {
     }
 
     return (
-        <motion.section className={classes['teachers-section']}
-            variants={animations.courses.animationDesktop}
-            initial='hidden'
-            animate='visible'
-            exit='exit'>
-            <div className={classes['teachers-container']}>
-                <div className={classes['choices-container']}>
-                    <p>Make your choices</p>
-                    <p>We deliver multiple choice of teachers</p>
-                    <div className={classes['profiles-pictures-container']}>{teachersList}</div>
+        teachersList.length != 0 ?
+            <motion.section className={classes['teachers-section']}
+                variants={animations.courses.animationDesktop}
+                initial='hidden'
+                animate='visible'
+                exit='exit'>
+                <div className={classes['teachers-container']}>
+                    <div className={classes['choices-container']}>
+                        <p>Make your choices</p>
+                        <p>We deliver multiple choice of teachers</p>
+                        <div className={classes['profiles-pictures-container']}>{teachersList}</div>
+                    </div>
+                    <div className={classes['info-container']}>
+                        <p>First name: {`${selectedTeacher.name}`}</p>
+                        <p>Number of videos: {`${selectedTeacher.numberOfVideos}`}</p>
+                    </div>
+    
                 </div>
-                <div className={classes['info-container']}>
-                    <p>First name: {`${selectedTeacher.name}`}</p>
-                    <p>Number of videos: {`${selectedTeacher.numberOfVideos}`}</p>
+                <div className={classes['reviews-container']}>
+                    <p>Reviews: </p>
+                    <div  >
+                        {reviews}
+                    </div>
                 </div>
-            </div>
-            <div className={classes['reviews-container']}>
-                <p>Reviews: </p>
-                <div  >
-                     {reviews}
-                </div>
-                
-            </div>
-            <NavLink className={classes['nav-link']} to={`${path}/${selectedTeacher.pubId}`}>Choose</NavLink>
+                <NavLink className={classes['nav-link']} to={`${path}/${selectedTeacher.pubId}`}>Choose</NavLink>
             
-        </motion.section>
+            </motion.section> : <motion.section className={classes['teachers-section']}
+                variants={animations.courses.animationDesktop}
+                initial='hidden'
+                animate='visible'
+                exit='exit'>
+                <div className={classes['teachers-container']}>
+                    {selectedTeacher != '' &&
+                        <div className={classes['choices-container']}>
+                            <p>Make your choices</p>
+                            <p>We deliver multiple choice of teachers</p>
+                            {teachersList.length == 0 && <p className={classes['no-teacher-para']}>No teacher has given a course</p>}
+
+                        </div>
+                    }
+                    {selectedTeacher == '' &&
+                        <div className={classes['choices-container']}>
+                            <p>Make your choices</p>
+                            <p>We deliver multiple choice of teachers</p>
+                            {teachersList.length == 0 && <p className={classes['no-teacher-para']}>No course is selected</p>}
+
+                        </div>
+                    }
+       
+                </div>
+            </motion.section>
+        
     );
 }
 

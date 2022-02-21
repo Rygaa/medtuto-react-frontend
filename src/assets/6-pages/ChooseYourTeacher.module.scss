@@ -100,6 +100,15 @@
         grid-row-gap: 1.25rem;
         grid-column-gap: 1.25rem;
         margin-top: 1rem;
+        &::-webkit-scrollbar {
+            background-color: $color2;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: $color2;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $color1;
+        }
         p {
             @include text-2();
             color: rgba(255, 255, 255, 0.6);
@@ -112,6 +121,13 @@
         }
     }
 
+}
+
+
+.no-teacher-para {
+    @include text-3();
+    // color: rgba(red, 75%)
+    color: rgba(white, 50%)
 }
 
 
