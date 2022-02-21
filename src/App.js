@@ -69,12 +69,6 @@ function App() {
         <Route path="/models" exact>
           <Models></Models>
         </Route>
-        <Route path="/models/:modelName" exact>
-          <ToNameSection>
-            <Courses></Courses>
-            <ChooseYourTeacher></ChooseYourTeacher>
-          </ToNameSection>
-        </Route>
         <Route path="/models/:modelName/:courseName/:teacherName" exact>
           <Learning></Learning>
         </Route>

@@ -5,7 +5,25 @@ import { requestTeachers } from '../../store/Joho/models-actions'
 import Teacher from "../../components/Teacher";
 import { NavLink, useLocation } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion";
-import animations from "assets/1-helpers/animation";
+const animation = {
+    hidden: {
+        // opacity: 0,
+        y: '-100vh'
+    },
+    visible: {
+        // opacity: 1,
+        y: 0,
+        transition: {
+            duration: 1,
+        }
+    },
+    exit: {
+        y: '100vh',
+        transition: {
+            duration: .35,
+        }
+    }
+}
 
 const reviewsAnimation = {
     hidden: {
@@ -19,6 +37,25 @@ const reviewsAnimation = {
     },
     exit: {
         y: '100vh',
+        transition: {
+            duration: .35,
+        }
+    }
+}
+
+
+const animationMobile = {
+    hidden: {
+        x: '100vw'
+    },
+    visible: {
+        x: 0,
+        transition: {
+            duration: 1,
+        }
+    },
+    exit: {
+        x: '100vw',
         transition: {
             duration: .35,
         }
@@ -67,7 +104,7 @@ const ChooseYourTeacher = (props) => {
 
     const path = location.pathname;
     const teachersList = teachers.map((teacher, index) => (
-        <Teacher index={0} name={teacher.name} selected={(teacher.pubId == selectedTeacher.pubId ? true : false)} pubId={teacher.pubId} reviews={teacher.reviews} numberOfVideos={teacher.numberOfVideos} selectedTeacherOnChange={selectedTeacherOnChange}/>
+        <Teacher index={0} name={teacher.name} selected={(teacher.pubId == selectedTeacher.pubId ? true : false)} pubId={teacher.pubId} reviews={teacher.reviews} numberOfVideos={teacher.numberOfVideos} selectedTeacherOnChange={selectedTeacherOnChange} />
     ));
 
     teachersList.push(<Teacher />);
@@ -86,15 +123,15 @@ const ChooseYourTeacher = (props) => {
                 variants={reviewsAnimation}
                 initial='hidden'
                 animate='visible'
-                exit="exit" ><p 
-         
-            >{review}</p></motion.div>
+                exit="exit" ><p
+
+                >{review}</p></motion.div>
         ))
     }
 
     return (
         <motion.section className={classes['teachers-section']}
-            variants={animations.courses.animationDesktop}
+            variants={(lessThan700px ? animationMobile : animation)}
             initial='hidden'
             animate='visible'
             exit='exit'>
@@ -112,12 +149,12 @@ const ChooseYourTeacher = (props) => {
             <div className={classes['reviews-container']}>
                 <p>Reviews: </p>
                 <div  >
-                     {reviews}
+                    {reviews}
                 </div>
-                
+
             </div>
             <NavLink className={classes['nav-link']} to={`${path}/${selectedTeacher.pubId}`}>Choose</NavLink>
-            
+
         </motion.section>
     );
 }
