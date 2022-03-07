@@ -135,8 +135,7 @@ const ChooseYourTeacher = (props) => {
                         <div className={classes['choices-container']}>
                             <p>Make your choices</p>
                             <p>We deliver multiple choice of teachers</p>
-                            {teachersList.length == 0 && <p className={classes['no-teacher-para']}>No course is selected</p>}
-
+                            {teachersList.length == 0 && <p className={classes['no-teacher-para']}>There is no tutorial for this course</p>}
                         </div>
                     }
        

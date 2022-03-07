@@ -32,7 +32,6 @@ const DashboardCourseFlip = (props) => {
                     <p>{props.name}</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re
                         ugue ac enim pulv quis </p>
-                    <NavLink ref={myRef} to={`/models/${modelId}/${props.pubId}/`} className={classes['nav-link']}>{`Learn more`}</NavLink>
                 </div>
                 <button className={classes["flip-button"]} onClick={handleClick}>Click to flip</button>
 
@@ -50,5 +49,8 @@ const DashboardCourseFlip = (props) => {
         </ReactCardFlip>
     );
 }
+
+
+// <NavLink ref={myRef} to={`/models/${modelId}/${props.pubId}/`} className={classes['nav-link']}>{`Learn more`}</NavLink>
 
 export default DashboardCourseFlip

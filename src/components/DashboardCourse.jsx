@@ -29,10 +29,12 @@ const DashboardCourse = (props) => {
                 <p>{props.name}</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  augue ac enim pulv quis re
                     ugue ac enim pulv quis </p>
-                <NavLink ref={myRef} to={`/models/${modelId}/${props.pubId}/`} onClick={select} className={classes['nav-link']}>{`Learn more`}</NavLink>
             </div>
         </div>
     );
 }
+
+// <NavLink ref={myRef} to={`/models/${modelId}/${props.pubId}/`} onClick={select} className={classes['nav-link']}>{`Learn more`}</NavLink>
+
 
 export default DashboardCourse

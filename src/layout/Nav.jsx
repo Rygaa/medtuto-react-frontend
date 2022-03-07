@@ -32,11 +32,7 @@ const Nav = (props) => {
                     activeClassName={activeClassName}
                     className={className}
                 >Learning</NavLink>
-                <NavLink
-                    to={'/about-us'}
-                    activeClassName={activeClassName}
-                    className={className}
-                >About us</NavLink>
+    
             </div>
             {!isConnected &&
                 <div className={classes['nav-right-side']}>
