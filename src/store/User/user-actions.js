@@ -47,7 +47,7 @@ export const login = ({ username, password, email, history }) => {
             localStorage.setItem('password', password)
         }
         localStorage.setItem('idToken', data.idToken);
-        history.push('/')
+        history.push('/home')
     }
 }
 
